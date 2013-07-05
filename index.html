@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Advisor Cloud v2.0</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+
+    <style>
+    .container-narrow {
+      margin: 0 auto;
+      max-width: 700px;
+    }
+
+    .table-info {
+      width: 60%;
+    }
+
+     .table-info tr td:first-child {
+        min-width: 45%;
+        width: 45%;
+        text-align: left;
+     }
+
+     .table-info tr td {
+        vertical-align: middle;
+        border: none;
+     }
+    
+    </style>
+    
+  </head>
+
+<body>
+
+  <br>
+  <br>
+
+  <div class="container-narrow">
+
+    <div class="row-fluid">
+      <div class="span12">
+        <h2>
+          Assignment Information Sheet
+        </h2>
+        <h3 class="muted">CS 1520 Summer 2013</h3>
+        <a href="http://cs1520.cs.pitt.edu/~kac162/assig3/index.php" class="btn btn-primary">View Assignment</a>
+        <a href="http://cs1520.cs.pitt.edu/~kac162/assig3/init.php" class="btn">Run Init Script</a>
+      </div>
+      
+      
+    </div>
+
+
+    <hr>
+    
+
+    <h3>Basic Details</h3>
+    <div class="row-fluid">
+      <div class="span12">
+        <table class="table table-info">
+          <p>
+            <strong>Name</strong>
+            Kim Cooperrider
+          </p>
+
+          <p>
+            <strong>Assignment Number</strong>
+            #3
+          </p>
+
+          <p>
+            <strong>Recitation Date & Time</strong>
+            Mondays 11:30am - 12:20pm
+          </p>
+
+          <p>
+            <strong>TA</strong>
+            Nils Ever Murrugarra Llerena
+          </p>
+
+          <p>
+            <strong>Program Due Date</strong>
+            Monday, July 15, by 11:59PM
+          </p>
+
+          <p>
+            <strong>Handed In Date</strong>
+            --
+          </p>
+
+          <p>
+            <strong>URL of Program</strong>
+            <a href="http://cs1520.cs.pitt.edu/~kac162/assig3/index.php">http://cs1520.cs.pitt.edu/~kac162/assig3/index.php</a>
+          </p>
+
+          <p>
+            <strong>AFS Path of Source Code</strong>
+            /afs/pitt.edu/home/k/a/kac162/public/csweb/assig3
+          </p>
+                  
+      </div>
+    </div>
+
+    <div class="row-fluid">
+      <div class="span12">
+        <h3>Included Files</h3>
+      </div>
+    </div>
+
+    <div class="row-fluid">
+      <div class="span4">
+        <strong>Base views</strong>
+        <ul>
+          <li>index.html</li>
+          <li>forgot_password.php</li>
+          <li>admin.php</li>
+          <li>functions.php</li>
+          <li>routes.php</li>
+          <li>advisor.php</li>
+          <li>settings.php</li>
+          <li>course.php</li>
+          <li>index.php   </li>
+          <li>student.php</li>
+          <li class="text-warning">init.php (DB init page)</li>
+          <li>student_dashboard.php</li>
+        </ul>
+        <strong>Templates (included views)</strong>
+        <ul>
+          <li>templates/course_sidebar.php</li>
+          <li>templates/header.php</li>
+          <li>templates/sessions.php</li>
+          <li>templates/courses.php</li>
+          <li>templates/notes.php</li>
+          <li>templates/student_sidebar.php</li>
+          <li>templates/footer.php</li>
+          <li>templates/notice.php</li>
+        </ul>
+      </div>
+      <div class="span4">
+        <strong>Models (classes)</strong>
+        <ul>
+          <li>models/course.php</li>
+          <li>models/requirement_course.php</li>
+          <li>models/user_course.php</li>
+          <li>models/note.php</li>
+          <li>models/session.php</li>
+          <li>models/requirement.php</li>
+          <li>models/user.php</li>
+        </ul>
+        <strong>Libraries (for bootstrapping)</strong>
+        <ul>
+          <li>libs/db.php</li>
+          <li>libs/model.php</li>
+          <li class="text-warning">libs/seeds.php (DB init script)</li>
+        </ul>
+      </div>
+       <div class="span4">
+        <strong>Other files</strong>
+        <ul>
+          <li>css/style.css</li>
+          <li>files/config.txt</li>
+          <li>files/reqs.txt</li>
+          <li>files/sample_sessions.txt</li>
+          <li>files/courses.txt</li>
+          <li>files/sample_courses.txt</li>
+          <li>files/sample_users.txt</li>
+          <li>files/sample_notes.txt</li>
+          <li>files/sessions.txt</li>
+          <li>files/notes.txt</li>
+          <li>files/sample_requirements.txt</li>
+          <li>files/users.txt</li>
+        </ul>
+      </div>
+    </div>
+    <div class="row-fluid">
+      <div class="span12">
+        <h3>Execution Details</h3>
+        <p>
+          <strong>Does the program run correctly?</strong>
+          Yes, runs without issue
+        </p>
+      </div>
+    </div>
+
+    <div class="row-fluid">
+      <div class="span12">
+        <h3>Comments</h3>
+        <strong>Initialization</strong>
+        <p>
+          The included <strong class="text-warning">init.php</strong> loads  <strong class="text-warning">seeds.php</strong>, which is used to set up the database and populate it from incldued files. Click <a href="http://cs1520.cs.pitt.edu/~kac162/assig3/init.php"><strong>here</strong></a> to visit this page and initialize the database.
+        </p>
+        <strong>Extra credit features included</strong>
+        <ul>
+          <li>A user can stored a secret question/answer (accessible via Settings page). If present, these are presented during the "Forgot Password" flow before a user receives the reset password via email</li>
+          <li>When browsing course details, an advisor can use links to the student records to view each student</li>
+        </ul>
+        <strong>Some other cool things implemented</strong>
+        <li>Course and user details pages are fully bookmarkable (done via a $_GET request based on ID rather than stored in $_SESSION)</li>
+        <li>Notes store session_id of the advising session, so that the two are associated (visible in the "Advising Sessions" tab of the user details page)</li>
+        <li>Sidebar on the user details page includes some extra details, including a gravatar image that will be visible if the user's email has a gravatar associated with it</li>
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="row-fluid">
+      <div class="span12 text-right">
+        <a href="http://cs1520.cs.pitt.edu/~kac162/assig3/init.php" class="btn btn-large">Run Init Script</a>
+        <a href="http://cs1520.cs.pitt.edu/~kac162/assig3/index.php" class="btn btn-large btn-primary">View Assignment</a>
+      </div>
+    </div>
+
+    <br>
+    <br>
+
+  </div> <!-- .container-narrow -->
+
+  </body>
+</html>
