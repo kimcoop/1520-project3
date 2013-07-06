@@ -20,8 +20,23 @@
     </footer>
 
 
-    <script src="http://code.jquery.com/jquery.js"></script>
-    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    <script src="js/XmlHttpHandler.js"></script>
+
+    <script type="text/javascript">
+
+      function submitForm( form, event ) {
+        var e = event || window.event;
+        e.preventDefault();
+        xmlHttp.postForm( form );
+      }
+
+      var forms = document.getElementsByTagName( "form" );
+      for ( var i=0; i < forms.length; i++ ) {
+        forms[ i ].onsubmit = function( event ) {
+          submitForm( this, event );
+        };
+      }
+    </script>
 
   </body>
 </html>

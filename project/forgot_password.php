@@ -23,7 +23,7 @@
       <input autofocus type="text" class="input-block-level" placeholder="User ID" name="user_id" />
 
       <br>
-      <button type="submit" class="btn pull-right btn-large btn-primary" name="forgot_password_step_1_submit">Continue</button>
+      <button id="forgot_password_step_1_submit" type="submit" class="btn pull-right btn-large btn-primary" name="forgot_password_step_1_submit">Continue</button>
       <br>
       <br>
     </form>
