@@ -9,12 +9,22 @@
       parent::__construct();
     }
 
+    function to_json() {
+      $json = array();
+      $json[ 'full_name' ] = $this->full_name();
+      return json_encode( $json );
+    }
+
     public function get_values() {
       return array( $this->department, $this->course_number);
     }
 
     public function __toString() {
       return "$this->department $this->course_number";
+    }
+
+    public function full_name() {
+      return "$this"; // call toString()
     }
 
     public function set_all( $id, $department, $course_number ) {

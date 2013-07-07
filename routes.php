@@ -5,14 +5,24 @@
 
   if ( isset($_POST['signin_form_submit']) ) {
 
+    if ( $_POST['forgot_password'] == 'on' && isset($_POST['user_id']) ) {
+      if ( send_password( $_POST['user_id'] ) ) {
+        display_notice( 'Please check your email for the password and then try again.', 'success' );
+      } else {
+        display_notice( 'User ID not recognized. Please try again.', 'error' );
+      }
+      header( 'Location: index.php' );
+      exit();
+    } 
+
     $user = User::signin( $_POST['user_id'], $_POST['password'] );
         
     if ( is_logged_in() ) {
-      $template = get_root_view();
-      echo current_user()->to_json( $template );
+      $url = get_root_url();
+      header( "Location: $url" );
     } else {
-      // display_notice( 'Error logging in.', 'error' );
-      // header( 'Location: index.php' );
+      display_notice( 'Error logging in.', 'error' );
+      header( 'Location: index.php' );
     }
     exit();
   }
@@ -30,7 +40,6 @@
         if ( !$secret_question ) { // if no secret question was provided, send user through
           User::reset_and_send_password( $user_id );
           $location = "forgot_password.php?step=emailed";
-          exit();
         }
 
       } else {
@@ -197,13 +206,13 @@
     $department = strtoupper( $_GET['department'] );
     $course_number = $_GET['course_number'];
     if ( $course = Course::find_by_department_and_course_number($department, $course_number) ) {
-      echo $course->to_json();
-      // $course_id = $course->id;
-      // header( "Location: course.php?course_id=$course_id" );
-      // exit();
+      $course_id = $course->id;
+      header( "Location: course.php?course_id=$course_id" );
     } else {
       display_notice( "Course <strong>$department $course_number</strong> not found.", 'error' );
+      header( "Location: advisor.php" );
     }
+    exit();
 
   } else {
     $str = 'Route '. $_GET['action'] .' not recognized.';

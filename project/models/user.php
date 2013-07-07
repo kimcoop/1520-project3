@@ -23,6 +23,13 @@
       parent::__construct();
     }
 
+    function to_json( $template ) {
+      $json = array();
+      $json[ 'template' ] = $template;
+      $json[ 'role' ] = $this->get_role();
+      return json_encode( $json );
+    }
+
     public function courses() {
       if ( !$this->courses )
         $this->courses = UserCourse::find_all_by_psid( $this->get_psid() );

@@ -65,7 +65,8 @@
 
     </div><!-- #main (replaceable content) -->
 
-    <script src="js/XmlHttpHandler.js"></script>
+    <script src="js/xmlHttpHandler.js"></script>
+    <script src="js/microtemplate.js"></script>
     <script type="text/javascript">
 
       window.onload = function() {
@@ -76,10 +77,17 @@
       *
       */
 
-      function applyView( viewData ) {
+      function templatize( data, templateName ) {
+        var tmpl = new microtemplate( 'templates/' + templateName ),
+          html = tmpl.render({ full_name: data.full_name });
+        return html;
+      }
+
+      function applyView( data ) {
         console.log('applyView');
         var container = document.getElementById( 'main' );
-        container.innerHTML = viewData;
+
+        container.innerHTML = templatize( data, 'course.html' );
         initInteractions();
       }
 
