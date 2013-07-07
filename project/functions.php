@@ -69,12 +69,6 @@ function is_admin() {
   return current_user()->is_admin();
 }
 
-// function current_student() {
-//   if ( is_viewing_student() )
-//     return $_GET['user_id'];
-//   else
-//     return current_user()->get_user_id(); // student viewing his own profile
-// }
 
 function is_viewing_student() {
  return isset( $_GET['user_id'] ); 
@@ -86,6 +80,13 @@ function is_viewing_course() {
 
 function should_show_notice() {
   return isset( $_SESSION['notice'] );
+}
+
+function get_root_view() {
+  if ( is_student() ) 
+    return 'templates/student_dashboard.html'; 
+  else
+    return 'templates/advisor.html';
 }
 
 function get_root_url() {

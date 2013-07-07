@@ -20,10 +20,14 @@ var xmlHttp = {
     }
   },
 
-  get: function( url, callback ) {
+  get: function( data ) {
+    var url = data.url, 
+        async = data.async || true, 
+        callback = data.callback;
+
     var xmlHttp = this.create();
 
-    xmlHttp.open( 'get', url, true );
+    xmlHttp.open( 'get', url, async );
     xmlHttp.send( null );
     xmlHttp.onreadystatechange = function() {
       if ( xmlHttp.readyState === 4 ) {
@@ -71,6 +75,7 @@ var xmlHttp = {
     }
     dataString = dataArray.join( "&" );
     console.log('form data: ' +dataString);
+    // TODO check formMethod
     this.post( formAction, dataString, function( data ) {
       console.log(' got data' );
       console.debug( data );

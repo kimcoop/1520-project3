@@ -77,17 +77,45 @@
       *
       */
 
-      function templatize( data, templateName ) {
-        var tmpl = new microtemplate( 'templates/' + templateName ),
-          html = tmpl.render({ full_name: data.full_name });
+      function getTemplateVars( templName  ) {
+        switch ( templName ) {
+          case "templates/advisor.html":
+            return [ "role" ];
+          case "templates/course.html":
+            return [ "full_name" ];
+          default: 
+            return []
+        }
+      }
+
+      function templatize( data ) {
+        
+        var templName  = data.template,
+          tmpl = new microtemplate( templName  ),
+          vars = getTemplateVars( templName  ),
+          templData = {};
+
+        console.log( 'templName : ' + templName  + ' and vars: ');
+        console.debug( vars );
+        console.log( 'TEMPLATE: ');
+        console.debug( tmpl );
+
+        for ( var i=0; i < vars.length; i++ ) {
+          templData[ vars[i] ] = data[ vars[i] ];
+        }
+        console.log( 'populated template data: ' );
+        console.debug( templData );
+
+        var html = tmpl.render( templData );
+        // var html = tmpl.getTemplate();
+        // var html = "test";
         return html;
       }
 
       function applyView( data ) {
-        console.log('applyView');
+        console.log('applyView. ');
         var container = document.getElementById( 'main' );
-
-        container.innerHTML = templatize( data, 'course.html' );
+        container.innerHTML = templatize( JSON.parse( data ) );
         initInteractions();
       }
 
@@ -100,19 +128,17 @@
       function clickLink( link, event ) {
         var e = event || window.event;
         e.preventDefault();
-        var url = link.href;
-        if ( url.indexOf( "?" ) > -1 ) { // then it's a GET request
-          request = url.split( "/" ).pop();
-          xmlHttp.get( request, function( data ) {
+        var url = link.href, data = {};
+        if ( url.indexOf( "?" ) > -1 )
+          url = url.split( "/" ).pop(),
+        data = {
+          url: url,
+          callback: function( data ) {
             console.debug( data );
             applyView( data );
-          });
-        } else {
-          xmlHttp.get( url, function( data ) {
-            console.debug( data );
-            applyView( data );
-          });
+          }
         }
+        xmlHttp.get( data );
       }
 
       function initInteractions() {
