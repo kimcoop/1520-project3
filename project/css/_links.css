@@ -1,0 +1,37 @@
+/* line 9, ../scss/_base.scss */
+.font {
+  font-family: arial;
+  font-size: 12px;
+  color: #555555;
+}
+
+/* line 3, ../scss/_links.scss */
+a {
+  text-decoration: none;
+  font-weight: bold;
+}
+/* line 6, ../scss/_links.scss */
+a:link {
+  color: #42b8dd;
+}
+/* line 9, ../scss/_links.scss */
+a:visited {
+  color: #208fb2;
+}
+/* line 12, ../scss/_links.scss */
+a:active {
+  color: #208fb2;
+}
+/* line 15, ../scss/_links.scss */
+a:hover, a:focus {
+  color: #208fb2;
+  text-decoration: underline;
+}
+/* line 19, ../scss/_links.scss */
+a:active, a:hover {
+  outline: none;
+}
+/* line 22, ../scss/_links.scss */
+a img {
+  border: none;
+}

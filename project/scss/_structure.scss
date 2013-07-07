@@ -1,0 +1,43 @@
+@import "base";
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0; 
+  padding: 0;
+  font-size: 12px;
+  line-height: 1.5;
+  @extend .font;
+}
+
+* { 
+  @include box-sizing( border-box );
+}
+
+#main {
+  height: 100%;
+}
+
+.container {
+  width: 1000px;
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto;
+  padding: 10px;
+  margin: 0 auto -4em;
+  line-height: 1.8em;
+}
+
+article, aside, figcaption, figure, footer, header, nav, section {
+  display: block;
+}
+
+
+
+footer, .push {
+  clear: both;
+  height: 4em;
+}

@@ -1,0 +1,18 @@
+/* line 9, ../scss/_base.scss */
+.font {
+  font-family: arial;
+  font-size: 12px;
+  color: #555555;
+}
+
+/* line 3, ../scss/_tables.scss */
+table {
+  border-collapse: collapse;
+}
+/* line 5, ../scss/_tables.scss */
+table td, table th {
+  padding: 1px;
+  text-align: left;
+  border-width: 0 0 1px;
+  border-bottom: 1px solid #cbcbcb;
+}

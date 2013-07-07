@@ -1,0 +1,25 @@
+@import "base";
+
+a {
+  text-decoration: none;
+  font-weight: bold;
+  &:link {
+    color: $primary;
+  }
+  &:visited {
+    color: darken( $primary, 15% );
+  }
+  &:active {
+    color: darken( $primary, 15% );
+  }
+  &:hover, &:focus {
+    color: darken( $primary, 15% );
+    text-decoration: underline;
+  }
+  &:active, &:hover {
+    outline: none;
+  }
+  img {
+    border: none;
+  }
+}

@@ -1,0 +1,14 @@
+@import "base";
+
+table {
+  border-collapse: collapse;
+  td, th {
+    padding: 1px;
+    text-align: left;
+    border-width: 0 0 1px;
+    border-bottom: 1px solid #cbcbcb;
+  }
+
+  td:first-child, th:first-child {
+  }
+}

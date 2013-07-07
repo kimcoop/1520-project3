@@ -1,0 +1,157 @@
+@mixin rgba-background($color, $opacity) {
+    background: $color;
+    background: rgba($color, $opacity);
+  }
+
+@mixin box-shadow($attributes...) {
+  -moz-box-shadow: $attributes;
+  -webkit-box-shadow: $attributes;
+  box-shadow: $attributes;
+}
+
+@mixin text-shadow($attributes...) {
+  -moz-text-shadow: $attributes;
+  -webkit-text-shadow: $attributes;
+  text-shadow: $attributes;
+}
+
+@mixin perspective( $perspective ) {
+  -webkit-perspective: $perspective;
+  -moz-perspective: $perspective;
+  -ms-perspective: $perspective;
+  perspective: $perspective;
+}
+
+@mixin transition($attributes...) {
+  -webkit-transition: $attributes;
+  -moz-transition: $attributes;
+  -o-transition: $attributes;
+  transition: $attributes;
+}
+
+@mixin border-radius($radius...) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin box-sizing($box-sizing) {
+  box-sizing: $box-sizing;
+  -moz-box-sizing: $box-sizing;
+  -webkit-box-sizing: $box-sizing;
+}
+
+@mixin transform($transform) {
+  -webkit-transform: $transform;
+  -moz-transform: $transform;
+  -ms-transform: $transform;
+  -o-transform: $transform;
+  transform: $transform;
+}
+
+@mixin transform-style($transform) {
+  -webkit-transform-style: $transform;
+  -moz-transform-style: $transform;
+  -ms-transform-style: $transform;
+  -o-transform-style: $transform;
+  transform-style: $transform;
+}
+
+@mixin backface-visibility($backface-visibility) {
+  -webkit-backface-visibility: $backface-visibility;
+  -moz-backface-visibility: $backface-visibility;
+  -ms-backface-visibility: $backface-visibility;
+  -o-backface-visibility: $backface-visibility;
+  backface-visibility: $backface-visibility;
+}
+
+@mixin animation-delay($delay) {
+  -moz-animation-delay: $delay;
+  -webkit-animation-delay: $delay;
+  -ms-animation-delay: $delay;
+  -o-animation-delay: $delay;
+  animation-delay: $delay;
+}
+
+@mixin animation-name($name) {
+  -moz-animation-name: $name;
+  -webkit-animation-name: $name;
+  -ms-animation-name: $name;
+  -o-animation-name: $name;
+  animation-name: $name;
+}
+
+@mixin animation-duration($duration) {
+  -moz-animation-duration: $duration;
+  -webkit-animation-duration: $duration;
+  -ms-animation-duration: $duration;
+  -o-animation-duration: $duration;
+  animation-duration: $duration;
+}
+
+@mixin animation-iteration-count($iteration-count) {
+  -moz-animation-iteration-count: $iteration-count;
+  -webkit-animation-iteration-count: $iteration-count;
+  -ms-animation-iteration-count: $iteration-count;
+  -o-animation-iteration-count: $iteration-count;
+  animation-iteration-count: $iteration-count;
+}
+
+@mixin animation-direction($direction) {
+  -moz-animation-direction: $direction;
+  -webkit-animation-direction: $direction;
+  -ms-animation-direction: $direction;
+  -o-animation-direction: $direction;
+  animation-direction: $direction;
+}
+
+@mixin animation-scale($scale) {
+  -moz-animation-scale: $scale;
+  -webkit-animation-scale: $scale;
+  -ms-animation-scale: $scale;
+  -o-animation-scale: $scale;
+  animation-scale: $scale;
+}
+
+@mixin background-image($attributes...) {
+  background-image: -webkit-linear-gradient($attributes); 
+  background-image: -moz-linear-gradient($attributes); 
+  background-image: -ms-linear-gradient($attributes); 
+  background-image: -o-linear-gradient($attributes); 
+}
+
+@mixin keyframes( $animationName ) {
+  @-webkit-keyframes $animationName { @content };
+  @-moz-keyframes $animationName { @content };
+  @-ms-keyframes $animationName { @content };
+  @keyframes $animationName { @content };
+}
+
+@mixin animation($attributes...) {
+  -webkit-animation: $attributes;
+  -moz-animation: $attributes;
+  -o-animation: $attributes;
+  animation: $attributes;
+}
+
+@mixin user-select($attributes) {
+  -webkit-user-select: $attributes;
+  -moz-user-select: $attributes;
+  -ms-user-select: $attributes;
+  user-select:  $attributes;
+}
+
+@mixin transition-duration( $attributes ) {
+  -webkit-transition-duration: $attributes;
+  -moz-transition-duration: $attributes;
+  transition-duration: $attributes;
+}
+
+@mixin placeholder {
+  &.placeholder { @content }
+  &:-moz-placeholder { @content }
+  &::-webkit-input-placeholder { @content }
+  &:-moz-placeholder { @content }
+  &::-moz-placeholder { @content }   /* Firefox 19+ */
+  &:-ms-input-placeholder {  @content }
+}

@@ -1,4 +1,4 @@
-<?php require_once('functions.php'); ?>
+<?php /*require_once('functions.php'); */?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -18,16 +18,12 @@
     <div id="main">
       <div class="container main">
 
-        <?php if ( !is_logged_in() ): ?>
-
         <form class="form-signin" action="routes.php" name="signin_form" method="post">
 
           <br>
           <br>
 
           <h2 class="text-center form-signin-heading">Welcome to Advisor Cloud</h2>
-
-          <?php include('templates/notice.php') ?>
 
           <?php if (isset($_COOKIE['user_id'])): ?>
 
@@ -51,13 +47,6 @@
           </span>
           
         </form>
-
-        <?php else: ?>
-
-        <h2>How did you end up here? Use the button below to get where you're going :)</h2>
-        <a href="<?php echo get_root_url(); ?>" class="btn btn-primary">Home</a>
-
-        <?php endif; ?>
 
       <div class="push"></div>
     </div> <!-- .container.main -->
