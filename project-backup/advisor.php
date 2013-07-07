@@ -49,7 +49,7 @@
             </span>
           </h2>
           <h3>Search for a Course</h3>
-          <form action="routes.php" method="post" name="search_course_form">
+          <form action="routes.php" method="get" name="search_course_form">
             <input class="input-small" placeholder="Department" type="text" name="department">
             <input placeholder="Course number" type="text" name="course_number">
             <button value="true" type="submit" class="btn-block btn-large btn-primary btn" name="search_course_form_submit">
