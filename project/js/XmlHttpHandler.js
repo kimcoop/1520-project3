@@ -61,7 +61,6 @@ var xmlHttp = {
 
   postForm: function( form ) {
     var formAction = form.action, formMethod = form.method;
-    console.log( formAction, formMethod );
     var dataArray = [], dataString = '';
     
     for ( var i = 0; i < form.elements.length; i++ ) { // Loop to gather form data from all form inputs
@@ -71,7 +70,10 @@ var xmlHttp = {
       dataArray.push( encodedData );
     }
     dataString = dataArray.join( "&" );
+    console.log('form data: ' +dataString);
     this.post( formAction, dataString, function( data ) {
+      console.log(' got data' );
+      console.debug( data );
       applyView( data );
     });
   }

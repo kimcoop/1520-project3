@@ -93,6 +93,7 @@
         console.log('applyView');
         var container = document.getElementById( 'main' );
         container.innerHTML = viewData;
+        initInteractions();
       }
 
       function submitForm( form, event ) {
@@ -108,10 +109,12 @@
         if ( url.indexOf( "?" ) > -1 ) { // then it's a GET request
           request = url.split( "/" ).pop();
           xmlHttp.get( request, function( data ) {
+            console.debug( data );
             applyView( data );
           });
         } else {
           xmlHttp.get( url, function( data ) {
+            console.debug( data );
             applyView( data );
           });
         }
@@ -121,6 +124,7 @@
         var forms = document.getElementsByTagName( "form" );
         for ( var i=0; i < forms.length; i++ ) {
           forms[ i ].onsubmit = function( event ) {
+            console.log("SUBMITTING");
             submitForm( this, event );
           };
         }

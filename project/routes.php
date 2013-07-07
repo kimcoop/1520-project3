@@ -207,9 +207,10 @@
     $department = strtoupper( $_GET['department'] );
     $course_number = $_GET['course_number'];
     if ( $course = Course::find_by_department_and_course_number($department, $course_number) ) {
-      echo json_encode( $course );
-      // $course_id = $course->id;
-      // header( "Location: course.php?course_id=$course_id" );
+      // echo json_encode( $course );
+      $course_id = $course->id;
+      header( "Location: course.php?course_id=$course_id" );
+      exit();
     } else {
       display_notice( "Course <strong>$department $course_number</strong> not found.", 'error' );
     }
