@@ -20,16 +20,19 @@ var xmlHttp = {
     }
   },
 
-  getData: function() {
+  get: function( url, callback ) {
     var xmlHttp = this.create();
-    xmlHttp.open( 'get', this.getUrl(), true );
-    xmlHttp.send(null);
+
+    xmlHttp.open( 'get', url, true );
+    xmlHttp.send( null );
     xmlHttp.onreadystatechange = function() {
-      if (xmlHttp.readyState === 4) {
-        if (xmlHttp.status === 200) {
-          alert(xmlHttp.responseText);
+      if ( xmlHttp.readyState === 4 ) {
+        if ( xmlHttp.status === 200 ) {
+          // callback( JSON.parse( xmlHttp.responseText ) );
+          callback( xmlHttp.responseText );
         } else {
           alert('Error: ' + xmlHttp.responseText);
+          console.debug( xmlHttp );
         }
       } else {
         console.log( 'loading' );
@@ -37,15 +40,16 @@ var xmlHttp = {
     };
   },
 
-  postData: function( url, data, callback ) {
+  post: function( url, data, callback ) {
     var xmlHttp = this.create();
     xmlHttp.open( 'post', url, true );
-    xmlHttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xmlHttp.setRequestHeader( "Content-Type", "application/x-www-form-urlencoded" );
     xmlHttp.send( data );
     xmlHttp.onreadystatechange = function() {
       if ( xmlHttp.readyState === 4 ) {
         if ( xmlHttp.status === 200 ) {
-          callback( JSON.parse( xmlHttp.responseText ) );
+          // callback( JSON.parse( xmlHttp.responseText ) );
+          callback( xmlHttp.responseText );
         } else {
           alert('Error: ' + xmlHttp.responseText);
         }
@@ -66,11 +70,9 @@ var xmlHttp = {
       encodedData += encodeURIComponent( form.elements[i].value );
       dataArray.push( encodedData );
     }
-    console.debug (dataArray);
     dataString = dataArray.join( "&" );
-    this.postData( formAction, dataString, function( data ) {
-      console.log( 'callback!');
-      console.debug( data );
+    this.post( formAction, dataString, function( data ) {
+      applyView( data );
     });
   }
 }

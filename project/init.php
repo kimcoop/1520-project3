@@ -59,7 +59,7 @@
 
   <br>
   <br>
-  <a href="http://cs1520.cs.pitt.edu/~kac162/assig2/index.php" class="btn btn-large btn-primary">View Assignment</a>
+  <a href="http://cs1520.cs.pitt.edu/~kac162/assig3/index.php" class="btn btn-large btn-primary">View Assignment</a>
 
 
   </div> <!-- .container-narrow -->

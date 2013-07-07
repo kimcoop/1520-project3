@@ -40,7 +40,6 @@
         if ( !$secret_question ) { // if no secret question was provided, send user through
           User::reset_and_send_password( $user_id );
           $location = "forgot_password.php?step=emailed";
-          echo json_encode( "success! yay!" );
           exit();
         }
 
@@ -208,13 +207,12 @@
     $department = strtoupper( $_GET['department'] );
     $course_number = $_GET['course_number'];
     if ( $course = Course::find_by_department_and_course_number($department, $course_number) ) {
-      $course_id = $course->id;
-      header( "Location: course.php?course_id=$course_id" );
+      echo json_encode( $course );
+      // $course_id = $course->id;
+      // header( "Location: course.php?course_id=$course_id" );
     } else {
       display_notice( "Course <strong>$department $course_number</strong> not found.", 'error' );
-      header( "Location: advisor.php" );
     }
-    exit();
 
   } else {
     $str = 'Route '. $_GET['action'] .' not recognized.';

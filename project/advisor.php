@@ -1,7 +1,6 @@
-<?php include('templates/header.php'); ?>
+<?php 
 
-<?php
-
+  include( 'templates/header.php' );
   if ( is_logged_in() && is_advisor() ):
     clear_browsing_session(); // clear out old search session (student or course)
 
