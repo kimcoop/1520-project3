@@ -3,6 +3,7 @@
   require_once('functions.php'); // includes session_start()
 
   define( "COURSE_TMPL", 'course_tmpl' ); // the ID of the script
+  define( "STUDENT_TMPL", 'student_tmpl' );
 
 
   if ( isset($_POST['signin_form_submit']) ) {
@@ -178,13 +179,10 @@
   } elseif ( isset($_GET['student_search_term']) ) {
     $search_term = $_GET['student_search_term'];
     if ( $user = User::find_by_psid_or_name( $search_term )) {
-      $user_id = $user->get_user_id();
+      echo $user->to_json( STUDENT_TMPL );
       set_viewing_student( $user ); // store to session
-      header( "Location: student.php?user_id=$user_id" );
     } else {
-      $search = $_GET['student_search_term'];
-      display_notice( "User <strong>$search</strong> not found.", 'error' );
-      header( "Location: advisor.php" );
+      display_notice( "User <strong> ". $_GET['student_search_term'] . "</strong> not found.", 'error' );
     }
     exit();
 

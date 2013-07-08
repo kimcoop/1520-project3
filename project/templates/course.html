@@ -1,66 +1,55 @@
+<div class="row">
+  <div class="main-content">
+    
+    <div class="hgroup">
+      <h2>
+        <span class="icon-stack">
+          <i class="icon-circle icon-stack-base"></i>
+          <i class="icon-pencil icon-light"></i>
+        </span>
+          <%= full_name %>
+        <small>Course details</small>
+      </h2>
+      <code>include('templates/notice.php')</code>
 
-<code>
-include('templates/footer.php')<br>
-$course = Course::find_by_id( $_GET['course_id'] );<br>
-</code>
+    </div><!-- .hgroup -->
 
-  <div class="row">
-    <div class="main-content">
-      
-      <div class="hgroup">
-        <h2>
-          <span class="icon-stack">
-            <i class="icon-circle icon-stack-base"></i>
-            <i class="icon-pencil icon-light"></i>
-          </span>
-            <%= full_name %>
-          <small>Course details</small>
-        </h2>
-        <code>include('templates/notice.php')</code>
+    <table class="table table-hover">
 
-      </div><!-- .hgroup -->
-
-      <table class="table table-hover">
-
-            <thead>
-              <th></th>
-              <th>Term</th>
-              <th>PeopleSoft #</th>
-              <th>Student ID</th>
-              <th>Grade</th>
-              <th></th>
-            </thead>
-          <% for ( var i = 0; i < user_courses.length; i++ ) { %>
-            <tr>
-              <td class="muted"><%= i %></td>
-              <td><%= user_courses[i].term %></td>
-              <td><%= user_courses[i].psid %></td>
-              <td><code> echo $user->get_user_id() OR (user not in system)</code></td>
+          <thead>
+            <th></th>
+            <th>Term</th>
+            <th>PeopleSoft #</th>
+            <th>Student ID</th>
+            <th>Grade</th>
+            <th></th>
+          </thead>
+        <% for ( var i = 0; i < user_courses.length; i++ ) { %>
+          <tr>
+            <td class="muted"><%= i %></td>
+            <td><%= user_courses[i].term %></td>
+            <td><%= user_courses[i].psid %></td>
+            <td><code> echo $user->get_user_id() OR (user not in system)</code></td>
+            
+            <td><%= user_courses[i].grade %></td>
+            <td class="text-right">
+              <code>
               
-              <td><%= user_courses[i].grade %></td>
-              <td class="text-right">
-                <code>
-                
-                  <a href="student.php?user_id=<%= user_courses[i].user_id %>">
-                    <i class="icon-eye-open"></i>&nbsp;View student
-                  </a>
-                </code>
-              </td>
-            </tr>
-          <% } %>
-      </table>
+                <a href="student.php?user_id=<%= user_courses[i].user_id %>">
+                  <i class="icon-eye-open"></i>&nbsp;View student
+                </a>
+              </code>
+            </td>
+          </tr>
+        <% } %>
+    </table>
 
-      TODO: no student records found
+    TODO: no student records found
 
-    </div><!-- .main-content-->
+  </div><!-- .main-content-->
 
-    <div class="side-content">
-        include('templates/course_sidebar.php');
-    </div><!-- .side-content -->
+  <div class="side-content">
+    <code>include('templates/course_sidebar.php');</code>
+  </div><!-- .side-content -->
 
-  </div><!-- .row -->
-
-<code>
-include('templates/footer.php')
-</code>
-
+</div><!-- .row -->

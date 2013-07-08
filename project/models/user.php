@@ -9,7 +9,7 @@
     public $is_logging_session = FALSE, $logging_session_id; // (advisor only)
     public $courses; // (student only)
 
-    private $access_level, 
+    public $access_level, 
       $email, 
       $first_name, 
       $last_name, 
@@ -26,6 +26,7 @@
     function to_json( $template ) {
       $json = array();
       $json[ 'template' ] = $template;
+      $json[ 'full_name' ] =$this->get_full_name();
       $json[ 'role' ] = $this->get_role();
       return json_encode( $json );
     }
