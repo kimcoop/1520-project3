@@ -16,6 +16,11 @@ body {
   @include box-sizing( border-box );
 }
 
+ol, ul {
+  padding-left: 0;
+  margin: 0;
+}
+
 #main {
   height: 100%;
 }
@@ -35,9 +40,43 @@ article, aside, figcaption, figure, footer, header, nav, section {
   display: block;
 }
 
-
-
 footer, .push {
   clear: both;
   height: 4em;
+}
+
+// custom nav-tabs
+
+.nav-tabs {
+  li {
+    @include transition( all 300ms linear );
+    display: inline-block;
+    padding: 1em 2em;
+    border: thin solid $light-grey;
+    cursor: pointer;
+    &:hover {
+      background: $light-grey;
+      a {
+        color: $secondary;
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+    &.active {
+      a {
+        color: $secondary;
+      }
+    }
+  }
+}
+
+.tab-content {
+  .tab-pane {
+    display: none;
+    padding: 0 1em 1em;
+    &.active {
+      display: block;
+    }
+  }
 }

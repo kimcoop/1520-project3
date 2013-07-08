@@ -14,7 +14,6 @@
   
   <body>
     <?php include('templates/header.php'); ?>
-    <div class="container main">
       <div id="main">
 
         <form class="form-signin" action="routes.php" name="signin_form" method="post">
@@ -64,6 +63,7 @@
 
   <script src="js/xmlHttpHandler.js"></script>
   <script src="js/simpleTemplate.js"></script>
+  <script src="js/tabs.js"></script>
   <script type="text/javascript">
 
     window.onload = function() {
@@ -127,6 +127,9 @@
           clickLink( this, event );
         };
       }
+
+      tabs.init();
+
     };
 
     initInteractions();
