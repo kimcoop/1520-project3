@@ -3,15 +3,14 @@
 var microtemplate = function( templName ) {
   var regex = /\{([^}]+)\}/g,
     template = null,
+    PARENTtmp = null,
     loadTempl, parse, g;
-  loadTempl = function( a ) {
+  loadTempl = function( a, template ) {
     xmlHttp.get({ 
       url: a, 
       async: false, 
       callback: function( response ) {
-        template = response;
-        console.log(' response should be template: ');
-        console.debug( template );
+        return setTemplate( response );
       }
     });
     return template;
@@ -31,7 +30,7 @@ var microtemplate = function( templName ) {
     return g;
   };
   (function( a ) {
-    null === template && null != a ? loadTempl( a ) : template = a
+    null === template && null != a ? loadTempl( a, template ) : template = a
   })( templName );
   return g = {
     render: render,
@@ -42,3 +41,4 @@ var microtemplate = function( templName ) {
     }
   }
 };
+

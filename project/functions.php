@@ -84,9 +84,9 @@ function should_show_notice() {
 
 function get_root_view() {
   if ( is_student() ) 
-    return 'templates/student_dashboard.html'; 
+    return 'student_dashboard_tmpl'; 
   else
-    return 'templates/advisor.html';
+    return 'advisor_dashboard_tmpl';
 }
 
 function get_root_url() {

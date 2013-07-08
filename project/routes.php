@@ -2,6 +2,8 @@
   
   require_once('functions.php'); // includes session_start()
 
+  define( "COURSE_TMPL", 'course_tmpl' ); // the ID of the script
+
 
   if ( isset($_POST['signin_form_submit']) ) {
 
@@ -197,10 +199,7 @@
     $department = strtoupper( $_GET['department'] );
     $course_number = $_GET['course_number'];
     if ( $course = Course::find_by_department_and_course_number($department, $course_number) ) {
-      echo $course->to_json();
-      // $course_id = $course->id;
-      // header( "Location: course.php?course_id=$course_id" );
-      // exit();
+      echo $course->to_json( COURSE_TMPL );
     } else {
       display_notice( "Course <strong>$department $course_number</strong> not found.", 'error' );
     }

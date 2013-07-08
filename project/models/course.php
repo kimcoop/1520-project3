@@ -9,14 +9,15 @@
       parent::__construct();
     }
 
-    function to_json() {
+    function to_json( $template ) {
       $json = array();
+      $json[ 'template' ] = $template;
       $json[ 'full_name' ] = $this->full_name();
       return json_encode( $json );
     }
 
     public function get_values() {
-      return array( $this->department, $this->course_number);
+      return array( $this->department, $this->course_number );
     }
 
     public function __toString() {
@@ -24,7 +25,7 @@
     }
 
     public function full_name() {
-      return "$this"; // call toString()
+     return "$this->department $this->course_number";
     }
 
     public function set_all( $id, $department, $course_number ) {

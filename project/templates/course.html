@@ -1,5 +1,8 @@
+
+<code>
 include('templates/footer.php')<br>
 $course = Course::find_by_id( $_GET['course_id'] );<br>
+</code>
 
   <div class="row">
     <div class="main-content">
@@ -10,10 +13,10 @@ $course = Course::find_by_id( $_GET['course_id'] );<br>
             <i class="icon-circle icon-stack-base"></i>
             <i class="icon-pencil icon-light"></i>
           </span>
-          { full_name }
+            <%= full_name %>
           <small>Course details</small>
         </h2>
-        include('templates/notice.php')
+        <code>include('templates/notice.php')</code>
 
       </div><!-- .hgroup -->
 
@@ -27,7 +30,7 @@ $course = Course::find_by_id( $_GET['course_id'] );<br>
 
   </div><!-- .row -->
 
-
+<code>
 include('templates/footer.php')
-
+</code>
 

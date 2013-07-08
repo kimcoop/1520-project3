@@ -3,7 +3,7 @@
   include( 'templates/header.php' );<br>
   if ( is_logged_in() && is_advisor() ):<br>
     clear_browsing_session();<br>
-<code>
+</code>
 
 
 
@@ -12,12 +12,12 @@
       <div class="hgroup">
         <h2>
           <i class="icon-dashboard"></i>&nbsp;
-          { role } Dashboard
+          <%= role %> Dashboard
         </h2>
         <code> include('templates/notice.php') </code>
       </div><!-- .hgroup -->
 
-      <p>Welcome to your { role } dashboard! Use the inputs below to look up a student or course.</p>
+      <p>Welcome to your <%= role %> dashboard! Use the inputs below to look up a student or course.</p>
 
       <br>
       <div class="row row-search">
@@ -47,7 +47,7 @@
             </span>
           </h2>
           <h3>Search for a Course</h3>
-          <form action="routes.php" method="post" name="search_course_form">
+          <form action="routes.php" method="get" name="search_course_form">
             <input class="input-small" placeholder="Department" type="text" name="department">
             <input placeholder="Course number" type="text" name="course_number">
             <button value="true" type="submit" class="btn-block btn-large btn-primary btn" name="search_course_form_submit">

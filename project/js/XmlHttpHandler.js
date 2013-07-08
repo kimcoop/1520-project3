@@ -20,10 +20,10 @@ var xmlHttp = {
     }
   },
 
-  get: function( data ) {
-    var url = data.url, 
-        async = data.async || true, 
-        callback = data.callback;
+  get: function( dataObj ) {
+    var url = dataObj.url, 
+        async = dataObj.async || true, 
+        callback = dataObj.callback;
 
     var xmlHttp = this.create();
 
@@ -32,7 +32,6 @@ var xmlHttp = {
     xmlHttp.onreadystatechange = function() {
       if ( xmlHttp.readyState === 4 ) {
         if ( xmlHttp.status === 200 ) {
-          // callback( JSON.parse( xmlHttp.responseText ) );
           callback( xmlHttp.responseText );
         } else {
           alert('Error: ' + xmlHttp.responseText);
@@ -44,7 +43,12 @@ var xmlHttp = {
     };
   },
 
-  post: function( url, data, callback ) {
+  post: function( dataObj ) {
+    var url = dataObj.url, 
+        data = dataObj.data,
+        async = dataObj.async || true, 
+        callback = dataObj.callback;
+
     var xmlHttp = this.create();
     xmlHttp.open( 'post', url, true );
     xmlHttp.setRequestHeader( "Content-Type", "application/x-www-form-urlencoded" );
@@ -52,7 +56,6 @@ var xmlHttp = {
     xmlHttp.onreadystatechange = function() {
       if ( xmlHttp.readyState === 4 ) {
         if ( xmlHttp.status === 200 ) {
-          // callback( JSON.parse( xmlHttp.responseText ) );
           callback( xmlHttp.responseText );
         } else {
           alert('Error: ' + xmlHttp.responseText);
@@ -63,9 +66,12 @@ var xmlHttp = {
     };
   },
 
-  postForm: function( form ) {
-    var formAction = form.action, formMethod = form.method;
-    var dataArray = [], dataString = '';
+  submitForm: function( form ) {
+    var formAction = form.action, 
+      formMethod = form.method;
+    var dataArray = [], 
+      dataString = '', 
+      dataObj = {};
     
     for ( var i = 0; i < form.elements.length; i++ ) { // Loop to gather form data from all form inputs
       var encodedData = encodeURIComponent( form.elements[i].name );
@@ -75,12 +81,20 @@ var xmlHttp = {
     }
     dataString = dataArray.join( "&" );
     console.log('form data: ' +dataString);
-    // TODO check formMethod
-    this.post( formAction, dataString, function( data ) {
-      console.log(' got data' );
-      console.debug( data );
-      applyView( data );
-    });
+
+    dataObj = {
+      url: formAction,
+      data: dataString,
+      callback: function( data ) {
+        applyView( data );
+      }
+    };
+
+    if ( formMethod == 'get' ) {
+      dataObj.url = formAction + '?' + dataString; // format for GET
+      this.get( dataObj );
+    } else {
+      this.post( dataObj );
+    }
   }
 }
-

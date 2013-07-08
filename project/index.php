@@ -1,5 +1,3 @@
-<?php /*require_once('functions.php'); */?>
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -15,8 +13,8 @@
   </head>
   
   <body>
-    <div id="main">
-      <div class="container main">
+    <div class="container main">
+      <div id="main">
 
         <form class="form-signin" action="routes.php" name="signin_form" method="post">
 
@@ -48,120 +46,98 @@
           
         </form>
 
-      <div class="push"></div>
-    </div> <!-- .container.main -->
+      </div> <!-- #main -->
+    <div class="push"></div>
+  </div><!-- .container.main -->
 
-    <footer>
-      <div class="container">
-        <p class="pull-right"><a href="#">Back to top</a></p>
-        <p class="text-center">
-          <?php
-            $format = '%1$s %2$s %3$s. All Rights Reserved.';
-            echo sprintf( $format, '&copy;', date('Y'), 'AdvisorCloud' );
-          ?>
-        </p>
-      </div><!-- .container -->
-    </footer>
+  <footer>
+    <div class="container">
+      <p class="text-center">
+        <?php
+          $format = '%1$s %2$s %3$s. All Rights Reserved.';
+          echo sprintf( $format, '&copy;', date('Y'), 'AdvisorCloud' );
+        ?>
+      </p>
+    </div>
+  </footer>
 
-    </div><!-- #main (replaceable content) -->
+  <script src="js/xmlHttpHandler.js"></script>
+  <script src="js/simpleTemplate.js"></script>
+  <script type="text/javascript">
 
-    <script src="js/xmlHttpHandler.js"></script>
-    <script src="js/microtemplate.js"></script>
-    <script type="text/javascript">
+    window.onload = function() {
+      console.log('onload');
+    }
 
-      window.onload = function() {
-        console.log('onload');
+    /*
+    *
+    */
+
+    function applyView( data ) {
+      console.log('applyView. ');
+      try {
+        data = JSON.parse( data );
+      } catch ( error ) {
+        alert( 'error parsing JSON for data (console)' );
+        console.debug( data );
       }
-
-      /*
-      *
-      */
-
-      function getTemplateVars( templName  ) {
-        switch ( templName ) {
-          case "templates/advisor.html":
-            return [ "role" ];
-          case "templates/course.html":
-            return [ "full_name" ];
-          default: 
-            return []
-        }
-      }
-
-      function templatize( data ) {
-        
-        var templName  = data.template,
-          tmpl = new microtemplate( templName  ),
-          vars = getTemplateVars( templName  ),
-          templData = {};
-
-        console.log( 'templName : ' + templName  + ' and vars: ');
-        console.debug( vars );
-        console.log( 'TEMPLATE: ');
-        console.debug( tmpl );
-
-        for ( var i=0; i < vars.length; i++ ) {
-          templData[ vars[i] ] = data[ vars[i] ];
-        }
-        console.log( 'populated template data: ' );
-        console.debug( templData );
-
-        var html = tmpl.render( templData );
-        // var html = tmpl.getTemplate();
-        // var html = "test";
-        return html;
-      }
-
-      function applyView( data ) {
-        console.log('applyView. ');
-        var container = document.getElementById( 'main' );
-        container.innerHTML = templatize( JSON.parse( data ) );
-        initInteractions();
-      }
-
-      function submitForm( form, event ) {
-        var e = event || window.event;
-        e.preventDefault();
-        xmlHttp.postForm( form );
-      }
-
-      function clickLink( link, event ) {
-        var e = event || window.event;
-        e.preventDefault();
-        var url = link.href, data = {};
-        if ( url.indexOf( "?" ) > -1 )
-          url = url.split( "/" ).pop(),
-        data = {
-          url: url,
-          callback: function( data ) {
-            console.debug( data );
-            applyView( data );
-          }
-        }
-        xmlHttp.get( data );
-      }
-
-      function initInteractions() {
-        var forms = document.getElementsByTagName( "form" );
-        for ( var i=0; i < forms.length; i++ ) {
-          forms[ i ].onsubmit = function( event ) {
-            console.log("SUBMITTING");
-            submitForm( this, event );
-          };
-        }
-
-        var links = document.getElementsByTagName( "a" );
-        for ( var i=0; i < links.length; i++ ) {
-          links[ i ].onclick = function( event ) {
-            clickLink( this, event );
-          };
-        }
-      };
-
+      var container = document.getElementById( 'main' ), 
+        html = tmpl( data.template, data );
+      console.debug( 'template html to replace #main contents:', html );
+      container.innerHTML = html;
+      console.debug( container );
       initInteractions();
+    }
 
+    function submitForm( form, event ) {
+      console.log( 'submitForm' );
+      var e = event || window.event;
+      e.preventDefault();
+      xmlHttp.submitForm( form );
+    }
 
+    function clickLink( link, event ) {
+      var e = event || window.event;
+      e.preventDefault();
+      var url = link.href, data = {};
+      if ( url.indexOf( "?" ) > -1 )
+        url = url.split( "/" ).pop(),
+      data = {
+        url: url,
+        callback: function( data ) {
+          console.debug( data );
+          applyView( data );
+        }
+      }
+      xmlHttp.get( data );
+    }
 
-    </script>
+    function initInteractions() {
+      var forms = document.getElementsByTagName( "form" );
+      for ( var i=0; i < forms.length; i++ ) {
+        forms[ i ].onsubmit = function( event ) {
+          submitForm( this, event );
+        };
+      }
+
+      var links = document.getElementsByTagName( "a" );
+      for ( var i=0; i < links.length; i++ ) {
+        links[ i ].onclick = function( event ) {
+          clickLink( this, event );
+        };
+      }
+    };
+
+    initInteractions();
+
+  </script>
+  <script type="text/html" id="course_tmpl"><?php include( 'templates/course.html'); ?></script>
+  <script type="text/html" id="advisor_dashboard_tmpl"><?php include( 'templates/advisor_dashboard.html'); ?></script>
+
   </body>
 </html>
+
+
+
+
+
