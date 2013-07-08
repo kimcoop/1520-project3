@@ -13,6 +13,7 @@
   </head>
   
   <body>
+    <?php include('templates/header.php'); ?>
     <div class="container main">
       <div id="main">
 
@@ -131,8 +132,8 @@
     initInteractions();
 
   </script>
-  <script type="text/html" id="course_tmpl"><?php include( 'templates/course.html'); ?></script>
   <script type="text/html" id="advisor_dashboard_tmpl"><?php include( 'templates/advisor_dashboard.html'); ?></script>
+  <script type="text/html" id="course_tmpl"><?php include( 'templates/course.html'); ?></script>
 
   </body>
 </html>

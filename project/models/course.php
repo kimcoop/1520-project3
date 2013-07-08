@@ -13,6 +13,9 @@
       $json = array();
       $json[ 'template' ] = $template;
       $json[ 'full_name' ] = $this->full_name();
+      $user_courses = $this->user_courses();
+      usort( $user_courses, 'sort_by_term' );
+      $json[ 'user_courses' ] = $user_courses;
       return json_encode( $json );
     }
 

@@ -44,18 +44,20 @@ var xmlHttp = {
   },
 
   post: function( dataObj ) {
+    console.debug( 'dataObj for post', dataObj );
     var url = dataObj.url, 
         data = dataObj.data,
         async = dataObj.async || true, 
         callback = dataObj.callback;
 
     var xmlHttp = this.create();
-    xmlHttp.open( 'post', url, true );
+    xmlHttp.open( 'post', url, async );
     xmlHttp.setRequestHeader( "Content-Type", "application/x-www-form-urlencoded" );
     xmlHttp.send( data );
     xmlHttp.onreadystatechange = function() {
       if ( xmlHttp.readyState === 4 ) {
         if ( xmlHttp.status === 200 ) {
+          console.debug( 'responseTExt', xmlHttp.responseText );
           callback( xmlHttp.responseText );
         } else {
           alert('Error: ' + xmlHttp.responseText);
@@ -94,6 +96,7 @@ var xmlHttp = {
       dataObj.url = formAction + '?' + dataString; // format for GET
       this.get( dataObj );
     } else {
+      console.log( 'about to post data' );
       this.post( dataObj );
     }
   }
