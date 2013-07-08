@@ -6,3 +6,4 @@ javascripts_dir = "js"
 
 output_style = :expanded
 environment = :development
+line_comments = false

@@ -1,8 +1,15 @@
-/* line 11, ../scss/_base.scss */
+/* line 21, ../scss/_base.scss */
 .font {
   font-family: arial;
   font-size: 12px;
   color: #555555;
+}
+
+/* line 27, ../scss/_base.scss */
+.clearfix {
+  content: "";
+  clear: both;
+  line-height: 0;
 }
 
 /* line 3, ../scss/_links.scss */

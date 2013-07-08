@@ -1,15 +1,23 @@
-/* line 11, ../scss/_base.scss */
+/* line 21, ../scss/_base.scss */
 .font {
   font-family: arial;
   font-size: 12px;
   color: #555555;
 }
 
+/* line 27, ../scss/_base.scss */
+.clearfix {
+  content: "";
+  clear: both;
+  line-height: 0;
+}
+
 /* line 3, ../scss/_tables.scss */
 table {
   border-collapse: collapse;
+  width: 100%;
 }
-/* line 6, ../scss/_tables.scss */
+/* line 7, ../scss/_tables.scss */
 table tr td, table tr th {
   -webkit-transition: all 300ms linear;
   -moz-transition: all 300ms linear;
@@ -21,7 +29,7 @@ table tr td, table tr th {
   border-width: 0 0 1px;
   border-bottom: 1px solid #cbcbcb;
 }
-/* line 15, ../scss/_tables.scss */
-table tr:hover td {
+/* line 19, ../scss/_tables.scss */
+table.table-hover tr:hover td {
   background: #efefef;
 }

@@ -64,7 +64,12 @@
   <script src="js/xmlHttpHandler.js"></script>
   <script src="js/simpleTemplate.js"></script>
   <script src="js/tabs.js"></script>
+  <script src="js/user.js"></script>
   <script type="text/javascript">
+
+    window.Config = {
+      url: 'http://localhost:8888/1520-project3/project/'
+    }
 
     window.onload = function() {
       console.log('onload');
@@ -76,17 +81,11 @@
 
     function applyView( data ) {
       console.log('applyView. ');
-      try {
-        data = JSON.parse( data );
-      } catch ( error ) {
-        alert( 'error parsing JSON for data (console)' );
-        console.debug( data );
-      }
+      console.debug( 'data template name: ', data.template );
+      console.debug( 'data from request:', data );
       var container = document.getElementById( 'main' ), 
         html = tmpl( data.template, data );
-      console.debug( 'template html to replace #main contents:', html );
       container.innerHTML = html;
-      console.debug( container );
       initInteractions();
     }
 
@@ -103,14 +102,12 @@
       var url = link.href, data = {};
       if ( url.indexOf( "?" ) > -1 )
         url = url.split( "/" ).pop(),
-      data = {
+      xmlHttp.get({
         url: url,
         callback: function( data ) {
-          console.debug( data );
           applyView( data );
         }
-      }
-      xmlHttp.get( data );
+      });
     }
 
     function initInteractions() {

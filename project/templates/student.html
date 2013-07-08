@@ -2,17 +2,11 @@
   <div class="main-content">
     
     <div class="hgroup">
-      <h2>
-        <span class="icon-stack">
-          <i class="icon-circle icon-stack-base"></i>
-          <i class="icon-user icon-light"></i>
-        </span>
+      <h1>
         <%= full_name %>
         <small>Student details</small>
-      </h2>
+      </h1>
     </div><!-- .hgroup -->
-
-    TODO: displays for courses.php, sessions.php, notes.php
 
     <ul class="nav nav-tabs">
       <li class='active'><a href="#courses_by_term" data-toggle="tab">Courses by term</a></li>
@@ -25,10 +19,38 @@
     <div class="tab-content">
       <div class="tab-pane active" id="courses_by_term">
         <h3>Courses taken by term</h3>
+        <table class="table table-hover">
+         <% for ( var term in courses_by_term ) { %>
+          <tr>
+            <td><%= term %></td>  
+            <td>
+            <% for ( var i = 0; i < courses_by_term[term].length; i++ ) { 
+              var course = courses_by_term[term][i];
+            %>
+              <%= course.department %>&nbsp;<%= course.course_number %>&nbsp;<%= course.grade %><br>
+            <% } %>
+            </td>
+          </tr>
+          <% } %>
+        </table>
       </div><!-- #courses_by_term -->
 
       <div class="tab-pane" id="courses_by_department">
         <h3>Courses taken by department</h3>
+        <table class="table table-hover">
+          <% for ( var department in courses_by_department ) { %>
+          <tr>
+            <td><%= department %></td>  
+            <td>
+            <% for ( var i = 0; i < courses_by_department[department].length; i++ ) { 
+              var course = courses_by_department[department][i];
+            %>
+              <%= course.department %>&nbsp;<%= course.course_number %>&nbsp;<%= course.grade %><br>
+            <% } %>
+            </td>
+          </tr>
+          <% } %>
+        </table>
       </div><!-- #courses_by_department -->
 
       <div class="tab-pane" id="grad_requirements">
@@ -45,8 +67,55 @@
     </div><!-- .tab-content -->
   </div><!-- .main-content-->
 
+  <!--
+
+
+  sidebar content
+
+
+  -->
+
   <div class="side-content">
-    <code>include('templates/student_sidebar.php')</code>
+    <aside class="well">
+      <h4 class="title">Current Report</h4>
+
+      <div class="media">
+        <a class="pull-left" href="#">
+          <img class="media-object img-circle" src="<%= gravatar %>" />
+        </a>
+        <div class="media-body">
+          <h4 class="media-heading"><%= full_name %></h4>
+          <%= user_id %>
+        </div>
+      </div>
+
+      <br>
+
+      <p><strong>PeopleSoft #:</strong><%= psid %></p>
+      <p><strong>Email:</strong><%= email %></p>
+      <p><strong>Courses Taken:</strong><%= total_courses_taken %></p>
+      <p><strong>GPA:</strong><%= gpa %></p>
+
+      <form action="routes.php" method="post" name="log_advising_session_form">
+        <button class="btn btn-block btn-primary" type="submit" name="log_advising_session_form_submit">Log advising session</button>
+      </form>
+
+      <p class="text-success">Logging current advising session</p>
+      <a href="routes.php?action=end_session_log" class="btn btn-block btn-primary">Stop logging session</a>
+
+      <a href="advisor.php" class="btn btn-block btn-primary">Back to search</a>
+
+    </aside>
+
+    <aside class="well">
+      <h4 class="title">Session Notes</h4>
+      Please log your session before adding notes.
+      <form action="routes.php" method="post" name="advising_notes_form">
+        <input type="hidden" value="<%= current_user.logging_session_id %>" name="session_id" />
+        <textarea class="input-block-level" name="note_content" rows="11" placeholder="Notes"></textarea>
+        <button class="btn btn-block btn-primary" type="submit" name="advising_notes_form_submit">Add notes to current session</button>
+      </form>
+    </aside>
   </div><!-- .side-content -->
 
 </div><!-- .row -->

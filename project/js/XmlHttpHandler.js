@@ -32,10 +32,16 @@ var xmlHttp = {
     xmlHttp.onreadystatechange = function() {
       if ( xmlHttp.readyState === 4 ) {
         if ( xmlHttp.status === 200 ) {
-          callback( xmlHttp.responseText );
+          var data = xmlHttp.responseText;
+          try {
+            data = JSON.parse( data );
+          } catch ( error ) {
+            alert( 'error parsing JSON data (console)' );
+            console.debug( data );
+          }
+          callback( data );
         } else {
           alert('Error: ' + xmlHttp.responseText);
-          console.debug( xmlHttp );
         }
       } else {
         console.log( 'loading' );
@@ -44,7 +50,6 @@ var xmlHttp = {
   },
 
   post: function( dataObj ) {
-    console.debug( 'dataObj for post', dataObj );
     var url = dataObj.url, 
         data = dataObj.data,
         async = dataObj.async || true, 
@@ -57,8 +62,14 @@ var xmlHttp = {
     xmlHttp.onreadystatechange = function() {
       if ( xmlHttp.readyState === 4 ) {
         if ( xmlHttp.status === 200 ) {
-          console.debug( 'responseTExt', xmlHttp.responseText );
-          callback( xmlHttp.responseText );
+          var data = xmlHttp.responseText;
+          try {
+            data = JSON.parse( data );
+          } catch ( error ) {
+            alert( 'error parsing JSON data (console)' );
+            console.debug( data );
+          }
+          callback( data );
         } else {
           alert('Error: ' + xmlHttp.responseText);
         }

@@ -1,8 +1,15 @@
-/* line 11, ../scss/_base.scss */
+/* line 21, ../scss/_base.scss */
 .font {
   font-family: arial;
   font-size: 12px;
   color: #555555;
+}
+
+/* line 27, ../scss/_base.scss */
+.clearfix {
+  content: "";
+  clear: both;
+  line-height: 0;
 }
 
 /* line 3, ../scss/_typography.scss */
@@ -32,14 +39,28 @@ h4 {
   font-size: 1em;
 }
 
-/* line 25, ../scss/_typography.scss */
-ul, ol {
-  margin: 1em 0;
-  padding-left: 40px;
-}
-
-/* line 30, ../scss/_typography.scss */
+/* line 24, ../scss/_typography.scss */
 p {
   margin: 1em 0;
   word-wrap: break-word;
+}
+
+/* line 29, ../scss/_typography.scss */
+.text-center {
+  text-align: center;
+}
+
+/* line 33, ../scss/_typography.scss */
+.text-left {
+  text-align: left;
+}
+
+/* line 37, ../scss/_typography.scss */
+.text-right {
+  text-align: right;
+}
+
+/* line 41, ../scss/_typography.scss */
+strong {
+  margin-right: 0.2em;
 }

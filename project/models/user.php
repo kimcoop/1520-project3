@@ -23,11 +23,32 @@
       parent::__construct();
     }
 
-    function to_json( $template ) {
+    function to_json( $data ) {
       $json = array();
-      $json[ 'template' ] = $template;
-      $json[ 'full_name' ] =$this->get_full_name();
+
+      if ( isset( $data[ 'template' ] ) ) 
+        $json[ 'template' ] = $data[ 'template' ];
+      if ( isset( $data[ 'current_user' ] ) ) {
+        $json[ 'current_user' ] = $data[ 'current_user' ];
+        $json[ 'logging_session_id' ] = $this->logging_session_id;
+      }
+
+      $json[ 'full_name' ] = $this->get_full_name();
       $json[ 'role' ] = $this->get_role();
+      $json[ 'gravatar' ] = $this->get_gravatar();
+      $json[ 'user_id' ] = $this->user_id;
+      $json[ 'psid' ] = $this->psid;
+      $json[ 'email' ] = $this->email;
+      $json[ 'total_courses_taken' ] = $this->total_courses_taken();
+      $json[ 'gpa' ] = $this->get_gpa();
+
+      if ($courses_by_term = UserCourse::find_by( 'term', $this->get_psid() ))
+        ksort( $courses_by_term );
+      $json[ 'courses_by_term' ] = $courses_by_term;
+
+      $courses_by_department = UserCourse::find_by( 'department', $this->get_psid() );
+      $json[ 'courses_by_department' ] = $courses_by_department;
+
       return json_encode( $json );
     }
 

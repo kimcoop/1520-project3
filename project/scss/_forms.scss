@@ -1,7 +1,23 @@
 @import "base";
 
-input, button, select {
-  vertical-align: middle;
+input, button, .btn, select, textarea {
+  margin-top: 2px;
+  textarea {
+    vertical-align: baseline;
+  }
+  &.input-block-level {
+    width: 100%;
+  }
+  &.input-small {
+    width: $input-small-width;
+  }
+  &.input-large {
+    width: $input-large-width;
+  }
+  &.btn-block {
+    width: 100%;
+    display: block;
+  }
 }
 
 input[type=text], input[type=password], input[type=email], input[type=url], input[type=date], input[type=month], input[type=time], input[type=datetime], input[type=datetime-local], input[type=week], input[type=number], input[type=search], input[type=tel], input[type=color], select, textarea {
@@ -23,8 +39,12 @@ input[type=text], input[type=password], input[type=email], input[type=url], inpu
 button, .btn {
   @include transition( 0.1s linear -webkit-box-shadow );
   @extend .font;
+  vertical-align: middle;
+  font-weight: bold;
   cursor: pointer;
-  padding: .5em 1.5em;
+  text-align: center;
+  height: $button-height;
+  padding: 0 1.5em;
   color: #fff !important;
   border: 1px solid #999;
   border: 0 rgba(0,0,0,0);
@@ -43,4 +63,13 @@ button, .btn {
     background-image: -o-linear-gradient(transparent,rgba(0,0,0,.05) 40%,rgba(0,0,0,.1));
     background-image: linear-gradient(transparent,rgba(0,0,0,.05) 40%,rgba(0,0,0,.1));
   }
+  &.btn-large {
+    height: $button-height-large;
+    padding: 0 2.0em;
+  }
+}
+
+.form-signin, .form-small {
+  width: $form-small-width;
+  margin: 0 auto;
 }

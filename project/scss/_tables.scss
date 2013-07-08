@@ -2,6 +2,7 @@
 
 table {
   border-collapse: collapse;
+  width: 100%;
   tr {
     td, th {
       @include transition( all 300ms linear );
@@ -11,11 +12,14 @@ table {
       border-width: 0 0 1px;
       border-bottom: 1px solid #cbcbcb;
     }
-    &:hover {
-      td {
-        background: $light-grey;
+  }
+  &.table-hover {
+    tr {
+      &:hover {
+        td {
+          background: $light-grey;
+        }
       }
     }
   }
-
 }

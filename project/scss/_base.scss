@@ -7,9 +7,25 @@ $primary: rgb(66, 184, 221); // light blue
 $secondary: #129FEA;
 $primary-focus: $secondary;
 $light-grey: #efefef;
+$medium-grey: #333;
+
+$side-content-width: 240px;
+$main-content-width: 700px;
+$input-small-width: 90px;
+$input-large-width: 300px;
+$form-small-width: 300px;
+
+$button-height: 28px;
+$button-height-large: 38px;
 
 .font {
   font-family: $font-family;
   font-size: $normal;
   color: $color;
+}
+
+.clearfix {
+	content: "";
+	clear: both;
+	line-height: 0;
 }

@@ -4,6 +4,7 @@
 
   define( "COURSE_TMPL", 'course_tmpl' ); // the ID of the script
   define( "STUDENT_TMPL", 'student_tmpl' );
+  define( "CURRENT_USER_TMPL", 'student_tmpl' );
 
 
   if ( isset($_POST['signin_form_submit']) ) {
@@ -11,8 +12,9 @@
     $user = User::signin( $_POST['user_id'], $_POST['password'] );
         
     if ( is_logged_in() ) {
-      $template = get_root_view();
-      echo current_user()->to_json( $template );
+      $data = array();
+      $data[ 'template' ] = get_root_view();
+      echo current_user()->to_json( $data );
     } else {
       // display_notice( 'Error logging in.', 'error' );
       // header( 'Location: index.php' );
@@ -179,12 +181,18 @@
   } elseif ( isset($_GET['student_search_term']) ) {
     $search_term = $_GET['student_search_term'];
     if ( $user = User::find_by_psid_or_name( $search_term )) {
-      echo $user->to_json( STUDENT_TMPL );
+      $data = array();
+      $data[ 'current_user' ] = current_user();
+      $data[ 'template' ] = STUDENT_TMPL;
+      echo $user->to_json( $data ); // be sure to pass down current_user details
       set_viewing_student( $user ); // store to session
     } else {
       display_notice( "User <strong> ". $_GET['student_search_term'] . "</strong> not found.", 'error' );
     }
     exit();
+
+  } elseif ( $_GET['action'] == 'get_current_user' ) {
+    echo current_user()->to_json( NULL );
 
   } elseif ( $_GET['action'] == 'end_session_log' ) {
     current_user()->set_is_logging_session( FALSE ); // hacky, but works for our purposes
@@ -197,7 +205,10 @@
     $department = strtoupper( $_GET['department'] );
     $course_number = $_GET['course_number'];
     if ( $course = Course::find_by_department_and_course_number($department, $course_number) ) {
-      echo $course->to_json( COURSE_TMPL );
+      $data = array();
+      $data[ 'current_user' ] = current_user();
+      $data[ 'template' ] = COURSE_TMPL;
+      echo $course->to_json( $data );
     } else {
       display_notice( "Course <strong>$department $course_number</strong> not found.", 'error' );
     }

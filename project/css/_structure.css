@@ -1,8 +1,15 @@
-/* line 11, ../scss/_base.scss */
+/* line 21, ../scss/_base.scss */
 .font, body {
   font-family: arial;
   font-size: 12px;
   color: #555555;
+}
+
+/* line 27, ../scss/_base.scss */
+.clearfix, .row:after, .media:after {
+  content: "";
+  clear: both;
+  line-height: 0;
 }
 
 /* line 3, ../scss/_structure.scss */
@@ -26,17 +33,32 @@ body {
 }
 
 /* line 19, ../scss/_structure.scss */
+.pull-right {
+  float: right;
+}
+
+/* line 23, ../scss/_structure.scss */
+.pull-left {
+  float: left;
+}
+
+/* line 27, ../scss/_structure.scss */
+.muted {
+  color: #333333;
+}
+
+/* line 31, ../scss/_structure.scss */
 ol, ul {
   padding-left: 0;
   margin: 0;
 }
 
-/* line 24, ../scss/_structure.scss */
+/* line 36, ../scss/_structure.scss */
 #main {
   height: 100%;
 }
 
-/* line 28, ../scss/_structure.scss */
+/* line 40, ../scss/_structure.scss */
 .container {
   width: 1000px;
   min-height: 100%;
@@ -44,55 +66,47 @@ ol, ul {
   height: 100%;
   margin: 0 auto;
   padding: 10px;
+}
+/* line 47, ../scss/_structure.scss */
+.container.main {
   margin: 0 auto -4em;
   line-height: 1.8em;
 }
 
-/* line 39, ../scss/_structure.scss */
+/* line 53, ../scss/_structure.scss */
 article, aside, figcaption, figure, footer, header, nav, section {
   display: block;
 }
 
-/* line 43, ../scss/_structure.scss */
+/* line 57, ../scss/_structure.scss */
 footer, .push {
   clear: both;
   height: 4em;
 }
 
-/* line 51, ../scss/_structure.scss */
-.nav-tabs li {
-  -webkit-transition: all 300ms linear;
-  -moz-transition: all 300ms linear;
-  -o-transition: all 300ms linear;
-  transition: all 300ms linear;
-  display: inline-block;
-  padding: 1em 2em;
-  border: thin solid #efefef;
-  cursor: pointer;
-}
-/* line 57, ../scss/_structure.scss */
-.nav-tabs li:hover {
-  background: #efefef;
-}
-/* line 59, ../scss/_structure.scss */
-.nav-tabs li:hover a {
-  color: #129fea;
-}
-/* line 61, ../scss/_structure.scss */
-.nav-tabs li:hover a:hover {
-  text-decoration: none;
-}
-/* line 67, ../scss/_structure.scss */
-.nav-tabs li.active a {
-  color: #129fea;
+/* line 62, ../scss/_structure.scss */
+.main-content {
+  width: 700px;
+  float: left;
 }
 
-/* line 75, ../scss/_structure.scss */
-.tab-content .tab-pane {
-  display: none;
-  padding: 0 1em 1em;
+/* line 67, ../scss/_structure.scss */
+.side-content {
+  width: 240px;
+  margin-left: 30px;
+  float: left;
 }
-/* line 78, ../scss/_structure.scss */
-.tab-content .tab-pane.active {
-  display: block;
+
+/* line 79, ../scss/_structure.scss */
+.media {
+  overflow: hidden;
+}
+/* line 84, ../scss/_structure.scss */
+.media .media-body {
+  margin-left: 5px;
+  float: left;
+}
+/* line 88, ../scss/_structure.scss */
+.media .media-body .media-heading {
+  font-weight: bold;
 }
