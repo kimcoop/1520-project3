@@ -93,3 +93,60 @@ footer, .push {
     @extend .clearfix;
   }
 }
+
+button.close {
+  padding: 0;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  -webkit-appearance: none;
+}
+
+.close {
+  float: right;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 20px;
+  color: #000000;
+  text-shadow: 0 1px 0 #ffffff;
+  opacity: 0.2;
+  filter: alpha( opacity=20 );
+  &:hover, &:focus {
+    color: #000000;
+    text-decoration: none;
+    cursor: pointer;
+    opacity: 0.4;
+    filter: alpha(opacity=40);
+  }
+}
+
+.alert {
+  @include border-radius( 3px );
+  padding: 0.8em 2em 0.8em 0.8em;
+  margin-bottom: 20px;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+  background-color: #fcf8e3;
+  border: 1px solid #fbeed5;
+  position: relative;
+  .close {
+    text-shadow: 0 1px 0 $light-grey;
+    position: absolute;
+    top: 2px;
+    right: 0.4em;
+    color: #000 !important;
+  }
+  &.alert-success {
+    background-color: $success-background;
+    border-color: $success-border;
+    color: $success-color;
+  }
+  &.alert-error {
+    color: $error-color;
+    background-color: $error-background;
+    border-color: $error-border;
+  }
+}
+
+.hidden {
+  display: none;
+}

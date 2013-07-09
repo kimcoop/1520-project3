@@ -5,6 +5,7 @@
   define( "COURSE_TMPL", 'course_tmpl' ); // the ID of the script
   define( "STUDENT_TMPL", 'student_tmpl' );
   define( "CURRENT_USER_TMPL", 'student_tmpl' );
+  define( "NOTICE_TMPL", 'notice_tmpl' );
 
 
   if ( isset($_POST['signin_form_submit']) ) {
@@ -151,9 +152,6 @@
     } else {
       display_notice( 'Error logging advising session.', 'error' );
     }
-    $user_id = $_SESSION['viewing_user_id'];
-    header( "Location: student.php?user_id=$user_id" );
-    exit();
   }
 
   if ( was_posted('advising_notes_form_submit') ) {

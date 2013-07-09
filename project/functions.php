@@ -122,8 +122,12 @@ function sort_by_term( $a, $b ) {
 
   function display_notice( $message, $type ) {
     // used to display a message onscreen if there is a notice for the user (from a function)
-    $_SESSION['notice']['message'] = $message;
-    $_SESSION['notice']['type'] = $type;
+    $data = array();
+    $data[ 'type' ] = $type;
+    $data[ 'message' ] = $message;
+    $data[ 'template' ] = NOTICE_TMPL;
+    echo json_encode( $data );
+    exit();
   }
 
   function is_active_tab( $tab_id ) {

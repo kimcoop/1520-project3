@@ -1,23 +1,23 @@
-/* line 21, ../scss/_base.scss */
+/* line 28, ../scss/_base.scss */
 .font, body {
   font-family: arial;
   font-size: 12px;
   color: #555555;
 }
 
-/* line 27, ../scss/_base.scss */
+/* line 34, ../scss/_base.scss */
 .clearfix, .row:after, .media:after {
   content: "";
   clear: both;
   line-height: 0;
 }
 
-/* line 33, ../scss/_base.scss */
+/* line 40, ../scss/_base.scss */
 .vertical-align-parent, .media {
   display: table;
 }
 
-/* line 37, ../scss/_base.scss */
+/* line 44, ../scss/_base.scss */
 .vertical-align-child, .media .media-body {
   display: table-cell;
   vertical-align: middle;
@@ -120,4 +120,71 @@ footer, .push {
 /* line 88, ../scss/_structure.scss */
 .media .media-body .media-heading {
   font-weight: bold;
+}
+
+/* line 97, ../scss/_structure.scss */
+button.close {
+  padding: 0;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  -webkit-appearance: none;
+}
+
+/* line 105, ../scss/_structure.scss */
+.close {
+  float: right;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 20px;
+  color: #000000;
+  text-shadow: 0 1px 0 #ffffff;
+  opacity: 0.2;
+  filter: alpha(opacity=20);
+}
+/* line 114, ../scss/_structure.scss */
+.close:hover, .close:focus {
+  color: #000000;
+  text-decoration: none;
+  cursor: pointer;
+  opacity: 0.4;
+  filter: alpha(opacity=40);
+}
+
+/* line 123, ../scss/_structure.scss */
+.alert {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  padding: 0.8em 2em 0.8em 0.8em;
+  margin-bottom: 20px;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+  background-color: #fcf8e3;
+  border: 1px solid #fbeed5;
+  position: relative;
+}
+/* line 131, ../scss/_structure.scss */
+.alert .close {
+  text-shadow: 0 1px 0 #efefef;
+  position: absolute;
+  top: 2px;
+  right: 0.4em;
+  color: #000 !important;
+}
+/* line 138, ../scss/_structure.scss */
+.alert.alert-success {
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+  color: #468847;
+}
+/* line 143, ../scss/_structure.scss */
+.alert.alert-error {
+  color: #b94a48;
+  background-color: #f2dede;
+  border-color: #eed3d7;
+}
+
+/* line 150, ../scss/_structure.scss */
+.hidden {
+  display: none;
 }

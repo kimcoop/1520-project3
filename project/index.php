@@ -14,6 +14,7 @@
   
   <body>
     <?php include('templates/header.php'); ?>
+      <div id="notice"></div>
       <div id="main">
 
         <form class="form-signin" action="routes.php" name="signin_form" method="post">
@@ -83,7 +84,7 @@
       console.log('applyView. ');
       console.debug( 'data template name: ', data.template );
       console.debug( 'data from request:', data );
-      var container = document.getElementById( 'main' ), 
+      var container = data.template !== 'notice_tmpl' ? document.getElementById( 'main' ) : document.getElementById( 'notice' ), 
         html = tmpl( data.template, data );
       container.innerHTML = html;
       initInteractions();
@@ -126,6 +127,12 @@
       }
 
       tabs.init();
+      var closeButtons = document.getElementsByClassName( 'close' );
+      for ( var i=0; i < closeButtons.length; i++ ) {
+        closeButtons[ i ].onclick = function( event ) {
+          event.target.parentNode.className += " hidden";
+        };
+      }      
 
     };
 
@@ -135,6 +142,7 @@
   <script type="text/html" id="advisor_dashboard_tmpl"><?php include( 'templates/advisor_dashboard.html'); ?></script>
   <script type="text/html" id="course_tmpl"><?php include( 'templates/course.html'); ?></script>
   <script type="text/html" id="student_tmpl"><?php include( 'templates/student.html'); ?></script>
+  <script type="text/html" id="notice_tmpl"><?php include( 'templates/notice.html'); ?></script>
 
   </body>
 </html>
