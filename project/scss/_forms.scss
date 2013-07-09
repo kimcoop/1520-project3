@@ -2,6 +2,7 @@
 
 input, button, .btn, select, textarea {
   margin-top: 2px;
+  vertical-align: middle;
   textarea {
     vertical-align: baseline;
   }
@@ -39,6 +40,7 @@ input[type=text], input[type=password], input[type=email], input[type=url], inpu
 button, .btn {
   @include transition( 0.1s linear -webkit-box-shadow );
   @extend .font;
+  line-height: $button-height;
   vertical-align: middle;
   font-weight: bold;
   cursor: pointer;

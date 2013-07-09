@@ -284,30 +284,31 @@ a img {
 /* line 3, ../scss/_forms.scss */
 input, button, .btn, select, textarea {
   margin-top: 2px;
+  vertical-align: middle;
 }
-/* line 5, ../scss/_forms.scss */
+/* line 6, ../scss/_forms.scss */
 input textarea, button textarea, .btn textarea, select textarea, textarea textarea {
   vertical-align: baseline;
 }
-/* line 8, ../scss/_forms.scss */
+/* line 9, ../scss/_forms.scss */
 input.input-block-level, button.input-block-level, .btn.input-block-level, select.input-block-level, textarea.input-block-level {
   width: 100%;
 }
-/* line 11, ../scss/_forms.scss */
+/* line 12, ../scss/_forms.scss */
 input.input-small, button.input-small, .btn.input-small, select.input-small, textarea.input-small {
   width: 90px;
 }
-/* line 14, ../scss/_forms.scss */
+/* line 15, ../scss/_forms.scss */
 input.input-large, button.input-large, .btn.input-large, select.input-large, textarea.input-large {
   width: 300px;
 }
-/* line 17, ../scss/_forms.scss */
+/* line 18, ../scss/_forms.scss */
 input.btn-block, button.btn-block, .btn.btn-block, select.btn-block, textarea.btn-block {
   width: 100%;
   display: block;
 }
 
-/* line 23, ../scss/_forms.scss */
+/* line 24, ../scss/_forms.scss */
 input[type=text], input[type=password], input[type=email], input[type=url], input[type=date], input[type=month], input[type=time], input[type=datetime], input[type=datetime-local], input[type=week], input[type=number], input[type=search], input[type=tel], input[type=color], select, textarea {
   -webkit-transition: 0.3s linear border;
   -moz-transition: 0.3s linear border;
@@ -321,18 +322,19 @@ input[type=text], input[type=password], input[type=email], input[type=url], inpu
   border-radius: 4px;
   -webkit-font-smoothing: antialiased;
 }
-/* line 33, ../scss/_forms.scss */
+/* line 34, ../scss/_forms.scss */
 input[type=text]:focus, input[type=password]:focus, input[type=email]:focus, input[type=url]:focus, input[type=date]:focus, input[type=month]:focus, input[type=time]:focus, input[type=datetime]:focus, input[type=datetime-local]:focus, input[type=week]:focus, input[type=number]:focus, input[type=search]:focus, input[type=tel]:focus, input[type=color]:focus, select:focus, textarea:focus {
   outline: 0;
   border-color: #129fea;
 }
 
-/* line 39, ../scss/_forms.scss */
+/* line 40, ../scss/_forms.scss */
 button, .btn {
   -webkit-transition: 0.1s linear -webkit-box-shadow;
   -moz-transition: 0.1s linear -webkit-box-shadow;
   -o-transition: 0.1s linear -webkit-box-shadow;
   transition: 0.1s linear -webkit-box-shadow;
+  line-height: 28px;
   vertical-align: middle;
   font-weight: bold;
   cursor: pointer;
@@ -348,7 +350,7 @@ button, .btn {
   -webkit-font-smoothing: antialiased;
   background: #42b8dd;
 }
-/* line 56, ../scss/_forms.scss */
+/* line 58, ../scss/_forms.scss */
 button:hover, button:focus, .btn:hover, .btn:focus {
   outline: 0;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#1a000000', GradientType=0);
@@ -359,13 +361,13 @@ button:hover, button:focus, .btn:hover, .btn:focus {
   background-image: -o-linear-gradient(transparent, rgba(0, 0, 0, 0.05) 40%, rgba(0, 0, 0, 0.1));
   background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.05) 40%, rgba(0, 0, 0, 0.1));
 }
-/* line 66, ../scss/_forms.scss */
+/* line 68, ../scss/_forms.scss */
 button.btn-large, .btn.btn-large {
   height: 38px;
   padding: 0 2.0em;
 }
 
-/* line 72, ../scss/_forms.scss */
+/* line 74, ../scss/_forms.scss */
 .form-signin, .form-small {
   width: 300px;
   margin: 0 auto;

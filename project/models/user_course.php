@@ -32,6 +32,10 @@
       return "$this->department $this->course_number $this->grade";
     }
 
+    public function get_description() {
+      return "$this";
+    }
+
     public function user() {
       if ( !$this->user )
         $this->user = User::find_by_psid( $this->psid );

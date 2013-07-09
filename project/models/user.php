@@ -53,8 +53,10 @@
       $reqs = Requirement::find_all();
       ksort( $reqs );
       foreach( $reqs as $req ) {
-        $user_reqs[ $req->title ] = $req->get_satisfying_course( $this->get_psid() );
+        $user_course = $req->get_satisfying_course( $this->get_psid() );
+        $user_reqs[ $req->title ] = $user_course ? "[S] " . $user_course->get_description() : "[N] Requirement not satisfied";
       }
+
       $json[ 'requirements' ] = $user_reqs;
 
       return json_encode( $json );
