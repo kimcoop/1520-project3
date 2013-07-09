@@ -160,6 +160,9 @@ button.close {
 aside {
   margin-top: 15px;
 }
+aside strong {
+  margin-right: 0.2em;
+}
 
 .img-circle {
   -webkit-border-radius: 50%;

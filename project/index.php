@@ -74,6 +74,12 @@
     }
     window.currentUser = {};
 
+    function viewStudent( psid ) {
+      xml.get({
+
+      });
+    }
+
     function applyView( data ) {
       console.log('applyView. ');
       console.debug( 'data template name: ', data.template );

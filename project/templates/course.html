@@ -27,13 +27,9 @@
         <td class="muted"><%= i %></td>
         <td><%= user_courses[i].term %></td>
         <td><%= user_courses[i].psid %></td>
-        <td><code> echo $user->get_user_id() OR (user not in system)</code></td>
-        
+        <td><%= user_courses[i].user_id %></td>
         <td><%= user_courses[i].grade %></td>
-        <td class="text-right">
-          <code>
-          <a href="student.php?user_id=<%= user_courses[i].user_id %>">View student</a>
-          </code>
+        <td class="text-right"><a href="routes.php?user_id=<%= user_courses[i].user_id %>">View student</a>
         </td>
       </tr>
       <% } %>

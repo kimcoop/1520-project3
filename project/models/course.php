@@ -15,11 +15,25 @@
       $json[ 'average_gpa' ] = $this->get_average_gpa();
       $json[ 'total_students' ] = $this->get_total_students();
 
+      $json[ 'user_courses' ] = $this->get_user_courses_json();
+      return json_encode( $json );
+    }
+
+    function get_user_courses_json() {
+
+      $user_courses_json = array();
+
       $user_courses = $this->user_courses();
       usort( $user_courses, 'sort_by_term' );
 
-      $json[ 'user_courses' ] = $user_courses;
-      return json_encode( $json );
+      foreach( $user_courses as $user_course ) {
+        $user_courses_json[] = array( "term" => $user_course->term,
+                                    "psid" =>$user_course->psid,
+                                    "grade" =>$user_course->grade,
+                                    "user_id" => ( $user_course->user() ? $user_course->user()->get_user_id() : "User not in system" ));
+      }
+
+      return $user_courses_json;
     }
 
     public function get_values() {

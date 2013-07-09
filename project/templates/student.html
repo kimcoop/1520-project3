@@ -18,12 +18,13 @@
 
     <div class="tab-content">
       <div class="tab-pane active" id="courses_by_term">
+       <% if ( courses_by_term != null ) { %>
         <table class="table table-hover">
-         <% for ( var term in courses_by_term ) { %>
+        <% for ( var term in courses_by_term ) { %>
           <tr>
             <td><%= term %></td>  
             <td>
-            <% for ( var i = 0; i < courses_by_term[term].length; i++ ) { 
+            <% for ( var i =  0; i < courses_by_term[term].length; i++ ) { 
               var course = courses_by_term[term][i];
             %>
               <%= course.department %>&nbsp;<%= course.course_number %>&nbsp;<%= course.grade %><br>
@@ -32,11 +33,15 @@
           </tr>
           <% } %>
         </table>
+       <% } else { %>
+        <p>No courses taken.</p>
+       <% } %>
       </div><!-- #courses_by_term -->
 
       <div class="tab-pane" id="courses_by_department">
+        <% if ( courses_by_department != null ) { %>
         <table class="table table-hover">
-          <% for ( var department in courses_by_department ) { %>
+        <% for ( var department in courses_by_department ) { %>
           <tr>
             <td><%= department %></td>  
             <td>
@@ -49,9 +54,13 @@
           </tr>
           <% } %>
         </table>
+       <% } else { %>
+        <p>No courses taken.</p>
+       <% } %>
       </div><!-- #courses_by_department -->
 
       <div class="tab-pane" id="grad_requirements">
+        <% if ( requirements != null ) { %>
         <table class="table table-hover">
           <% for ( var requirement in requirements ) { %>
           <tr>
@@ -60,9 +69,13 @@
           </tr>
           <% } %>
         </table>
+        <% } else { %>
+          <p>Graduation requirements not found.</p>
+        <% } %>
       </div><!-- #grad_requirements -->
 
       <div class="tab-pane" id="advising_sessions">
+        <% if ( sessions != null ) { %>
          <table class="table table-hover">
           <thead>
             <th></th>
@@ -79,9 +92,13 @@
           </tr>
           <% } %>
         </table>
+        <% } else { %>
+          <p>None found.</p>
+        <% } %>
       </div><!-- #advising_sessions -->
 
       <div class="tab-pane" id="advising_notes">
+        <% if ( notes != null ) { %>
         <table class="table table-hover">
           <thead>
             <th></th>
@@ -98,6 +115,9 @@
           </tr>
           <% } %>
         </table>
+       <% } else { %>
+        <p>None found.</p>
+       <% } %>
       </div><!-- #advising_notes -->
     </div><!-- .tab-content -->
   </div><!-- .main-content-->
@@ -164,7 +184,7 @@
         <form action="routes.php" method="post" name="advising_notes_form" id="advising_notes_form">
           <input type="hidden" value="<%= current_user.logging_session_id %>" name="session_id" />
           <textarea class="input-block-level" name="note_content" rows="11" placeholder="Notes"></textarea>
-          <button class="btn btn-block btn-primary" type="submit" name="advising_notes_form_submit">Add notes to current session</button>
+          <button class="btn btn-block btn-primary" type="submit" name="advising_notes_form_submit">Add notes</button>
         </form>
       </div>
 

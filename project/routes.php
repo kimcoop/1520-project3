@@ -166,6 +166,20 @@
     echo $student->to_json( $data );
     exit();
 
+  } elseif ( isset($_GET['user_id']) ) {
+
+    $user_id = $_GET['user_id'];
+    if ( $user = User::find_by_user_id( $user_id )) {
+      $data = array();
+      $data[ 'current_user' ] = current_user();
+      $data[ 'template' ] = STUDENT_TMPL;
+      echo $user->to_json( $data );
+      set_viewing_student( $user );
+      exit();
+    } else {
+      display_notice( "User <strong>$user_id</strong> not found.", 'error' );
+    }
+
   } elseif ( isset($_GET['student_search_term']) ) {
     $search_term = $_GET['student_search_term'];
     if ( $user = User::find_by_psid_or_name( $search_term )) {
@@ -177,7 +191,6 @@
     } else {
       display_notice( "User <strong> ". $_GET['student_search_term'] . "</strong> not found.", 'error' );
     }
-    exit();
 
   } elseif ( $_GET['action'] == 'get_current_user' ) {
     echo current_user()->to_json( NULL );
