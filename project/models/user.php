@@ -73,9 +73,9 @@
     public function get_sessions() {
       $sessions = array();
 
-      $all_sessions = Session::find_all_by_psid( $this->get_psid() );
-      if ( !$all_sessions ) return;
-      foreach( $all_sessions as $session ) {
+      $user_sessions = Session::find_all_by_psid( $this->get_psid() );
+      if ( !$user_sessions ) return;
+      foreach( $user_sessions as $session ) {
         $sessions[] = array( 'advisor_full_name' => $session->get_author_full_name(), 
                             'notes_count' => count( $session->notes() ),
                             'date' => $session->get_timestamp() );
@@ -86,12 +86,10 @@
     public function get_notes() {
       $notes = array();
 
-      $all_notes = Note::find_all_by_psid( $this->get_psid() );
-      if ( !$all_notes ) return;
-      foreach( $notes as $note ) {
-       $notes[] = array( 'advisor_full_name' => $note->get_author_full_name(),
-                                          'contents' => $note->get_contents(),
-                                          'date' => $note->get_timestamp() ); 
+      $user_notes = Note::find_all_by_psid( $this->get_psid() );
+      if ( !$user_notes ) return;
+      foreach( $user_notes as $note ) {
+        $notes[] = array( 'advisor_full_name' => $note->get_author_full_name(), 'contents' => $note->get_contents(), 'date' => $note->get_timestamp() );
       }
       return $notes;
     }

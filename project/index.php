@@ -72,14 +72,6 @@
       url: 'http://localhost:8888/1520-project3/project/'
     }
 
-    window.onload = function() {
-      console.log('onload');
-    }
-
-    /*
-    *
-    */
-
     function applyView( data ) {
       console.log('applyView. ');
       console.debug( 'data template name: ', data.template );
@@ -110,7 +102,26 @@
       });
     }
 
+    function getCurrentStudent() {
+      xmlHttp.get({
+        url: Config.url + 'routes.php?action=get_current_student',
+        callback: function( data ) { applyView( data ); }
+      });
+    }
+
+    function submitAndGetCurrentStudent( formId ) {
+      console.log( 'called submitAndGetCurrentStudent');
+      var form = document.getElementById( formId );
+      if ( !form) return;
+      form.onsubmit = function( event ) {
+        submitForm( form, event );
+        getCurrentStudent();
+      }
+    }
+
     function initInteractions() {
+      tabs.init();
+
       var forms = document.getElementsByTagName( "form" );
       for ( var i=0; i < forms.length; i++ ) {
         forms[ i ].onsubmit = function( event ) {
@@ -125,7 +136,6 @@
         };
       }
 
-      tabs.init();
       var closeButtons = document.getElementsByClassName( 'close' );
       if ( closeButtons ) {
         console.log(' setting closeButtons hook');
@@ -136,21 +146,10 @@
         }
       }
 
-      var form = document.getElementById( 'log_advising_session_form' );
-      if ( form ) {
-        console.log(' setting custom form hook');
-        form.onsubmit = function( event ) {
-          submitForm( this, event );
-          console.log('submitted session log');
-          xmlHttp.get({
-            url: Config.url + 'routes.php?action=get_current_student',
-            callback: function( data ) { applyView( data ); }
-          })
-        }
-      }
+      submitAndGetCurrentStudent( 'log_advising_session_form' );
+      submitAndGetCurrentStudent( 'advising_notes_form' );
 
-
-    }
+    } // initInteractions
 
     initInteractions();
 

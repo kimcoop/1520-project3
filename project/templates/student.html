@@ -87,13 +87,13 @@
 
       <div class="tab-pane" id="advising_notes">
         <h3>Advising Notes</h3>
+        <table class="table table-hover">
           <thead>
             <th></th>
             <th>Date</th>
             <th>Advisor</th>
             <th>Contents</th>
           </thead>
-        <table class="table table-hover">
          <% for ( var i = 0; i < notes.length; i++ ) { %>
           <tr>
             <td class="muted"><%= i %></td>  
@@ -150,7 +150,7 @@
     <aside class="well">
       <h4 class="title">Session Notes</h4>
       Please log your session before adding notes.
-      <form action="routes.php" method="post" name="advising_notes_form">
+      <form action="routes.php" method="post" name="advising_notes_form" id="advising_notes_form">
         <input type="hidden" value="<%= current_user.logging_session_id %>" name="session_id" />
         <textarea class="input-block-level" name="note_content" rows="11" placeholder="Notes"></textarea>
         <button class="btn btn-block btn-primary" type="submit" name="advising_notes_form_submit">Add notes to current session</button>
