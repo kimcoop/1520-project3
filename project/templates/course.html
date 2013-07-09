@@ -10,7 +10,6 @@
           <%= full_name %>
         <small>Course details</small>
       </h2>
-      <code>include('templates/notice.php')</code>
 
     </div><!-- .hgroup -->
 
@@ -23,7 +22,7 @@
         <th>Grade</th>
         <th></th>
       </thead>
-    <% for ( var i = 0; i < user_courses.length; i++ ) { %>
+      <% for ( var i = 0; i < user_courses.length; i++ ) { %>
       <tr>
         <td class="muted"><%= i %></td>
         <td><%= user_courses[i].term %></td>
@@ -33,22 +32,45 @@
         <td><%= user_courses[i].grade %></td>
         <td class="text-right">
           <code>
-          
-            <a href="student.php?user_id=<%= user_courses[i].user_id %>">
-              <i class="icon-eye-open"></i>&nbsp;View student
-            </a>
+          <a href="student.php?user_id=<%= user_courses[i].user_id %>">View student</a>
           </code>
         </td>
       </tr>
       <% } %>
     </table>
 
-    TODO: no student records found
-
   </div><!-- .main-content-->
 
+
+  <!--
+
+
+  sidebar content
+
+
+  -->
+
+
   <div class="side-content">
-    <code>include('templates/course_sidebar.php');</code>
+    <aside class="well">
+      <h4 class="title">Current Report</h4>
+
+        <p>
+          <strong>Title:</strong>
+          <%= full_name %></p>
+        <p>
+          <strong>Average GPA:</strong>
+          <%= average_gpa %>
+        </p>
+        <p>
+          <strong>Total Students:</strong>
+          <%= total_students %>
+        </p>
+
+      <a href="advisor.php" class="btn btn-block btn-primary">
+        Back to search
+      </a>
+    </aside>
   </div><!-- .side-content -->
 
 </div><!-- .row -->

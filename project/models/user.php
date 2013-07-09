@@ -24,15 +24,10 @@
     }
 
     function to_json( $data ) {
-      $json = array();
+      $json = $data;
 
-      if ( isset( $data[ 'template' ] ) ) 
-        $json[ 'template' ] = $data[ 'template' ];
-      if ( isset( $data[ 'current_user' ] ) ) {
-        $json[ 'current_user' ] = $data[ 'current_user' ];
-        $json[ 'logging_session_id' ] = $this->logging_session_id;
-      }
-
+      $json[ 'logging_session_id' ] = $this->logging_session_id;
+      $json[ 'is_admin' ] = $this->is_admin();
       $json[ 'full_name' ] = $this->get_full_name();
       $json[ 'role' ] = $this->get_role();
       $json[ 'gravatar' ] = $this->get_gravatar();
@@ -195,7 +190,7 @@
     }
 
     public function is_advisor() {
-      // Admins selfdvisor privileges and more
+      // Admins have advisor privileges and more
       return $this->get_access_level() == $this->ADVISOR_ACCESS_LEVEL || $this->get_access_level() == $this->ADMIN_ACCESS_LEVEL;
     }
 

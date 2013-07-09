@@ -24,10 +24,6 @@ body {
   float: left;
 }
 
-.muted {
-  color: $medium-grey;
-}
-
 ol, ul {
   padding-left: 0;
   margin: 0;
@@ -149,4 +145,18 @@ button.close {
 
 .hidden {
   display: none;
+}
+
+aside {
+  margin-top: 15px;
+}
+
+.img-circle {
+  @include border-radius( 50% );
+}
+
+.small-content {
+  // float: none;
+  // width: $form-small-width;
+  // margin: 0 auto;
 }

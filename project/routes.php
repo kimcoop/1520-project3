@@ -140,6 +140,11 @@
     }
   }
 
+  if ( was_posted('end_session_log_form_submit') ) {
+    current_user()->set_is_logging_session( FALSE );
+    display_notice( 'Advising session ended.', 'success' );
+  }
+
   if ( was_posted('advising_notes_form_submit') ) {
     if ( Note::add_note( $_SESSION['viewing_psid'], $_POST['note_content'], $_POST['session_id'] )) 
       display_notice( 'Note saved.', 'success' );
@@ -176,13 +181,6 @@
 
   } elseif ( $_GET['action'] == 'get_current_user' ) {
     echo current_user()->to_json( NULL );
-
-  } elseif ( $_GET['action'] == 'end_session_log' ) {
-    current_user()->set_is_logging_session( FALSE ); // hacky, but works for our purposes
-    display_notice( 'Advising session ended.', 'success' );
-    $user_id = $_SESSION['viewing_user_id'];
-    header( "Location: student.php?user_id=$user_id" );
-    exit();
 
   } elseif ( isset($_GET['search_course_form_submit']) ) {
     $department = strtoupper( $_GET['department'] );

@@ -13,26 +13,23 @@
 
 .nav-tabs {
   li {
-    @include transition( all 300ms linear );
+    @include transition( all 300ms ease );
+    @include border-radius( 4px );
     display: inline-block;
     cursor: pointer;
+    margin: 0 2px;
     a {
       padding: 1em;
       max-width: 2em;
       word-wrap: break-word;
-      margin: 0 2px;
       &:hover { text-decoration: none; }
     }
     &:hover {
       background: $light-grey;
-      a {
-        color: $secondary;
-      }
     }
     &.active {
-      a {
-        color: $secondary;
-      }
+      background: $light-grey;
+      a { color: $secondary; }
     }
   }
 }

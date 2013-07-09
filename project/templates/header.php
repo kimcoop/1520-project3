@@ -1,35 +1,27 @@
-<header>
-  <div class="container nav-container">
-    <ul class="nav nav-pills pull-right">
-      <li class="">
-        <a href="#">
-          Welcome, current user full name
-        </a>
-      </li>
-      
-      <li class="">
-        <a href="admin.php">
-          Admin
-        </a>
-      </li>  
-      
-      <li class="">
-        <a href="settings.php">
-          Settings
-        </a>
-      </li>
-      <li>
-        <a href="routes.php?action=logout">
-          Logout
-        </a>
-      </li>
-    </ul>
-    <h3 class="title muted">
+<div class="container nav-container">
+  <ul class="nav nav-pills pull-right">
+    <li class="">
       <a href="#">
-      Advisor Cloud 3.0
+        Welcome, <%= current_user.full_name %>
       </a>
-    </h3>
-  </div><!-- .container -->
-</header>
+    </li>
+    
+    <li class="<%= ( current_user.is_admin ? "" : "hidden" ) %>">
+      <a href="admin.php">Admin</a>
+    </li>  
+    
+    <li class="">
+      <a href="settings.php">Settings</a>
+    </li>
 
-<div class="container main">
+    <li>
+      <a href="routes.php?action=logout">Logout</a>
+    </li>
+    
+  </ul>
+  <h3 class="title muted">
+    <a href="#">
+    Advisor Cloud 3.0
+    </a>
+  </h3>
+</div><!-- .container -->

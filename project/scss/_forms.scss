@@ -41,11 +41,12 @@ button, .btn {
   @include transition( 0.1s linear -webkit-box-shadow );
   @extend .font;
   line-height: $button-height;
+  height: $button-height;
+  max-height: $button-height;
   vertical-align: middle;
   font-weight: bold;
   cursor: pointer;
   text-align: center;
-  height: $button-height;
   padding: 0 1.5em;
   color: #fff !important;
   border: 1px solid #999;

@@ -100,6 +100,9 @@ var xmlHttp = {
       data: dataString,
       callback: function( data ) {
         applyView( data );
+        if ( form.name == 'signin_form' ) {
+          showHeader( data );
+        }
       }
     };
 

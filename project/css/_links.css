@@ -1,55 +1,59 @@
-/* line 28, ../scss/_base.scss */
 .font {
-  font-family: arial;
-  font-size: 12px;
+  font-family: "Droid Sans", arial;
+  font-size: 14px;
   color: #555555;
+  line-height: 20px;
 }
 
-/* line 34, ../scss/_base.scss */
 .clearfix {
   content: "";
   clear: both;
   line-height: 0;
 }
 
-/* line 40, ../scss/_base.scss */
 .vertical-align-parent {
   display: table;
 }
 
-/* line 44, ../scss/_base.scss */
 .vertical-align-child {
   display: table-cell;
   vertical-align: middle;
 }
 
-/* line 3, ../scss/_links.scss */
 a {
   text-decoration: none;
   font-weight: bold;
+  color: #999999;
+  text-transform: uppercase;
+  font-size: 0.8em;
+  letter-spacing: 0.15em;
 }
-/* line 6, ../scss/_links.scss */
+a.btn {
+  font-size: 14px;
+  line-height: 36px;
+  letter-spacing: 0;
+  text-transform: none;
+}
+a.btn:hover {
+  text-decoration: none;
+}
 a:link {
   color: #42b8dd;
 }
-/* line 9, ../scss/_links.scss */
 a:visited {
   color: #208fb2;
 }
-/* line 12, ../scss/_links.scss */
 a:active {
   color: #208fb2;
 }
-/* line 15, ../scss/_links.scss */
 a:hover, a:focus {
   color: #208fb2;
   text-decoration: underline;
 }
-/* line 19, ../scss/_links.scss */
 a:active, a:hover {
   outline: none;
 }
-/* line 22, ../scss/_links.scss */
 a img {
   border: none;
+  vertical-align: middle;
 }

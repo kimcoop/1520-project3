@@ -3,6 +3,20 @@
 a {
   text-decoration: none;
   font-weight: bold;
+  color: #999999;
+  text-transform: uppercase;
+  font-size: 0.8em;
+  letter-spacing: 0.15em;
+  &.btn {
+   font-size: $normal;
+    line-height: $button-height;
+   letter-spacing: 0;
+   text-transform: none;
+   &:hover {
+    text-decoration: none;
+   } 
+  }
+
   &:link {
     color: $primary;
   }
@@ -21,5 +35,6 @@ a {
   }
   img {
     border: none;
+    vertical-align: middle;
   }
 }

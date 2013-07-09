@@ -1,43 +1,38 @@
+<div class="row">
+  <div class="main-content small-content">
+    <div class="hgroup">
+      <h2><%= role %> Dashboard</h2>
+    </div><!-- .hgroup -->
 
-<code>
-  if ( is_logged_in() && is_advisor() ):<br>
-    clear_browsing_session();<br>
-</code>
+    <p>Welcome to your <%= role %> dashboard! Use the inputs below to look up a student or course.</p>
 
-  <div class="row">
-    <div class="main-content">
-      <div class="hgroup">
-        <h2><%= role %> Dashboard</h2>
-      </div><!-- .hgroup -->
+    <br>
 
-      <p>Welcome to your <%= role %> dashboard! Use the inputs below to look up a student or course.</p>
+    <div class="row row-search">
+      <div class="search-student">
+        <h3>Search for a Student</h3>
+        <form action="routes.php" method="get" name="search_student_form">
+          <input class="input-large" autofocus placeholder="<PeopleSoft #> or <FirstName LastName>" type="text" name="student_search_term">
+          <button type="submit" class="btn-primary btn" name="search_student_form_submit">
+            Search students
+          </button>
+          <br>
+        </form>
+      </div><!-- .search-student -->
 
-      <br>
-      <div class="row row-search">
-        <div class="search-student">
-          <h3>Search for a Student</h3>
-          <form action="routes.php" method="get" name="search_student_form">
-            <input class="input-large" autofocus placeholder="<PeopleSoft #> or <FirstName LastName>" type="text" name="student_search_term">
-            <button type="submit" class="btn-primary btn" name="search_student_form_submit">
-              Search students
-            </button>
-            <br>
-          </form>
-        </div><!-- .search-student -->
-
-        <div class="search-course">
-          <h3>Search for a Course</h3>
-          <form action="routes.php" method="get" name="search_course_form">
-            <input class="input-small" placeholder="Department" type="text" name="department">
-            <input placeholder="Course number" type="text" name="course_number">
-            <button value="true" type="submit" class="btn-primary btn" name="search_course_form_submit">
-              Search courses
-            </button>
-            <br>
-          </form>
-        </div><!-- .search-course -->
-      
+      <div class="search-course">
+        <h3>Search for a Course</h3>
+        <form action="routes.php" method="get" name="search_course_form">
+          <input class="input-small" placeholder="Department" type="text" name="department">
+          <input placeholder="Course number" type="text" name="course_number">
+          <button value="true" type="submit" class="btn-primary btn" name="search_course_form_submit">
+            Search courses
+          </button>
+          <br>
+        </form>
+      </div><!-- .search-course -->
 
     </div><!-- .row-search -->
+
   </div><!-- .main-content-->
 </div><!-- .row -->

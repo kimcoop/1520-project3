@@ -9,12 +9,15 @@
       parent::__construct();
     }
 
-    function to_json( $template ) {
-      $json = array();
-      $json[ 'template' ] = $template;
+    function to_json( $data ) {
+      $json = $data;
       $json[ 'full_name' ] = $this->full_name();
+      $json[ 'average_gpa' ] = $this->get_average_gpa();
+      $json[ 'total_students' ] = $this->get_total_students();
+
       $user_courses = $this->user_courses();
       usort( $user_courses, 'sort_by_term' );
+
       $json[ 'user_courses' ] = $user_courses;
       return json_encode( $json );
     }

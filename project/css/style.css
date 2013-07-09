@@ -1,34 +1,29 @@
-/* line 28, ../scss/_base.scss */
 .font, body, input[type=text], input[type=password], input[type=email], input[type=url], input[type=date], input[type=month], input[type=time], input[type=datetime], input[type=datetime-local], input[type=week], input[type=number], input[type=search], input[type=tel], input[type=color], select, textarea, button, .btn {
-  font-family: arial;
-  font-size: 12px;
+  font-family: "Droid Sans", arial;
+  font-size: 14px;
   color: #555555;
+  line-height: 20px;
 }
 
-/* line 34, ../scss/_base.scss */
 .clearfix, .row:after, .media:after {
   content: "";
   clear: both;
   line-height: 0;
 }
 
-/* line 40, ../scss/_base.scss */
 .vertical-align-parent, .media {
   display: table;
 }
 
-/* line 44, ../scss/_base.scss */
 .vertical-align-child, .media .media-body {
   display: table-cell;
   vertical-align: middle;
 }
 
-/* line 3, ../scss/_structure.scss */
 html, body {
   height: 100%;
 }
 
-/* line 7, ../scss/_structure.scss */
 body {
   margin: 0;
   padding: 0;
@@ -36,40 +31,29 @@ body {
   line-height: 1.5;
 }
 
-/* line 15, ../scss/_structure.scss */
 * {
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
 }
 
-/* line 19, ../scss/_structure.scss */
 .pull-right {
   float: right;
 }
 
-/* line 23, ../scss/_structure.scss */
 .pull-left {
   float: left;
 }
 
-/* line 27, ../scss/_structure.scss */
-.muted {
-  color: #333333;
-}
-
-/* line 31, ../scss/_structure.scss */
 ol, ul {
   padding-left: 0;
   margin: 0;
 }
 
-/* line 36, ../scss/_structure.scss */
 #main {
   height: 100%;
 }
 
-/* line 40, ../scss/_structure.scss */
 .container {
   width: 1000px;
   min-height: 100%;
@@ -78,51 +62,42 @@ ol, ul {
   margin: 0 auto;
   padding: 10px;
 }
-/* line 47, ../scss/_structure.scss */
 .container.main {
   margin: 0 auto -4em;
   line-height: 1.8em;
 }
 
-/* line 53, ../scss/_structure.scss */
 article, aside, figcaption, figure, footer, header, nav, section {
   display: block;
 }
 
-/* line 57, ../scss/_structure.scss */
 footer, .push {
   clear: both;
   height: 4em;
 }
 
-/* line 62, ../scss/_structure.scss */
 .main-content {
   width: 700px;
   float: left;
 }
 
-/* line 67, ../scss/_structure.scss */
 .side-content {
   width: 240px;
   margin-left: 30px;
   float: left;
 }
 
-/* line 79, ../scss/_structure.scss */
 .media {
   overflow: hidden;
 }
-/* line 84, ../scss/_structure.scss */
 .media .media-body {
   margin-left: 5px;
   float: left;
 }
-/* line 88, ../scss/_structure.scss */
 .media .media-body .media-heading {
   font-weight: bold;
 }
 
-/* line 97, ../scss/_structure.scss */
 button.close {
   padding: 0;
   cursor: pointer;
@@ -131,7 +106,6 @@ button.close {
   -webkit-appearance: none;
 }
 
-/* line 105, ../scss/_structure.scss */
 .close {
   float: right;
   font-size: 20px;
@@ -142,7 +116,6 @@ button.close {
   opacity: 0.2;
   filter: alpha(opacity=20);
 }
-/* line 114, ../scss/_structure.scss */
 .close:hover, .close:focus {
   color: #000000;
   text-decoration: none;
@@ -151,7 +124,6 @@ button.close {
   filter: alpha(opacity=40);
 }
 
-/* line 123, ../scss/_structure.scss */
 .alert {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -163,7 +135,6 @@ button.close {
   border: 1px solid #fbeed5;
   position: relative;
 }
-/* line 131, ../scss/_structure.scss */
 .alert .close {
   text-shadow: 0 1px 0 #efefef;
   position: absolute;
@@ -171,211 +142,220 @@ button.close {
   right: 0.4em;
   color: #000 !important;
 }
-/* line 138, ../scss/_structure.scss */
 .alert.alert-success {
   background-color: #dff0d8;
   border-color: #d6e9c6;
   color: #468847;
 }
-/* line 143, ../scss/_structure.scss */
 .alert.alert-error {
   color: #b94a48;
   background-color: #f2dede;
   border-color: #eed3d7;
 }
 
-/* line 150, ../scss/_structure.scss */
 .hidden {
   display: none;
 }
 
-/* line 28, ../scss/_base.scss */
-.font, body, input[type=text], input[type=password], input[type=email], input[type=url], input[type=date], input[type=month], input[type=time], input[type=datetime], input[type=datetime-local], input[type=week], input[type=number], input[type=search], input[type=tel], input[type=color], select, textarea, button, .btn {
-  font-family: arial;
-  font-size: 12px;
-  color: #555555;
+aside {
+  margin-top: 15px;
 }
 
-/* line 34, ../scss/_base.scss */
+.img-circle {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+}
+
+.font, body, input[type=text], input[type=password], input[type=email], input[type=url], input[type=date], input[type=month], input[type=time], input[type=datetime], input[type=datetime-local], input[type=week], input[type=number], input[type=search], input[type=tel], input[type=color], select, textarea, button, .btn {
+  font-family: "Droid Sans", arial;
+  font-size: 14px;
+  color: #555555;
+  line-height: 20px;
+}
+
 .clearfix, .row:after, .media:after {
   content: "";
   clear: both;
   line-height: 0;
 }
 
-/* line 40, ../scss/_base.scss */
 .vertical-align-parent, .media {
   display: table;
 }
 
-/* line 44, ../scss/_base.scss */
 .vertical-align-child, .media .media-body {
   display: table-cell;
   vertical-align: middle;
 }
 
-/* line 3, ../scss/_typography.scss */
 h1, h2, h3, h4 {
   margin: 1em 0 .5em;
   line-height: 1.25;
   font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+  font-weight: lighter;
+  color: #007d9a;
+  letter-spacing: -1px;
+}
+h1 small, h2 small, h3 small, h4 small {
+  color: #dddddd;
 }
 
-/* line 9, ../scss/_typography.scss */
 h1 {
   font-size: 2em;
 }
 
-/* line 13, ../scss/_typography.scss */
 h2 {
   font-size: 1.5em;
 }
 
-/* line 17, ../scss/_typography.scss */
 h3 {
   font-size: 1.2em;
 }
 
-/* line 21, ../scss/_typography.scss */
 h4 {
   font-size: 1em;
+  letter-spacing: 0;
+  font-weight: bold;
 }
 
-/* line 24, ../scss/_typography.scss */
 p {
   margin: 1em 0;
   word-wrap: break-word;
 }
 
-/* line 29, ../scss/_typography.scss */
 .text-center {
   text-align: center;
 }
 
-/* line 33, ../scss/_typography.scss */
 .text-left {
   text-align: left;
 }
 
-/* line 37, ../scss/_typography.scss */
 .text-right {
   text-align: right;
 }
 
-/* line 41, ../scss/_typography.scss */
+.text-success {
+  color: #468847;
+}
+
+.text-error {
+  color: #b94a48;
+}
+
 strong {
   margin-right: 0.2em;
 }
 
-/* line 28, ../scss/_base.scss */
-.font, body, input[type=text], input[type=password], input[type=email], input[type=url], input[type=date], input[type=month], input[type=time], input[type=datetime], input[type=datetime-local], input[type=week], input[type=number], input[type=search], input[type=tel], input[type=color], select, textarea, button, .btn {
-  font-family: arial;
-  font-size: 12px;
-  color: #555555;
+.muted {
+  color: #dddddd;
 }
 
-/* line 34, ../scss/_base.scss */
+.font, body, input[type=text], input[type=password], input[type=email], input[type=url], input[type=date], input[type=month], input[type=time], input[type=datetime], input[type=datetime-local], input[type=week], input[type=number], input[type=search], input[type=tel], input[type=color], select, textarea, button, .btn {
+  font-family: "Droid Sans", arial;
+  font-size: 14px;
+  color: #555555;
+  line-height: 20px;
+}
+
 .clearfix, .row:after, .media:after {
   content: "";
   clear: both;
   line-height: 0;
 }
 
-/* line 40, ../scss/_base.scss */
 .vertical-align-parent, .media {
   display: table;
 }
 
-/* line 44, ../scss/_base.scss */
 .vertical-align-child, .media .media-body {
   display: table-cell;
   vertical-align: middle;
 }
 
-/* line 3, ../scss/_links.scss */
 a {
   text-decoration: none;
   font-weight: bold;
+  color: #999999;
+  text-transform: uppercase;
+  font-size: 0.8em;
+  letter-spacing: 0.15em;
 }
-/* line 6, ../scss/_links.scss */
+a.btn {
+  font-size: 14px;
+  line-height: 36px;
+  letter-spacing: 0;
+  text-transform: none;
+}
+a.btn:hover {
+  text-decoration: none;
+}
 a:link {
   color: #42b8dd;
 }
-/* line 9, ../scss/_links.scss */
 a:visited {
   color: #208fb2;
 }
-/* line 12, ../scss/_links.scss */
 a:active {
   color: #208fb2;
 }
-/* line 15, ../scss/_links.scss */
 a:hover, a:focus {
   color: #208fb2;
   text-decoration: underline;
 }
-/* line 19, ../scss/_links.scss */
 a:active, a:hover {
   outline: none;
 }
-/* line 22, ../scss/_links.scss */
 a img {
   border: none;
+  vertical-align: middle;
 }
 
-/* line 28, ../scss/_base.scss */
 .font, body, input[type=text], input[type=password], input[type=email], input[type=url], input[type=date], input[type=month], input[type=time], input[type=datetime], input[type=datetime-local], input[type=week], input[type=number], input[type=search], input[type=tel], input[type=color], select, textarea, button, .btn {
-  font-family: arial;
-  font-size: 12px;
+  font-family: "Droid Sans", arial;
+  font-size: 14px;
   color: #555555;
+  line-height: 20px;
 }
 
-/* line 34, ../scss/_base.scss */
 .clearfix, .row:after, .media:after {
   content: "";
   clear: both;
   line-height: 0;
 }
 
-/* line 40, ../scss/_base.scss */
 .vertical-align-parent, .media {
   display: table;
 }
 
-/* line 44, ../scss/_base.scss */
 .vertical-align-child, .media .media-body {
   display: table-cell;
   vertical-align: middle;
 }
 
-/* line 3, ../scss/_forms.scss */
 input, button, .btn, select, textarea {
   margin-top: 2px;
   vertical-align: middle;
 }
-/* line 6, ../scss/_forms.scss */
 input textarea, button textarea, .btn textarea, select textarea, textarea textarea {
   vertical-align: baseline;
 }
-/* line 9, ../scss/_forms.scss */
 input.input-block-level, button.input-block-level, .btn.input-block-level, select.input-block-level, textarea.input-block-level {
   width: 100%;
 }
-/* line 12, ../scss/_forms.scss */
 input.input-small, button.input-small, .btn.input-small, select.input-small, textarea.input-small {
   width: 90px;
 }
-/* line 15, ../scss/_forms.scss */
 input.input-large, button.input-large, .btn.input-large, select.input-large, textarea.input-large {
   width: 300px;
 }
-/* line 18, ../scss/_forms.scss */
 input.btn-block, button.btn-block, .btn.btn-block, select.btn-block, textarea.btn-block {
   width: 100%;
   display: block;
 }
 
-/* line 24, ../scss/_forms.scss */
 input[type=text], input[type=password], input[type=email], input[type=url], input[type=date], input[type=month], input[type=time], input[type=datetime], input[type=datetime-local], input[type=week], input[type=number], input[type=search], input[type=tel], input[type=color], select, textarea {
   -webkit-transition: 0.3s linear border;
   -moz-transition: 0.3s linear border;
@@ -389,24 +369,23 @@ input[type=text], input[type=password], input[type=email], input[type=url], inpu
   border-radius: 4px;
   -webkit-font-smoothing: antialiased;
 }
-/* line 34, ../scss/_forms.scss */
 input[type=text]:focus, input[type=password]:focus, input[type=email]:focus, input[type=url]:focus, input[type=date]:focus, input[type=month]:focus, input[type=time]:focus, input[type=datetime]:focus, input[type=datetime-local]:focus, input[type=week]:focus, input[type=number]:focus, input[type=search]:focus, input[type=tel]:focus, input[type=color]:focus, select:focus, textarea:focus {
   outline: 0;
-  border-color: #129fea;
+  border-color: #007d9a;
 }
 
-/* line 40, ../scss/_forms.scss */
 button, .btn {
   -webkit-transition: 0.1s linear -webkit-box-shadow;
   -moz-transition: 0.1s linear -webkit-box-shadow;
   -o-transition: 0.1s linear -webkit-box-shadow;
   transition: 0.1s linear -webkit-box-shadow;
-  line-height: 28px;
+  line-height: 36px;
+  height: 36px;
+  max-height: 36px;
   vertical-align: middle;
   font-weight: bold;
   cursor: pointer;
   text-align: center;
-  height: 28px;
   padding: 0 1.5em;
   color: #fff !important;
   border: 1px solid #999;
@@ -417,7 +396,6 @@ button, .btn {
   -webkit-font-smoothing: antialiased;
   background: #42b8dd;
 }
-/* line 58, ../scss/_forms.scss */
 button:hover, button:focus, .btn:hover, .btn:focus {
   outline: 0;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#1a000000', GradientType=0);
@@ -428,143 +406,121 @@ button:hover, button:focus, .btn:hover, .btn:focus {
   background-image: -o-linear-gradient(transparent, rgba(0, 0, 0, 0.05) 40%, rgba(0, 0, 0, 0.1));
   background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.05) 40%, rgba(0, 0, 0, 0.1));
 }
-/* line 68, ../scss/_forms.scss */
 button.btn-large, .btn.btn-large {
-  height: 38px;
+  height: 46px;
   padding: 0 2.0em;
 }
 
-/* line 74, ../scss/_forms.scss */
 .form-signin, .form-small {
   width: 300px;
   margin: 0 auto;
 }
 
-/* line 28, ../scss/_base.scss */
 .font, body, input[type=text], input[type=password], input[type=email], input[type=url], input[type=date], input[type=month], input[type=time], input[type=datetime], input[type=datetime-local], input[type=week], input[type=number], input[type=search], input[type=tel], input[type=color], select, textarea, button, .btn {
-  font-family: arial;
-  font-size: 12px;
+  font-family: "Droid Sans", arial;
+  font-size: 14px;
   color: #555555;
+  line-height: 20px;
 }
 
-/* line 34, ../scss/_base.scss */
 .clearfix, .row:after, .media:after {
   content: "";
   clear: both;
   line-height: 0;
 }
 
-/* line 40, ../scss/_base.scss */
 .vertical-align-parent, .media {
   display: table;
 }
 
-/* line 44, ../scss/_base.scss */
 .vertical-align-child, .media .media-body {
   display: table-cell;
   vertical-align: middle;
 }
 
-/* line 3, ../scss/_tables.scss */
 table {
   border-collapse: collapse;
   width: 100%;
 }
-/* line 7, ../scss/_tables.scss */
 table tr td, table tr th {
-  -webkit-transition: all 300ms linear;
-  -moz-transition: all 300ms linear;
-  -o-transition: all 300ms linear;
-  transition: all 300ms linear;
+  vertical-align: top;
   background: #fff;
   padding: 0.8em 1em;
   text-align: left;
   border-width: 0 0 1px;
-  border-bottom: 1px solid #cbcbcb;
+  border-bottom: 1px solid #f3f3f3;
 }
-/* line 19, ../scss/_tables.scss */
 table.table-hover tr:hover td {
-  background: #efefef;
+  background: #f3f3f3;
 }
 
-/* line 28, ../scss/_base.scss */
 .font, body, input[type=text], input[type=password], input[type=email], input[type=url], input[type=date], input[type=month], input[type=time], input[type=datetime], input[type=datetime-local], input[type=week], input[type=number], input[type=search], input[type=tel], input[type=color], select, textarea, button, .btn {
-  font-family: arial;
-  font-size: 12px;
+  font-family: "Droid Sans", arial;
+  font-size: 14px;
   color: #555555;
+  line-height: 20px;
 }
 
-/* line 34, ../scss/_base.scss */
 .clearfix, .row:after, .media:after {
   content: "";
   clear: both;
   line-height: 0;
 }
 
-/* line 40, ../scss/_base.scss */
 .vertical-align-parent, .media {
   display: table;
 }
 
-/* line 44, ../scss/_base.scss */
 .vertical-align-child, .media .media-body {
   display: table-cell;
   vertical-align: middle;
 }
 
-/* line 3, ../scss/_nav.scss */
 .nav-pills {
   list-style: none;
 }
-/* line 5, ../scss/_nav.scss */
 .nav-pills li {
   display: inline-block;
   margin: 0 2px;
 }
-/* line 8, ../scss/_nav.scss */
 .nav-pills li a {
   padding: 0 1em;
 }
 
-/* line 15, ../scss/_nav.scss */
 .nav-tabs li {
-  -webkit-transition: all 300ms linear;
-  -moz-transition: all 300ms linear;
-  -o-transition: all 300ms linear;
-  transition: all 300ms linear;
+  -webkit-transition: all 300ms ease;
+  -moz-transition: all 300ms ease;
+  -o-transition: all 300ms ease;
+  transition: all 300ms ease;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
   display: inline-block;
   cursor: pointer;
+  margin: 0 2px;
 }
-/* line 19, ../scss/_nav.scss */
 .nav-tabs li a {
   padding: 1em;
   max-width: 2em;
   word-wrap: break-word;
-  margin: 0 2px;
 }
-/* line 24, ../scss/_nav.scss */
 .nav-tabs li a:hover {
   text-decoration: none;
 }
-/* line 26, ../scss/_nav.scss */
 .nav-tabs li:hover {
   background: #efefef;
 }
-/* line 28, ../scss/_nav.scss */
-.nav-tabs li:hover a {
-  color: #129fea;
+.nav-tabs li.active {
+  background: #efefef;
 }
-/* line 33, ../scss/_nav.scss */
 .nav-tabs li.active a {
-  color: #129fea;
+  color: #007d9a;
 }
 
-/* line 41, ../scss/_nav.scss */
 .tab-content .tab-pane {
   display: none;
   padding: 0;
 }
-/* line 44, ../scss/_nav.scss */
 .tab-content .tab-pane.active {
   display: block;
 }

@@ -1,77 +1,85 @@
-/* line 28, ../scss/_base.scss */
 .font {
-  font-family: arial;
-  font-size: 12px;
+  font-family: "Droid Sans", arial;
+  font-size: 14px;
   color: #555555;
+  line-height: 20px;
 }
 
-/* line 34, ../scss/_base.scss */
 .clearfix {
   content: "";
   clear: both;
   line-height: 0;
 }
 
-/* line 40, ../scss/_base.scss */
 .vertical-align-parent {
   display: table;
 }
 
-/* line 44, ../scss/_base.scss */
 .vertical-align-child {
   display: table-cell;
   vertical-align: middle;
 }
 
-/* line 3, ../scss/_typography.scss */
 h1, h2, h3, h4 {
   margin: 1em 0 .5em;
   line-height: 1.25;
   font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+  font-weight: lighter;
+  color: #007d9a;
+  letter-spacing: -1px;
+}
+h1 small, h2 small, h3 small, h4 small {
+  color: #dddddd;
 }
 
-/* line 9, ../scss/_typography.scss */
 h1 {
   font-size: 2em;
 }
 
-/* line 13, ../scss/_typography.scss */
 h2 {
   font-size: 1.5em;
 }
 
-/* line 17, ../scss/_typography.scss */
 h3 {
   font-size: 1.2em;
 }
 
-/* line 21, ../scss/_typography.scss */
 h4 {
   font-size: 1em;
+  letter-spacing: 0;
+  font-weight: bold;
 }
 
-/* line 24, ../scss/_typography.scss */
 p {
   margin: 1em 0;
   word-wrap: break-word;
 }
 
-/* line 29, ../scss/_typography.scss */
 .text-center {
   text-align: center;
 }
 
-/* line 33, ../scss/_typography.scss */
 .text-left {
   text-align: left;
 }
 
-/* line 37, ../scss/_typography.scss */
 .text-right {
   text-align: right;
 }
 
-/* line 41, ../scss/_typography.scss */
+.text-success {
+  color: #468847;
+}
+
+.text-error {
+  color: #b94a48;
+}
+
 strong {
   margin-right: 0.2em;
+}
+
+.muted {
+  color: #dddddd;
 }

@@ -13,42 +13,43 @@
   </head>
   
   <body>
-    <?php include('templates/header.php'); ?>
-      <div id="notice"></div>
-      <div id="main">
+      <div id="header"></div>
+      <div class="container main">
+        <div id="notice"></div>
+        <div id="main">
 
-        <form class="form-signin" action="routes.php" name="signin_form" method="post">
+          <form class="form-signin" action="routes.php" name="signin_form" method="post">
 
-          <br>
-          <br>
+            <br>
+            <br>
 
-          <h2 class="text-center form-signin-heading">Welcome to Advisor Cloud</h2>
+            <h2 class="text-center form-signin-heading">Welcome to Advisor Cloud</h2>
 
-          <?php if (isset($_COOKIE['user_id'])): ?>
+            <?php if (isset($_COOKIE['user_id'])): ?>
 
-          <input type="text" class="input-block-level" placeholder="User ID" name="user_id" value="<?php echo $_COOKIE['user_id']; ?>" />
-          <input autofocus type="password" class="input-block-level" placeholder="Password" name="password" />
+            <input type="text" class="input-block-level" placeholder="User ID" name="user_id" value="<?php echo $_COOKIE['user_id']; ?>" />
+            <input autofocus type="password" class="input-block-level" placeholder="Password" name="password" />
 
-          <?php else: ?>
+            <?php else: ?>
 
-          <input autofocus type="text" class="input-block-level" placeholder="User ID" name="user_id" />
-          <input type="password" class="input-block-level" placeholder="Password" name="password" />
+            <input autofocus type="text" class="input-block-level" placeholder="User ID" name="user_id" />
+            <input type="password" class="input-block-level" placeholder="Password" name="password" />
 
-          <?php endif; ?>
+            <?php endif; ?>
 
-          <button type="submit" class="btn btn-block btn-large btn-primary" name="signin_form_submit">Sign in</button>
+            <button type="submit" class="btn btn-block btn-large btn-primary" name="signin_form_submit">Sign in</button>
 
-          <br>
-          <br>
+            <br>
+            <br>
 
-          <span class="pull-right">
-            <a href="forgot_password.php?step=user_id">Forgot password?</a>
-          </span>
-          
-        </form>
+            <span class="pull-right">
+              <a href="forgot_password.php?step=user_id">Forgot password?</a>
+            </span>
+            
+          </form>
 
-      </div> <!-- #main -->
-    <div class="push"></div>
+        </div> <!-- #main -->
+      <div class="push"></div>
   </div><!-- .container.main -->
 
   <footer>
@@ -71,6 +72,7 @@
     window.Config = {
       url: 'http://localhost:8888/1520-project3/project/'
     }
+    window.currentUser = {};
 
     function applyView( data ) {
       console.log('applyView. ');
@@ -78,6 +80,7 @@
       console.debug( 'data from request:', data );
       var container = data.template !== 'notice_tmpl' ? document.getElementById( 'main' ) : document.getElementById( 'notice' ), 
         html = tmpl( data.template, data );
+
       container.innerHTML = html;
       initInteractions();
     }
@@ -102,6 +105,14 @@
       });
     }
 
+    function showHeader( userData ) {
+      window.currentUser = userData;
+      console.debug('showHeader user:', window.currentUser );
+      var header = document.getElementById( 'header' ),
+        html = tmpl( 'header_tmpl', window.currentUser );
+      header.innerHTML = html;
+    }
+
     function getCurrentStudent() {
       xmlHttp.get({
         url: Config.url + 'routes.php?action=get_current_student',
@@ -110,9 +121,8 @@
     }
 
     function submitAndGetCurrentStudent( formId ) {
-      console.log( 'called submitAndGetCurrentStudent');
       var form = document.getElementById( formId );
-      if ( !form) return;
+      if ( !form ) return;
       form.onsubmit = function( event ) {
         submitForm( form, event );
         getCurrentStudent();
@@ -148,6 +158,7 @@
 
       submitAndGetCurrentStudent( 'log_advising_session_form' );
       submitAndGetCurrentStudent( 'advising_notes_form' );
+      submitAndGetCurrentStudent( 'end_session_log_form' );
 
     } // initInteractions
 
@@ -158,6 +169,7 @@
   <script type="text/html" id="course_tmpl"><?php include( 'templates/course.html'); ?></script>
   <script type="text/html" id="student_tmpl"><?php include( 'templates/student.html'); ?></script>
   <script type="text/html" id="notice_tmpl"><?php include( 'templates/notice.html'); ?></script>
+  <script type="text/html" id="header_tmpl"><?php include( 'templates/header.html'); ?></script>
 
   </body>
 </html>

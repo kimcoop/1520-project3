@@ -1,34 +1,29 @@
-/* line 28, ../scss/_base.scss */
 .font, body {
-  font-family: arial;
-  font-size: 12px;
+  font-family: "Droid Sans", arial;
+  font-size: 14px;
   color: #555555;
+  line-height: 20px;
 }
 
-/* line 34, ../scss/_base.scss */
 .clearfix, .row:after, .media:after {
   content: "";
   clear: both;
   line-height: 0;
 }
 
-/* line 40, ../scss/_base.scss */
 .vertical-align-parent, .media {
   display: table;
 }
 
-/* line 44, ../scss/_base.scss */
 .vertical-align-child, .media .media-body {
   display: table-cell;
   vertical-align: middle;
 }
 
-/* line 3, ../scss/_structure.scss */
 html, body {
   height: 100%;
 }
 
-/* line 7, ../scss/_structure.scss */
 body {
   margin: 0;
   padding: 0;
@@ -36,40 +31,29 @@ body {
   line-height: 1.5;
 }
 
-/* line 15, ../scss/_structure.scss */
 * {
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
 }
 
-/* line 19, ../scss/_structure.scss */
 .pull-right {
   float: right;
 }
 
-/* line 23, ../scss/_structure.scss */
 .pull-left {
   float: left;
 }
 
-/* line 27, ../scss/_structure.scss */
-.muted {
-  color: #333333;
-}
-
-/* line 31, ../scss/_structure.scss */
 ol, ul {
   padding-left: 0;
   margin: 0;
 }
 
-/* line 36, ../scss/_structure.scss */
 #main {
   height: 100%;
 }
 
-/* line 40, ../scss/_structure.scss */
 .container {
   width: 1000px;
   min-height: 100%;
@@ -78,51 +62,42 @@ ol, ul {
   margin: 0 auto;
   padding: 10px;
 }
-/* line 47, ../scss/_structure.scss */
 .container.main {
   margin: 0 auto -4em;
   line-height: 1.8em;
 }
 
-/* line 53, ../scss/_structure.scss */
 article, aside, figcaption, figure, footer, header, nav, section {
   display: block;
 }
 
-/* line 57, ../scss/_structure.scss */
 footer, .push {
   clear: both;
   height: 4em;
 }
 
-/* line 62, ../scss/_structure.scss */
 .main-content {
   width: 700px;
   float: left;
 }
 
-/* line 67, ../scss/_structure.scss */
 .side-content {
   width: 240px;
   margin-left: 30px;
   float: left;
 }
 
-/* line 79, ../scss/_structure.scss */
 .media {
   overflow: hidden;
 }
-/* line 84, ../scss/_structure.scss */
 .media .media-body {
   margin-left: 5px;
   float: left;
 }
-/* line 88, ../scss/_structure.scss */
 .media .media-body .media-heading {
   font-weight: bold;
 }
 
-/* line 97, ../scss/_structure.scss */
 button.close {
   padding: 0;
   cursor: pointer;
@@ -131,7 +106,6 @@ button.close {
   -webkit-appearance: none;
 }
 
-/* line 105, ../scss/_structure.scss */
 .close {
   float: right;
   font-size: 20px;
@@ -142,7 +116,6 @@ button.close {
   opacity: 0.2;
   filter: alpha(opacity=20);
 }
-/* line 114, ../scss/_structure.scss */
 .close:hover, .close:focus {
   color: #000000;
   text-decoration: none;
@@ -151,7 +124,6 @@ button.close {
   filter: alpha(opacity=40);
 }
 
-/* line 123, ../scss/_structure.scss */
 .alert {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -163,7 +135,6 @@ button.close {
   border: 1px solid #fbeed5;
   position: relative;
 }
-/* line 131, ../scss/_structure.scss */
 .alert .close {
   text-shadow: 0 1px 0 #efefef;
   position: absolute;
@@ -171,20 +142,27 @@ button.close {
   right: 0.4em;
   color: #000 !important;
 }
-/* line 138, ../scss/_structure.scss */
 .alert.alert-success {
   background-color: #dff0d8;
   border-color: #d6e9c6;
   color: #468847;
 }
-/* line 143, ../scss/_structure.scss */
 .alert.alert-error {
   color: #b94a48;
   background-color: #f2dede;
   border-color: #eed3d7;
 }
 
-/* line 150, ../scss/_structure.scss */
 .hidden {
   display: none;
+}
+
+aside {
+  margin-top: 15px;
+}
+
+.img-circle {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
 }

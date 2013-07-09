@@ -5,20 +5,18 @@ table {
   width: 100%;
   tr {
     td, th {
-      @include transition( all 300ms linear );
+      vertical-align: top;
       background: #fff;
       padding: 0.8em 1em;
       text-align: left;
       border-width: 0 0 1px;
-      border-bottom: 1px solid #cbcbcb;
+      border-bottom: 1px solid $super-light-grey;
     }
   }
   &.table-hover {
     tr {
       &:hover {
-        td {
-          background: $light-grey;
-        }
+        td { background: $super-light-grey; }
       }
     }
   }
