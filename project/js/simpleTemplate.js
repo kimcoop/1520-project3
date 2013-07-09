@@ -29,7 +29,6 @@
          + "');}return p.join('');");
    
     // Provide some basic currying to the user
-    console.log( 'here1') ;
     return data ? fn( data ) : fn;
   };
 })();

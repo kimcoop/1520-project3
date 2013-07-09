@@ -91,7 +91,6 @@
     }
 
     function submitForm( form, event ) {
-      console.log( 'submitForm' );
       var e = event || window.event;
       e.preventDefault();
       xmlHttp.submitForm( form );
@@ -128,13 +127,30 @@
 
       tabs.init();
       var closeButtons = document.getElementsByClassName( 'close' );
-      for ( var i=0; i < closeButtons.length; i++ ) {
-        closeButtons[ i ].onclick = function( event ) {
-          event.target.parentNode.className += " hidden";
-        };
-      }      
+      if ( closeButtons ) {
+        console.log(' setting closeButtons hook');
+        for ( var i=0; i < closeButtons.length; i++ ) {
+          closeButtons[ i ].onclick = function( event ) {
+            event.target.parentNode.className += " hidden";
+          };
+        }
+      }
 
-    };
+      var form = document.getElementById( 'log_advising_session_form' );
+      if ( form ) {
+        console.log(' setting custom form hook');
+        form.onsubmit = function( event ) {
+          submitForm( this, event );
+          console.log('submitted session log');
+          xmlHttp.get({
+            url: Config.url + 'routes.php?action=get_current_student',
+            callback: function( data ) { applyView( data ); }
+          })
+        }
+      }
+
+
+    }
 
     initInteractions();
 

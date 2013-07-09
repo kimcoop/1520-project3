@@ -87,8 +87,6 @@
       display_notice( "User <strong>$full_name</strong> created.", 'success' );
     else
       display_notice( "Error creating user <strong>$full_name.</strong>", 'error' );
-    header( "Location: admin.php" );
-    exit();
   }
   
   if ( was_posted('delete_user_form_submit') ) {
@@ -96,21 +94,15 @@
       display_notice( 'User deleted.', 'success' );
     else
       display_notice( 'Error deleting user.', 'error' );
-    header( "Location: admin.php" );
-    exit();   
   }
 
   if ( was_posted('add_course_form_submit')) {
     $file = $_POST['filename'];
     if ( !$file ) {
       display_notice( "Filename must not be empty.", 'error' );
-      header( "Location: admin.php" );
-      exit();
     }
     if ( !file_exists( $file )) {
       display_notice( "File <strong>$file</strong> not found.", 'error' );
-      header( "Location: admin.php" );
-      exit();
     }
     $objects = file( $file );
     $additions = 0;
@@ -121,8 +113,6 @@
     }
     $pluralizer = $additions == 1 ? "course" : "courses";
     display_notice( "$additions new $pluralizer added from file <strong>$file.</strong>", 'success' );
-    header( "Location: admin.php" );
-    exit();
   }
 
 
@@ -131,8 +121,6 @@
       display_notice( 'Password changed.', 'success' );
     else
       display_notice( '<strong>Error changing password.</strong> Please ensure you\'ve properly entered your current password and that your new password and confirmation match.', 'error' );
-    header( "Location: settings.php" );
-    exit();
   }
 
   if ( was_posted('secret_question_form_submit') ) {
@@ -140,8 +128,6 @@
       display_notice( 'Secret question saved.', 'success' );
     else
       display_notice( 'Error saving secret question.', 'error' );
-    header( "Location: settings.php" );
-    exit();
   }
 
   if ( was_posted('log_advising_session_form_submit') ) {
@@ -159,21 +145,20 @@
       display_notice( 'Note saved.', 'success' );
     else
       display_notice( 'Error saving note.', 'error' );
-    $user_id = $_SESSION['viewing_user_id'];
-    header( "Location: student.php?tab=advising_notes&user_id=$user_id" );
-    exit();
-  }
-
-  if ( was_posted('display_notes_form_submit') ) {
-    Note::set_should_show_notes( $_POST['display_notes_form_submit'], true );
-    $user_id = $_SESSION['viewing_user_id'];
-    header( "Location: student.php?tab=advising_notes&user_id=$user_id" );
-    exit();
   }
 
   if ( $_GET['action'] == 'logout' ) {
     session_destroy();
     header('Location: index.php') ;
+    exit();
+
+  } elseif ( $_GET['action'] == 'get_current_student' ) {
+
+    $data = array();
+    $student = User::find_by_psid( $_SESSION['viewing_psid'] );
+    $data[ 'current_user' ] = current_user();
+    $data[ 'template' ] = STUDENT_TMPL;
+    echo $student->to_json( $data );
     exit();
 
   } elseif ( isset($_GET['student_search_term']) ) {
