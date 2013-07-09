@@ -55,6 +55,19 @@
 
       <div class="tab-pane" id="grad_requirements">
         <h3>Graduation requirements</h3>
+        <table class="table table-hover">
+          <% for ( var requirement in requirements ) { 
+            var course = requirements[requirement];
+          %>
+
+          <tr>
+            <td><%= requirement %></td>  
+            <td>Requirement not satisfied</td>
+            
+          </tr>
+
+          <% } %>
+        </table>
       </div><!-- #grad_requirements -->
 
       <div class="tab-pane" id="advising_sessions">

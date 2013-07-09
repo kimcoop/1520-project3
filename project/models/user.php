@@ -49,6 +49,14 @@
       $courses_by_department = UserCourse::find_by( 'department', $this->get_psid() );
       $json[ 'courses_by_department' ] = $courses_by_department;
 
+      $user_reqs = array();
+      $reqs = Requirement::find_all();
+      ksort( $reqs );
+      foreach( $reqs as $req ) {
+        $user_reqs[ $req->title ] = $req->get_satisfying_course( $this->get_psid() );
+      }
+      $json[ 'requirements' ] = $user_reqs;
+
       return json_encode( $json );
     }
 

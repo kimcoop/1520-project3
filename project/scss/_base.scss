@@ -29,3 +29,12 @@ $button-height-large: 38px;
 	clear: both;
 	line-height: 0;
 }
+
+.vertical-align-parent {
+  display: table;
+}
+
+.vertical-align-child {
+  display: table-cell;
+  vertical-align: middle;
+}

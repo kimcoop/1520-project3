@@ -11,3 +11,14 @@
   clear: both;
   line-height: 0;
 }
+
+/* line 33, ../scss/_base.scss */
+.vertical-align-parent {
+  display: table;
+}
+
+/* line 37, ../scss/_base.scss */
+.vertical-align-child {
+  display: table-cell;
+  vertical-align: middle;
+}

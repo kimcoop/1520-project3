@@ -12,6 +12,17 @@
   line-height: 0;
 }
 
+/* line 33, ../scss/_base.scss */
+.vertical-align-parent, .media {
+  display: table;
+}
+
+/* line 37, ../scss/_base.scss */
+.vertical-align-child, .media .media-body {
+  display: table-cell;
+  vertical-align: middle;
+}
+
 /* line 3, ../scss/_structure.scss */
 html, body {
   height: 100%;
@@ -125,6 +136,17 @@ footer, .push {
   line-height: 0;
 }
 
+/* line 33, ../scss/_base.scss */
+.vertical-align-parent, .media {
+  display: table;
+}
+
+/* line 37, ../scss/_base.scss */
+.vertical-align-child, .media .media-body {
+  display: table-cell;
+  vertical-align: middle;
+}
+
 /* line 3, ../scss/_typography.scss */
 h1, h2, h3, h4 {
   margin: 1em 0 .5em;
@@ -192,6 +214,17 @@ strong {
   line-height: 0;
 }
 
+/* line 33, ../scss/_base.scss */
+.vertical-align-parent, .media {
+  display: table;
+}
+
+/* line 37, ../scss/_base.scss */
+.vertical-align-child, .media .media-body {
+  display: table-cell;
+  vertical-align: middle;
+}
+
 /* line 3, ../scss/_links.scss */
 a {
   text-decoration: none;
@@ -235,6 +268,17 @@ a img {
   content: "";
   clear: both;
   line-height: 0;
+}
+
+/* line 33, ../scss/_base.scss */
+.vertical-align-parent, .media {
+  display: table;
+}
+
+/* line 37, ../scss/_base.scss */
+.vertical-align-child, .media .media-body {
+  display: table-cell;
+  vertical-align: middle;
 }
 
 /* line 3, ../scss/_forms.scss */
@@ -341,6 +385,17 @@ button.btn-large, .btn.btn-large {
   line-height: 0;
 }
 
+/* line 33, ../scss/_base.scss */
+.vertical-align-parent, .media {
+  display: table;
+}
+
+/* line 37, ../scss/_base.scss */
+.vertical-align-child, .media .media-body {
+  display: table-cell;
+  vertical-align: middle;
+}
+
 /* line 3, ../scss/_tables.scss */
 table {
   border-collapse: collapse;
@@ -375,6 +430,17 @@ table.table-hover tr:hover td {
   content: "";
   clear: both;
   line-height: 0;
+}
+
+/* line 33, ../scss/_base.scss */
+.vertical-align-parent, .media {
+  display: table;
+}
+
+/* line 37, ../scss/_base.scss */
+.vertical-align-child, .media .media-body {
+  display: table-cell;
+  vertical-align: middle;
 }
 
 /* line 3, ../scss/_nav.scss */
