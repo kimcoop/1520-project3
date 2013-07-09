@@ -22,6 +22,10 @@
     public function __toString() {
       return parent::make_date( $this->dashed_timestamp );
     }
+    
+    public function get_timestamp() {
+      return "$this";
+    }
 
     public function get_contents() {
       $filename = sprintf( "files/notes/%d:%s.txt", $this->psid, $this->dashed_timestamp );

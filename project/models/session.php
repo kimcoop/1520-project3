@@ -22,6 +22,10 @@
       return parent::make_date( $this->dashed_timestamp );
     }
 
+    public function get_timestamp() {
+      return "$this";
+    }
+
     public function get_author_full_name() {
       $author = User::find_by_user_id( $this->author_id );
       if ( $author )

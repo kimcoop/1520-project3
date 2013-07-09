@@ -49,6 +49,16 @@
       $courses_by_department = UserCourse::find_by( 'department', $this->get_psid() );
       $json[ 'courses_by_department' ] = $courses_by_department;
 
+      $json[ 'requirements' ] = $this->get_user_requirements();
+      $json[ 'sessions' ] = $this->get_sessions();
+      $json[ 'notes' ] = $this->get_notes();
+
+      return json_encode( $json );
+    }
+
+    public function get_user_requirements() {
+      $user_reqs = array();
+
       $user_reqs = array();
       $reqs = Requirement::find_all();
       ksort( $reqs );
@@ -57,9 +67,33 @@
         $user_reqs[ $req->title ] = $user_course ? "[S] " . $user_course->get_description() : "[N] Requirement not satisfied";
       }
 
-      $json[ 'requirements' ] = $user_reqs;
+      return $user_reqs;
+    }
 
-      return json_encode( $json );
+    public function get_sessions() {
+      $sessions = array();
+
+      $all_sessions = Session::find_all_by_psid( $this->get_psid() );
+      if ( !$all_sessions ) return;
+      foreach( $all_sessions as $session ) {
+        $sessions[] = array( 'advisor_full_name' => $session->get_author_full_name(), 
+                            'notes_count' => count( $session->notes() ),
+                            'date' => $session->get_timestamp() );
+      }
+      return $sessions;
+    }
+
+    public function get_notes() {
+      $notes = array();
+
+      $all_notes = Note::find_all_by_psid( $this->get_psid() );
+      if ( !$all_notes ) return;
+      foreach( $notes as $note ) {
+       $notes[] = array( 'advisor_full_name' => $note->get_author_full_name(),
+                                          'contents' => $note->get_contents(),
+                                          'date' => $note->get_timestamp() ); 
+      }
+      return $notes;
     }
 
     public function courses() {

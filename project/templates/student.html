@@ -67,10 +67,42 @@
 
       <div class="tab-pane" id="advising_sessions">
         <h3>Advising Sessions</h3>
+         <table class="table table-hover">
+          <thead>
+            <th></th>
+            <th>Date</th>
+            <th>Advisor</th>
+            <th># Notes</th>
+          </thead>
+         <% for ( var i = 0; i < sessions.length; i++ ) { %>
+          <tr>
+            <td class="muted"><%= i %></td>  
+            <td><%= sessions[i].date %></td>
+            <td><%= sessions[i].advisor_full_name %></td>  
+            <td><%= sessions[i].notes_count%></td>
+          </tr>
+          <% } %>
+        </table>
       </div><!-- #advising_sessions -->
 
       <div class="tab-pane" id="advising_notes">
         <h3>Advising Notes</h3>
+          <thead>
+            <th></th>
+            <th>Date</th>
+            <th>Advisor</th>
+            <th>Contents</th>
+          </thead>
+        <table class="table table-hover">
+         <% for ( var i = 0; i < notes.length; i++ ) { %>
+          <tr>
+            <td class="muted"><%= i %></td>  
+            <td><%= notes[i].date %></td>
+            <td><%= notes[i].advisor_full_name %></td>  
+            <td><%= notes[i].contents %></td>
+          </tr>
+          <% } %>
+        </table>
       </div><!-- #advising_notes -->
     </div><!-- .tab-content -->
   </div><!-- .main-content-->
