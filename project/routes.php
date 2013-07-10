@@ -195,6 +195,11 @@
   } elseif ( $_GET['action'] == 'get_current_user' ) {
     echo current_user()->to_json( NULL );
 
+  } elseif ( $_GET['action'] == 'get_users' ) {
+    $users = User::find_all();
+    usort( $users, 'sort_by_last_name' );
+    echo json_encode( $users );
+
   } elseif ( isset($_GET['search_course_form_submit']) ) {
     $department = strtoupper( $_GET['department'] );
     $course_number = $_GET['course_number'];

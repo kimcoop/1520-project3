@@ -52,6 +52,7 @@ ol, ul {
 
 #main {
   height: 100%;
+  overflow: hidden;
 }
 
 .container {
@@ -165,6 +166,7 @@ button.close {
 
 aside {
   margin-top: 15px;
+  width: 100%;
 }
 aside strong {
   margin-right: 0.2em;

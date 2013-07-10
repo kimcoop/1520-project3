@@ -2,24 +2,26 @@
   <div class="container nav-container">
     <ul class="nav nav-pills pull-right" id="nav">
       <li class="">
-        <a href="advisor_dashboard.html">Welcome, <%= full_name %></a>
+        <a href="#" class="link-home">Welcome, <%= full_name %></a>
       </li>
       
-      <li class="<%= ( is_admin ? "" : "hidden" ) %>">
-        <a href="admin.html">Admin</a>
-      </li>  
+      <% if ( is_admin ) { %>
+        <li>
+          <a href="#" id="link-admin" data="admin.html">Admin</a>
+        </li>
+      <% }  %>
       
       <li class="">
-        <a href="settings.html">Settings</a>
+        <a href="#" id="link-settings">Settings</a>
       </li>
 
       <li>
-        <a href="routes.php?action=logout">Logout</a>
+        <a href="#" id="link-logout">Logout</a>
       </li>
 
     </ul>
     <h3 class="title muted">
-      <a href="#">
+      <a href="#"  class="link-home">
       Advisor Cloud 3.0
       </a>
     </h3>

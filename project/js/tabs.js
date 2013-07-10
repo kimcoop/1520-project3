@@ -1,4 +1,3 @@
-
 var tabs = {
 
   init: function() {

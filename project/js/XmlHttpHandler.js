@@ -37,7 +37,7 @@ var xmlHttp = {
             data = JSON.parse( data );
           } catch ( error ) {
             alert( 'error parsing JSON data (console)' );
-            console.debug( data );
+            // console.debug( data );
           }
           callback( data );
         } else {
@@ -99,7 +99,7 @@ var xmlHttp = {
       url: formAction,
       data: dataString,
       callback: function( data ) {
-        applyView( data );
+        applyView( data.template, data );
         if ( form.name == 'signin_form' ) {
           showHeader( data );
         }
@@ -110,7 +110,6 @@ var xmlHttp = {
       dataObj.url = formAction + '?' + dataString; // format for GET
       this.get( dataObj );
     } else {
-      console.log( 'about to post data' );
       this.post( dataObj );
     }
   }

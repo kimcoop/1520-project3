@@ -67,6 +67,7 @@
   <script src="js/simpleTemplate.js"></script>
   <script src="js/tabs.js"></script>
   <script src="js/user.js"></script>
+  <script src="js/links.js"></script>
   <script type="text/javascript">
 
     window.Config = {
@@ -74,18 +75,11 @@
     }
     window.currentUser = {};
 
-    function viewStudent( psid ) {
-      xml.get({
-
-      });
-    }
-
-    function applyView( data ) {
+    function applyView( template, data ) {
       console.log('applyView. ');
-      console.debug( 'data template name: ', data.template );
-      console.debug( 'data from request:', data );
-      var container = data.template !== 'notice_tmpl' ? document.getElementById( 'main' ) : document.getElementById( 'notice' ), 
-        html = tmpl( data.template, data );
+      console.debug( arguments );
+      var container = template !== 'notice_tmpl' ? document.getElementById( 'main' ) : document.getElementById( 'notice' ), 
+        html = tmpl( template, data );
 
       container.innerHTML = html;
       initInteractions();
@@ -106,39 +100,14 @@
       xmlHttp.get({
         url: url,
         callback: function( data ) {
-          applyView( data );
+          applyView( data.template, data );
         }
       });
     }
 
     function showHeader( userData ) {
       window.currentUser = userData;
-      var header = document.getElementById( 'header' ),
-        html = tmpl( 'header_tmpl', window.currentUser );
-      header.innerHTML = html;
-       var nav = document.getElementById( 'nav' );
-      console.debug( 'nav:', nav );
-      if ( nav ) {
-        console.log(' LOADING NAV LINKS');
-        var navLinks = nav.getElementsByTagName( 'a' );
-        for ( var i=0; i < navLinks.length; i++ ) {
-          var link = navLinks[ i ];
-          link.onclick = function( event ) {
-            var e = event || window.event;
-            e.preventDefault();
-            var url = this.href.split("/").pop(), data = {};
-            data.template = url.replace( ".html", "_tmpl" );
-            applyView( data );
-          }
-        }
-      }
-    }
-
-    function getCurrentStudent() {
-      xmlHttp.get({
-        url: Config.url + 'routes.php?action=get_current_student',
-        callback: function( data ) { applyView( data ); }
-      });
+      links.initHeader();
     }
 
     function submitAndGetCurrentStudent( formId ) {
@@ -146,24 +115,21 @@
       if ( !form ) return;
       form.onsubmit = function( event ) {
         submitForm( form, event );
-        getCurrentStudent();
+        xmlHttp.get({
+          url: Config.url + 'routes.php?action=get_current_student',
+          callback: function( data ) { applyView( data.template, data ); }
+        });
       }
     }
 
     function initInteractions() {
       tabs.init();
+      links.init();
 
       var forms = document.getElementsByTagName( "form" );
       for ( var i=0; i < forms.length; i++ ) {
         forms[ i ].onsubmit = function( event ) {
           submitForm( this, event );
-        };
-      }
-
-      var links = document.getElementsByTagName( "a" );
-      for ( var i=0; i < links.length; i++ ) {
-        links[ i ].onclick = function( event ) {
-          clickLink( this, event );
         };
       }
 
@@ -192,6 +158,10 @@
   <script type="text/html" id="notice_tmpl"><?php include( 'templates/notice.html'); ?></script>
   <script type="text/html" id="header_tmpl"><?php include( 'templates/header.html'); ?></script>
   <script type="text/html" id="settings_tmpl"><?php include( 'templates/settings.html'); ?></script>
+  <script type="text/html" id="admin_tmpl"><?php include( 'templates/admin.html'); ?></script>
+
+  <script type="text/html" id="student_dashboard_tmpl"><?php //include( 'templates/student_dashboard.html'); ?></script>
+  <script type="text/html" id="logout_tmpl"><?php //include( 'templates/logout.html'); ?></script>
 
   </body>
 </html>
