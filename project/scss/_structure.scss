@@ -50,6 +50,11 @@ article, aside, figcaption, figure, footer, header, nav, section {
   display: block;
 }
 
+fieldset {
+  border: none;
+  padding: 0;
+}
+
 footer, .push {
   clear: both;
   height: 4em;
@@ -58,6 +63,8 @@ footer, .push {
 .main-content {
   width: $main-content-width;
   float: left;
+  padding-right: 30px;
+  // border-right: thin solid $super-light-grey;
 }
 
 .side-content {
@@ -162,4 +169,18 @@ aside {
   // float: none;
   // width: $form-small-width;
   // margin: 0 auto;
+}
+
+.half-column {
+  width: 45%;
+  margin-left: 30px;
+}
+
+.well {
+  float: left;
+  margin-left: 30px;
+}
+
+#row-settings {
+  margin-left: -30px;
 }

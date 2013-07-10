@@ -1,18 +1,16 @@
 <header>
   <div class="container nav-container">
-    <ul class="nav nav-pills pull-right">
+    <ul class="nav nav-pills pull-right" id="nav">
       <li class="">
-        <a href="#">
-          Welcome, <%= full_name %>
-        </a>
+        <a href="advisor_dashboard.html">Welcome, <%= full_name %></a>
       </li>
       
       <li class="<%= ( is_admin ? "" : "hidden" ) %>">
-        <a href="admin.php">Admin</a>
+        <a href="admin.html">Admin</a>
       </li>  
       
       <li class="">
-        <a href="settings.php">Settings</a>
+        <a href="settings.html">Settings</a>
       </li>
 
       <li>

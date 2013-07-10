@@ -71,6 +71,11 @@ article, aside, figcaption, figure, footer, header, nav, section {
   display: block;
 }
 
+fieldset {
+  border: none;
+  padding: 0;
+}
+
 footer, .push {
   clear: both;
   height: 4em;
@@ -79,6 +84,7 @@ footer, .push {
 .main-content {
   width: 700px;
   float: left;
+  padding-right: 30px;
 }
 
 .side-content {
@@ -168,4 +174,18 @@ aside strong {
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   border-radius: 50%;
+}
+
+.half-column {
+  width: 45%;
+  margin-left: 30px;
+}
+
+.well {
+  float: left;
+  margin-left: 30px;
+}
+
+#row-settings {
+  margin-left: -30px;
 }

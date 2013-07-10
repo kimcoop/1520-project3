@@ -102,7 +102,7 @@
       e.preventDefault();
       var url = link.href, data = {};
       if ( url.indexOf( "?" ) > -1 )
-        url = url.split( "/" ).pop(),
+        url = url.split( "/" ).pop();
       xmlHttp.get({
         url: url,
         callback: function( data ) {
@@ -113,10 +113,25 @@
 
     function showHeader( userData ) {
       window.currentUser = userData;
-      console.debug('showHeader user:', window.currentUser );
       var header = document.getElementById( 'header' ),
         html = tmpl( 'header_tmpl', window.currentUser );
       header.innerHTML = html;
+       var nav = document.getElementById( 'nav' );
+      console.debug( 'nav:', nav );
+      if ( nav ) {
+        console.log(' LOADING NAV LINKS');
+        var navLinks = nav.getElementsByTagName( 'a' );
+        for ( var i=0; i < navLinks.length; i++ ) {
+          var link = navLinks[ i ];
+          link.onclick = function( event ) {
+            var e = event || window.event;
+            e.preventDefault();
+            var url = this.href.split("/").pop(), data = {};
+            data.template = url.replace( ".html", "_tmpl" );
+            applyView( data );
+          }
+        }
+      }
     }
 
     function getCurrentStudent() {
@@ -176,6 +191,7 @@
   <script type="text/html" id="student_tmpl"><?php include( 'templates/student.html'); ?></script>
   <script type="text/html" id="notice_tmpl"><?php include( 'templates/notice.html'); ?></script>
   <script type="text/html" id="header_tmpl"><?php include( 'templates/header.html'); ?></script>
+  <script type="text/html" id="settings_tmpl"><?php include( 'templates/settings.html'); ?></script>
 
   </body>
 </html>
