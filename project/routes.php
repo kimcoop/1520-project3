@@ -88,29 +88,20 @@
   }
   
   if ( was_posted('delete_user_form_submit') ) {
-    if ( User::delete_by_psid( $_POST['psid']))
+    if ( User::delete_by_psid( $_POST['psid'] ) )
       display_notice( 'User deleted.', 'success' );
     else
       display_notice( 'Error deleting user.', 'error' );
   }
 
   if ( was_posted('add_course_form_submit')) {
-    $file = $_POST['filename'];
-    if ( !$file ) {
-      display_notice( "Filename must not be empty.", 'error' );
+    if ( $file = Uploader::upload() ) {
+      $additions = Course::handle_upload( $file );
+      display_notice( "$additions new ". ( $additions == 1 ? "course" : "courses" ) ." added from file.", 'success' );
+    } else {
+      display_notice( "Error uploading file.", 'error' );
+      return;
     }
-    if ( !file_exists( $file )) {
-      display_notice( "File <strong>$file</strong> not found.", 'error' );
-    }
-    $objects = file( $file );
-    $additions = 0;
-    foreach( $objects as $line ) {
-      $object = Course::load_from_file( $line );
-      if ( DB::insert( 'courses', $object ))
-        $additions += 1;
-    }
-    $pluralizer = $additions == 1 ? "course" : "courses";
-    display_notice( "$additions new $pluralizer added from file <strong>$file.</strong>", 'success' );
   }
 
 
@@ -213,9 +204,6 @@
   } else {
     $str = 'Route '. $_GET['action'] .' not recognized.';
     display_notice( $str, 'error' );
-    header('Location: index.php') ;
-    exit();
-
   }
 
 ?>

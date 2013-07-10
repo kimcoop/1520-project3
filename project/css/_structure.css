@@ -78,7 +78,7 @@ ol, ul {
 }
 
 .container {
-  width: 700px;
+  width: 800px;
   min-height: 100%;
   height: auto !important;
   height: 100%;
@@ -108,12 +108,12 @@ footer p, .push p {
 }
 
 .main-content {
-  width: 435px;
+  width: 535px;
   float: left;
   padding-right: 30px;
 }
 .main-content.wider {
-  width: 470px;
+  width: 570px;
 }
 
 .side-content {

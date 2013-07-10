@@ -52,12 +52,13 @@ var xmlHttp = {
   post: function( dataObj ) {
     var url = dataObj.url, 
         data = dataObj.data,
+        ecType = dataObj.ectype || "application/x-www-form-urlencoded",
         async = dataObj.async || true, 
         callback = dataObj.callback;
 
     var xmlHttp = this.create();
     xmlHttp.open( 'post', url, async );
-    xmlHttp.setRequestHeader( "Content-Type", "application/x-www-form-urlencoded" );
+    xmlHttp.setRequestHeader( "Content-Type", ecType );
     xmlHttp.send( data );
     xmlHttp.onreadystatechange = function() {
       if ( xmlHttp.readyState === 4 ) {
@@ -81,7 +82,8 @@ var xmlHttp = {
 
   submitForm: function( form ) {
     var formAction = form.action, 
-      formMethod = form.method;
+      formMethod = form.method,
+      ectype = form.ectype;
     var dataArray = [], 
       dataString = '', 
       dataObj = {};

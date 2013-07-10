@@ -63,14 +63,14 @@
     <div class="row row-admin">
       <div class="span3 well">
         <h3>Load courses from file</h3>
-        <form action="routes.php" method="post" name="add_course_form">
-
+        <form enctype="multipart/form-data" action="routes.php" method="post" name="add_course_form">
           <fieldset>
-            <label>Filename</label>
-            <input type="text" placeholder="Filename" name="filename">
+            <label>File to upload:</label>
+            <input type="hidden" name="MAX_FILE_SIZE" value="100000" />
+            <input name="uploaded_file_name" type="file" /><br />
             <br>
             <br>
-            <button name="add_course_form_submit" type="submit" class="btn btn-large btn-primary btn-block">Load file</button>
+            <button name="add_course_form_submit" type="submit" class="btn btn-large btn-primary btn-block">Submit file</button>
           </fieldset>
         </form>
       </div><!-- .span -->

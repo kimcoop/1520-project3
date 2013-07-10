@@ -108,6 +108,18 @@
       return $course;
     }
 
+    public static function handle_upload( $file ) {
+      $objects = file( $file );
+      return $objects;
+      $additions = 0;
+      foreach( $objects as $line ) {
+        $object = Course::load_from_file( $line );
+        if ( DB::insert( 'courses', $object ))
+          $additions += 1;
+      }
+      return $additions;
+    }
+
     public static function load_from_file( $line ) {
       $pieces = explode( ":", $line );
       $course = new Course();

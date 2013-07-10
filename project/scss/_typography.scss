@@ -20,6 +20,11 @@ h1, h2, h3 {
   line-height: 0.8em;
 }
 
+
+h1, h2 {
+  @extend .text-primary;
+}
+
 h1 {
   font-size: 3em;
 }
@@ -65,4 +70,8 @@ p {
 
 .muted {
   color: $medium-grey;
+}
+
+.text-primary {
+  color: $primary;
 }
