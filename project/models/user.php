@@ -338,6 +338,8 @@
     }
 
     public static function signin( $user_id, $password ) {
+      session_destroy(); // if there was one somehow, destroy it
+      
       $hashed_password = hash( 'sha256', $password );
       if ( self::password_is_correct( $user_id, $hashed_password ) ) {
         $user = self::find_by_user_id( $user_id );

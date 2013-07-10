@@ -91,20 +91,6 @@
       xmlHttp.submitForm( form );
     }
 
-    function clickLink( link, event ) {
-      var e = event || window.event;
-      e.preventDefault();
-      var url = link.href, data = {};
-      if ( url.indexOf( "?" ) > -1 )
-        url = url.split( "/" ).pop();
-      xmlHttp.get({
-        url: url,
-        callback: function( data ) {
-          applyView( data.template, data );
-        }
-      });
-    }
-
     function showHeader( userData ) {
       window.currentUser = userData;
       links.initHeader();
@@ -124,7 +110,8 @@
 
     function initInteractions() {
       tabs.init();
-      links.init();
+      if ( window.currentUser )
+        links.init();
 
       var forms = document.getElementsByTagName( "form" );
       for ( var i=0; i < forms.length; i++ ) {
@@ -135,7 +122,6 @@
 
       var closeButtons = document.getElementsByClassName( 'close' );
       if ( closeButtons ) {
-        console.log(' setting closeButtons hook');
         for ( var i=0; i < closeButtons.length; i++ ) {
           closeButtons[ i ].onclick = function( event ) {
             event.target.parentNode.className += " hidden";

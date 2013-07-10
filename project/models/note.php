@@ -34,13 +34,6 @@
       else
         return "file not found";
     }
-  
-    public function should_show() {
-      if ( !isset( $_SESSION['should_show_notes'] ) || !isset( $_SESSION['should_show_notes'][ $this->id ] ) )
-        return false;
-      else 
-        return $_SESSION['should_show_notes'][ $this->id ];
-    }
 
     public function get_author() {
       $author = User::find_by_user_id( $this->author_id );
@@ -49,7 +42,6 @@
       else
         return "Author not found";
     }
-
 
     public function get_author_full_name() {
       $author = User::find_by_user_id( $this->author_id );

@@ -9,7 +9,6 @@
 
 
   if ( isset($_POST['signin_form_submit']) ) {
-
     $user = User::signin( $_POST['user_id'], $_POST['password'] );
         
     if ( is_logged_in() ) {
@@ -17,8 +16,7 @@
       $data[ 'template' ] = get_root_view();
       echo current_user()->to_json( $data );
     } else {
-      // display_notice( 'Error logging in.', 'error' );
-      // header( 'Location: index.php' );
+      display_notice( 'Error logging in.', 'error' );
     }
     exit();
   }

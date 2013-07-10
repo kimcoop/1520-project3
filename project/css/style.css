@@ -68,7 +68,7 @@ ol, ul {
   line-height: 1.8em;
 }
 
-article, aside, figcaption, figure, footer, header, nav, section {
+article, aside, figcaption, figure, footer, header, nav, section, label {
   display: block;
 }
 

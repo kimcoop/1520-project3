@@ -4,7 +4,17 @@ var links = {
     var links = main.getElementsByTagName( "a" );
     for ( var i=0; i < links.length; i++ ) {
       links[ i ].onclick = function( event ) {
-        clickLink( this, event );
+        var e = event || window.event;
+        e.preventDefault();
+        var url = this.href, data = {};
+        if ( url.indexOf( "?" ) > -1 )
+          url = url.split( "/" ).pop();
+        xmlHttp.get({
+          url: url,
+          callback: function( data ) {
+            applyView( data.template, data );
+          }
+        });
       };
     }
     var homeLinks = document.getElementsByClassName( 'link-home' );
@@ -37,7 +47,7 @@ var links = {
           xmlHttp.get({
             url: Config.url + 'routes.php?action=get_users',
             callback: function( data ) {
-              applyView( 'admin_tmpl', data );
+              applyView( 'admin_tmpl', { users: data } );
             }
           });
         }
@@ -52,8 +62,12 @@ var links = {
       logoutLink.onclick = function( event ) {
         var e = event || window.event;
         e.preventDefault();
-        console.log('todo: logout');
-        // applyView( 'logout_tmpl', {} ); // TODO
+        xmlHttp.get({
+          url: Config.url + 'routes.php?action=logout',
+          callback: function( data ) {
+            location.href = 'index.php';
+          }
+        });
       }
     
   }
