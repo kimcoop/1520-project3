@@ -29,6 +29,7 @@
       $json[ 'logging_session_id' ] = $this->logging_session_id;
       $json[ 'is_admin' ] = $this->is_admin();
       $json[ 'full_name' ] = $this->get_full_name();
+      $json[ 'first_name' ] = $this->get_first_name();
       $json[ 'role' ] = $this->get_role();
       $json[ 'gravatar' ] = $this->get_gravatar();
       $json[ 'user_id' ] = $this->user_id;
@@ -339,7 +340,7 @@
 
     public static function signin( $user_id, $password ) {
       session_destroy(); // if there was one somehow, destroy it
-      
+
       $hashed_password = hash( 'sha256', $password );
       if ( self::password_is_correct( $user_id, $hashed_password ) ) {
         $user = self::find_by_user_id( $user_id );

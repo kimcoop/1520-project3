@@ -12,6 +12,7 @@ var links = {
         xmlHttp.get({
           url: url,
           callback: function( data ) {
+            console.log( 'jsut got data from a normal link at URL ', url);
             applyView( data.template, data );
           }
         });
@@ -39,37 +40,25 @@ var links = {
     var settingsLink = document.getElementById( 'link-settings' ),
       logoutLink = document.getElementById( 'link-logout' );
 
-      if ( window.currentUser.is_admin ) {
-        var adminLink = document.getElementById( 'link-admin' );
-        adminLink.onclick = function( event ) {
-          var e = event || window.event;
-          e.preventDefault();
-          xmlHttp.get({
-            url: Config.url + 'routes.php?action=get_users',
-            callback: function( data ) {
-              applyView( 'admin_tmpl', { users: data } );
-            }
-          });
-        }
-      }
-      
-      settingsLink.onclick = function( event ) {
-        var e = event || window.event;
-        e.preventDefault();
-        applyView( 'settings_tmpl', window.currentUser );
-      }
-      
-      logoutLink.onclick = function( event ) {
+    if ( window.currentUser.is_admin ) {
+      var adminLink = document.getElementById( 'link-admin' );
+      adminLink.onclick = function( event ) {
         var e = event || window.event;
         e.preventDefault();
         xmlHttp.get({
-          url: Config.url + 'routes.php?action=logout',
+          url: Config.url + 'routes.php?action=get_users',
           callback: function( data ) {
-            location.href = 'index.php';
+            applyView( 'admin_tmpl', { users: data } );
           }
         });
       }
-    
+    }
+      
+    settingsLink.onclick = function( event ) {
+      var e = event || window.event;
+      e.preventDefault();
+      applyView( 'settings_tmpl', window.currentUser );
+    }
   }
   
 }

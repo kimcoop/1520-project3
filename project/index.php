@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     
-    <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Droid+Sans|Droid+Serif' rel='stylesheet' type='text/css'>
     <link href="css/style.css" rel="stylesheet">
     
   </head>
@@ -78,11 +78,13 @@
     function applyView( template, data ) {
       console.log('applyView. ');
       console.debug( arguments );
-      var container = template !== 'notice_tmpl' ? document.getElementById( 'main' ) : document.getElementById( 'notice' ), 
-        html = tmpl( template, data );
+      if ( template && data ) {
+        var container = template !== 'notice_tmpl' ? document.getElementById( 'main' ) : document.getElementById( 'notice' ), 
+          html = tmpl( template, data );
 
-      container.innerHTML = html;
-      initInteractions();
+        container.innerHTML = html;
+        initInteractions();
+      }
     }
 
     function submitForm( form, event ) {
@@ -109,9 +111,10 @@
     }
 
     function initInteractions() {
-      tabs.init();
-      if ( window.currentUser )
+      if ( window.currentUser ) {
         links.init();
+        tabs.init(); // must overwrite some links
+      }
 
       var forms = document.getElementsByTagName( "form" );
       for ( var i=0; i < forms.length; i++ ) {
@@ -146,8 +149,7 @@
   <script type="text/html" id="settings_tmpl"><?php include( 'templates/settings.html'); ?></script>
   <script type="text/html" id="admin_tmpl"><?php include( 'templates/admin.html'); ?></script>
 
-  <script type="text/html" id="student_dashboard_tmpl"><?php //include( 'templates/student_dashboard.html'); ?></script>
-  <script type="text/html" id="logout_tmpl"><?php //include( 'templates/logout.html'); ?></script>
+  <script type="text/html" id="student_dashboard_tmpl"><?php include( 'templates/student_dashboard.html'); ?></script>
 
   </body>
 </html>
