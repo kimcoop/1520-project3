@@ -2,10 +2,8 @@
   <div class="main-content">
     
     <div class="hgroup">
-      <h1>
-        <%= full_name %>
-        <small>Student details</small>
-      </h1>
+      <h1><%= full_name %></h1>
+      <h1 class="muted">Student details</h1>
     </div><!-- .hgroup -->
 
     <ul class="nav nav-tabs">
@@ -146,10 +144,12 @@
 
       <br>
 
-      <p><strong>PeopleSoft #:</strong><%= psid %></p>
-      <p><strong>Email:</strong><%= email %></p>
-      <p><strong>Courses Taken:</strong><%= total_courses_taken %></p>
-      <p><strong>GPA:</strong><%= gpa %></p>
+      <strong>PeopleSoft #:</strong><%= psid %><br>
+      <strong>Email:</strong><%= email %><br>
+      <strong>Courses Taken:</strong><%= total_courses_taken %><br>
+      <strong>GPA:</strong><%= gpa %><br>
+
+      <br>
 
       <!-- hidden if we're logging the current session -->
       <div class="<%= ( current_user.is_logging_session ? "hidden" : "" ) %>">

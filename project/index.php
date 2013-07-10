@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     
-    <link href='http://fonts.googleapis.com/css?family=Droid+Sans|Droid+Serif' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Droid+Sans|Source+Sans+Pro:300,900' rel='stylesheet' type='text/css'>
     <link href="css/style.css" rel="stylesheet">
     
   </head>
@@ -20,10 +20,11 @@
 
           <form class="form-signin" action="routes.php" name="signin_form" method="post">
 
-            <br>
-            <br>
 
-            <h2 class="text-center form-signin-heading">Welcome to Advisor Cloud</h2>
+            <br>
+            <br>
+            <h1 class="text-center form-signin-heading">Welcome to Advisor Cloud</h1>
+            <br>
 
             <?php if (isset($_COOKIE['user_id'])): ?>
 

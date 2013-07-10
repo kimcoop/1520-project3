@@ -8,22 +8,30 @@ h1, h2, h3, h4 {
   font-weight: lighter;
   color: $secondary;
   letter-spacing: -1px;
-  // font-family:'Droid Serif', 'times';
   small {
     color: $medium-grey;
   }
 }
 
+h1, h2, h3 {
+  @extend .font-secondary;
+  color: $dark-grey;
+  margin: 0;
+  line-height: 0.8em;
+}
+
 h1 {
-  font-size: 2em;
+  font-size: 3em;
 }
 
 h2 {
-  font-size: 1.5em;
+  font-size: 2em;
 }
 
 h3 {
-  font-size: 1.2em;
+  font-size: 1.5em;
+  margin: 1em 0 0;
+  color: #999;
 }
 
 h4 {

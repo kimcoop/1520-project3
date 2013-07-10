@@ -5,6 +5,28 @@
   line-height: 20px;
 }
 
+.font-secondary, h1, h2, h3 {
+  font-family: "Source Sans Pro", helvetica, sans-serif;
+  font-weight: 900;
+}
+
+.big {
+  font-family: "Source Sans Pro",helvetica,sans-serif;
+  font-weight: 300;
+  font-size: 1.2em;
+  line-height: 1.4;
+  list-style: none;
+  margin: 0.2em 0 1em;
+  padding: 0;
+  color: #46403b;
+}
+
+.transparent {
+  zoom: 1;
+  filter: alpha(opacity=50);
+  opacity: 0.5;
+}
+
 .clearfix {
   content: "";
   clear: both;
@@ -33,16 +55,24 @@ h1 small, h2 small, h3 small, h4 small {
   color: #dddddd;
 }
 
+h1, h2, h3 {
+  color: #46403b;
+  margin: 0;
+  line-height: 0.8em;
+}
+
 h1 {
-  font-size: 2em;
+  font-size: 3em;
 }
 
 h2 {
-  font-size: 1.5em;
+  font-size: 2em;
 }
 
 h3 {
-  font-size: 1.2em;
+  font-size: 1.5em;
+  margin: 1em 0 0;
+  color: #999;
 }
 
 h4 {

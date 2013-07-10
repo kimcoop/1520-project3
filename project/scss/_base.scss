@@ -2,14 +2,17 @@
 
 $font-family: 'Droid Sans', arial;
 $normal: 14px;
+$font-seconday: "Source Sans Pro",helvetica,sans-serif;
+
+
 $color: #555;
 $primary: rgb(66, 184, 221); // light blue
-// $secondary: #129FEA;
 $secondary: #007d9a;
 $primary-focus: $secondary;
 $super-light-grey: #f3f3f3;
 $light-grey: #efefef;
 $medium-grey: #ddd;
+$dark-grey: #46403b;
 
 $success-background: #dff0d8;
 $success-border: #d6e9c6;
@@ -18,20 +21,46 @@ $error-background: #f2dede;
 $error-border: #eed3d7;
 $error-color: #b94a48;
 
-$side-content-width: 240px;
-$main-content-width: 700px;
+$container-width: 700px;
+$main-content-wider: 470px;
+$side-content-smaller: 170px;
+$main-content-width: 435px;
+$side-content-width: 210px;
 $input-small-width: 90px;
 $input-large-width: 300px;
 $form-small-width: 300px;
 
 $button-height: 36px;
 $button-height-large: 46px;
+$header-height: 70px;
 
 .font {
   font-family: $font-family;
   font-size: $normal;
   color: $color;
   line-height: 20px;
+}
+
+.font-secondary {
+  font-family: $font-seconday;
+  font-weight: 900;
+}
+
+.big {
+  font-family: "Source Sans Pro",helvetica,sans-serif;
+  font-weight: 300;
+  font-size: 1.2em;
+  line-height: 1.4;
+  list-style: none;
+  margin: 0.2em 0 1em;
+  padding: 0;
+  color: $dark-grey;
+}
+
+.transparent {
+  zoom: 1;
+  filter: alpha(opacity=50);
+  opacity: 0.5;
 }
 
 .clearfix {

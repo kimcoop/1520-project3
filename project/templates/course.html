@@ -1,12 +1,8 @@
 <div class="row">
-  <div class="main-content">
+  <div class="main-content wider">
     
     <div class="hgroup">
       <h2>
-        <span class="icon-stack">
-          <i class="icon-circle icon-stack-base"></i>
-          <i class="icon-pencil icon-light"></i>
-        </span>
           <%= full_name %>
         <small>Course details</small>
       </h2>
@@ -47,21 +43,19 @@
   -->
 
 
-  <div class="side-content">
+  <div class="side-content smaller">
     <aside>
       <h4 class="title">Current Report</h4>
 
-        <p>
-          <strong>Title:</strong>
-          <%= full_name %></p>
-        <p>
-          <strong>Average GPA:</strong>
-          <%= average_gpa %>
-        </p>
-        <p>
-          <strong>Total Students:</strong>
-          <%= total_students %>
-        </p>
+        <strong>Title:</strong>
+        <%= full_name %>
+        <br>
+        <strong>Average GPA:</strong>
+        <%= average_gpa %>
+        <br>
+        <strong>Total Students:</strong>
+        <%= total_students %>
+        <br>
 
       <a href="" class="link-home btn btn-block btn-primary">Back to search</a>
     </aside>

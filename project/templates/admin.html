@@ -13,23 +13,23 @@
 
 <div class="tab-content">
   <div class="tab-pane active" id="users">
-    <div class="row">
+    <div class="row row-admin">
       <div class="half-column well">
         <h3>Add user</h3>
         <form action="routes.php" method="post" name="add_user_form">
           <fieldset>
             <label>Email</label>
-            <input type="text" placeholder="Email" name="email">
+            <input type="text" class="input-block-level" placeholder="Email" name="email">
             <label>First name</label>
-            <input type="text" placeholder="First name" name="first_name">
+            <input type="text" class="input-block-level" placeholder="First name" name="first_name">
             <label>Last name</label>
-            <input type="text" placeholder="Last name" name="last_name">
+            <input type="text" class="input-block-level" placeholder="Last name" name="last_name">
             <label>Password</label>
-            <input type="text" placeholder="Password" name="password">
+            <input type="text" class="input-block-level" placeholder="Password" name="password">
             <label>PeopleSoft #</label>
-            <input type="text" placeholder="PeopleSoft #" name="psid">
+            <input type="text" class="input-block-level" placeholder="PeopleSoft #" name="psid">
             <label>User ID</label>
-            <input type="text" placeholder="User ID" name="user_id">
+            <input type="text" class="input-block-level" placeholder="User ID" name="user_id">
             <label>Access level</label>
             <select class="input-block-level" name="access_level">
               <option value="0">0 - Student</option>
@@ -60,7 +60,7 @@
     </div><!-- .row -->
   </div><!-- #users.tab-pane -->
   <div class="tab-pane" id="courses">
-    <div class="row">
+    <div class="row row-admin">
       <div class="span3 well">
         <h3>Load courses from file</h3>
         <form action="routes.php" method="post" name="add_course_form">

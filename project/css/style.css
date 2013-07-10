@@ -5,6 +5,28 @@
   line-height: 20px;
 }
 
+.font-secondary, h1, h2, h3 {
+  font-family: "Source Sans Pro", helvetica, sans-serif;
+  font-weight: 900;
+}
+
+.big, .hgroup p {
+  font-family: "Source Sans Pro",helvetica,sans-serif;
+  font-weight: 300;
+  font-size: 1.2em;
+  line-height: 1.4;
+  list-style: none;
+  margin: 0.2em 0 1em;
+  padding: 0;
+  color: #46403b;
+}
+
+.transparent {
+  zoom: 1;
+  filter: alpha(opacity=50);
+  opacity: 0.5;
+}
+
 .clearfix, .row:after, .media:after {
   content: "";
   clear: both;
@@ -56,7 +78,7 @@ ol, ul {
 }
 
 .container {
-  width: 1000px;
+  width: 700px;
   min-height: 100%;
   height: auto !important;
   height: 100%;
@@ -64,7 +86,7 @@ ol, ul {
   padding: 10px;
 }
 .container.main {
-  margin: 0 auto -4em;
+  margin: 70px auto -4em;
   line-height: 1.8em;
 }
 
@@ -81,17 +103,30 @@ footer, .push {
   clear: both;
   height: 4em;
 }
+footer p, .push p {
+  color: #999;
+}
 
 .main-content {
-  width: 700px;
+  width: 435px;
   float: left;
   padding-right: 30px;
 }
+.main-content.wider {
+  width: 470px;
+}
 
 .side-content {
-  width: 240px;
+  width: 210px;
   margin-left: 30px;
   float: left;
+}
+.side-content.smaller {
+  width: 170px;
+}
+
+.row {
+  overflow: hidden;
 }
 
 .media {
@@ -188,8 +223,13 @@ aside strong {
   margin-left: 30px;
 }
 
-#row-settings {
+#row-settings, .row-admin {
   margin-left: -30px;
+}
+
+.hgroup {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .font, body, input[type=text], input[type=password], input[type=email], input[type=url], input[type=date], input[type=month], input[type=time], input[type=datetime], input[type=datetime-local], input[type=week], input[type=number], input[type=search], input[type=tel], input[type=color], select, textarea, button, .btn {
@@ -197,6 +237,28 @@ aside strong {
   font-size: 14px;
   color: #555555;
   line-height: 20px;
+}
+
+.font-secondary, h1, h2, h3 {
+  font-family: "Source Sans Pro", helvetica, sans-serif;
+  font-weight: 900;
+}
+
+.big, .hgroup p {
+  font-family: "Source Sans Pro",helvetica,sans-serif;
+  font-weight: 300;
+  font-size: 1.2em;
+  line-height: 1.4;
+  list-style: none;
+  margin: 0.2em 0 1em;
+  padding: 0;
+  color: #46403b;
+}
+
+.transparent {
+  zoom: 1;
+  filter: alpha(opacity=50);
+  opacity: 0.5;
 }
 
 .clearfix, .row:after, .media:after {
@@ -227,16 +289,24 @@ h1 small, h2 small, h3 small, h4 small {
   color: #dddddd;
 }
 
+h1, h2, h3 {
+  color: #46403b;
+  margin: 0;
+  line-height: 0.8em;
+}
+
 h1 {
-  font-size: 2em;
+  font-size: 3em;
 }
 
 h2 {
-  font-size: 1.5em;
+  font-size: 2em;
 }
 
 h3 {
-  font-size: 1.2em;
+  font-size: 1.5em;
+  margin: 1em 0 0;
+  color: #999;
 }
 
 h4 {
@@ -279,6 +349,28 @@ p {
   font-size: 14px;
   color: #555555;
   line-height: 20px;
+}
+
+.font-secondary, h1, h2, h3 {
+  font-family: "Source Sans Pro", helvetica, sans-serif;
+  font-weight: 900;
+}
+
+.big, .hgroup p {
+  font-family: "Source Sans Pro",helvetica,sans-serif;
+  font-weight: 300;
+  font-size: 1.2em;
+  line-height: 1.4;
+  list-style: none;
+  margin: 0.2em 0 1em;
+  padding: 0;
+  color: #46403b;
+}
+
+.transparent {
+  zoom: 1;
+  filter: alpha(opacity=50);
+  opacity: 0.5;
 }
 
 .clearfix, .row:after, .media:after {
@@ -339,6 +431,28 @@ a img {
   font-size: 14px;
   color: #555555;
   line-height: 20px;
+}
+
+.font-secondary, h1, h2, h3 {
+  font-family: "Source Sans Pro", helvetica, sans-serif;
+  font-weight: 900;
+}
+
+.big, .hgroup p {
+  font-family: "Source Sans Pro",helvetica,sans-serif;
+  font-weight: 300;
+  font-size: 1.2em;
+  line-height: 1.4;
+  list-style: none;
+  margin: 0.2em 0 1em;
+  padding: 0;
+  color: #46403b;
+}
+
+.transparent {
+  zoom: 1;
+  filter: alpha(opacity=50);
+  opacity: 0.5;
 }
 
 .clearfix, .row:after, .media:after {
@@ -437,11 +551,37 @@ button.btn-large, .btn.btn-large {
   margin: 0 auto;
 }
 
+label {
+  margin: 1.2em 0 0;
+}
+
 .font, body, input[type=text], input[type=password], input[type=email], input[type=url], input[type=date], input[type=month], input[type=time], input[type=datetime], input[type=datetime-local], input[type=week], input[type=number], input[type=search], input[type=tel], input[type=color], select, textarea, button, .btn {
   font-family: "Droid Sans", arial;
   font-size: 14px;
   color: #555555;
   line-height: 20px;
+}
+
+.font-secondary, h1, h2, h3 {
+  font-family: "Source Sans Pro", helvetica, sans-serif;
+  font-weight: 900;
+}
+
+.big, .hgroup p {
+  font-family: "Source Sans Pro",helvetica,sans-serif;
+  font-weight: 300;
+  font-size: 1.2em;
+  line-height: 1.4;
+  list-style: none;
+  margin: 0.2em 0 1em;
+  padding: 0;
+  color: #46403b;
+}
+
+.transparent {
+  zoom: 1;
+  filter: alpha(opacity=50);
+  opacity: 0.5;
 }
 
 .clearfix, .row:after, .media:after {
@@ -482,6 +622,28 @@ table.table-hover tr:hover td {
   line-height: 20px;
 }
 
+.font-secondary, h1, h2, h3 {
+  font-family: "Source Sans Pro", helvetica, sans-serif;
+  font-weight: 900;
+}
+
+.big, .hgroup p {
+  font-family: "Source Sans Pro",helvetica,sans-serif;
+  font-weight: 300;
+  font-size: 1.2em;
+  line-height: 1.4;
+  list-style: none;
+  margin: 0.2em 0 1em;
+  padding: 0;
+  color: #46403b;
+}
+
+.transparent {
+  zoom: 1;
+  filter: alpha(opacity=50);
+  opacity: 0.5;
+}
+
 .clearfix, .row:after, .media:after {
   content: "";
   clear: both;
@@ -497,17 +659,40 @@ table.table-hover tr:hover td {
   vertical-align: middle;
 }
 
-.nav-pills {
-  list-style: none;
+header {
+  height: 70px;
+  width: 100%;
+  padding-bottom: 0;
+  position: fixed;
+  top: 0;
+  background: #fff;
+  border-bottom: thin solid #f3f3f3;
 }
-.nav-pills li {
+header .nav-container {
+  padding: 0;
+}
+header .nav-container .title {
+  margin: 0;
   display: inline-block;
+  line-height: 70px;
+}
+
+#nav {
+  list-style: none;
+  display: table;
+}
+#nav li {
+  display: inline-block;
+  line-height: 70px;
   margin: 0 2px;
 }
-.nav-pills li a {
+#nav li a {
   padding: 0 1em;
 }
 
+.nav-tabs {
+  margin-bottom: 10px;
+}
 .nav-tabs li {
   -webkit-transition: all 300ms ease;
   -moz-transition: all 300ms ease;

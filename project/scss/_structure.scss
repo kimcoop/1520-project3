@@ -35,14 +35,14 @@ ol, ul {
 }
 
 .container {
-  width: 1000px;
+  width: $container-width;
   min-height: 100%;
   height: auto !important;
   height: 100%;
   margin: 0 auto;
   padding: 10px;
   &.main {
-    margin: 0 auto -4em;
+    margin: $header-height auto -4em;
     line-height: 1.8em;
   }
 }
@@ -59,22 +59,31 @@ fieldset {
 footer, .push {
   clear: both;
   height: 4em;
+  p {
+    color: #999;
+  }
 }
 
 .main-content {
   width: $main-content-width;
   float: left;
   padding-right: 30px;
-  // border-right: thin solid $super-light-grey;
+  &.wider {
+    width: $main-content-wider;
+  }
 }
 
 .side-content {
   width: $side-content-width;
   margin-left: 30px;
   float: left;
+  &.smaller {
+    width: $side-content-smaller;
+  }
 }
 
 .row {
+  overflow: hidden;
   &:after {
     @extend .clearfix;
   }
@@ -183,6 +192,14 @@ aside {
   margin-left: 30px;
 }
 
-#row-settings {
+#row-settings, .row-admin {
   margin-left: -30px;
+}
+
+.hgroup {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  p {
+    @extend .big;
+  }
 }
