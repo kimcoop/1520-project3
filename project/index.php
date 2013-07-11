@@ -71,74 +71,8 @@
   <script src="js/user.js"></script>
   <script src="js/links.js"></script>
   <script src="js/forms.js"></script>
-  <script type="text/javascript">
-
-    window.Config = {
-      url: 'http://localhost:8888/1520-project3/project/'
-    }
-    window.currentUser = {};
-
-    function applyView( template, data ) {
-      console.log('applyView. ');
-      console.debug( arguments );
-      if ( template && data ) {
-        var container = template !== 'notice_tmpl' ? document.getElementById( 'main' ) : document.getElementById( 'notice' ), 
-          html = tmpl( template, data );
-
-        container.innerHTML = html;
-        initInteractions();
-      }
-    }
-
-    function showHeader( userData ) {
-      window.currentUser = userData;
-      links.initHeader();
-    }
-
-    function refreshCurrentStudent() {
-      xmlHttp.get({
-        url: Config.url + 'routes.php?action=get_current_student',
-        callback: function( data ) { applyView( data.template, data ); }
-      });
-    }
-
-    function toggleNote( noteId ) {
-      var note = document.getElementById( noteId );
-      if ( !note ) return false;
-
-      var showing = note.className.indexOf( "hidden" ) != -1 ;
-      if ( showing ) {
-        // this.innerHTML = "Hide note";
-        note.className = note.className.replace( "hidden", "" );
-      } else {
-        // this.innerHTML = "View note";
-        note.className += " hidden";
-      }
-      return false;
-    }
-
-    function initInteractions() {
-      if ( window.currentUser ) {
-        links.init();
-        tabs.init(); // must overwrite some links
-      }
-
-      forms.init();
-
-      var closeButtons = document.getElementsByClassName( 'close' );
-      if ( closeButtons ) {
-        for ( var i=0; i < closeButtons.length; i++ ) {
-          closeButtons[ i ].onclick = function( event ) {
-            event.target.parentNode.className += " hidden";
-          };
-        }
-      }
-
-    } // initInteractions
-
-    initInteractions();
-
-  </script>
+  <script src="js/main.js"></script>
+  
   <script type="text/html" id="advisor_dashboard_tmpl"><?php include( 'templates/advisor_dashboard.html'); ?></script>
   <script type="text/html" id="student_dashboard_tmpl"><?php include( 'templates/student_dashboard.html'); ?></script>
   <script type="text/html" id="course_tmpl"><?php include( 'templates/course.html'); ?></script>
