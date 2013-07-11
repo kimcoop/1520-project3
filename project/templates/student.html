@@ -109,8 +109,11 @@
             <td class="muted"><%= i %></td>  
             <td><%= notes[i].date %></td>
             <td><%= notes[i].advisor_full_name %></td>  
-            <td><%= notes[i].contents %></td>
+            <td><a class="no-link" href="javascript:void(0)" onclick="toggleNote( 'note-<%= i %>' )">View note</a></td>
           </tr>
+          <tr id="note-<%= i %>" class="hidden">
+            <td></td>
+            <td colspan="3"><%= notes[i].contents %></td>
           <% } %>
         </table>
        <% } else { %>

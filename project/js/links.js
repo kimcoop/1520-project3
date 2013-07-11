@@ -3,6 +3,9 @@ var links = {
     var main = document.getElementById( 'main' );
     var links = main.getElementsByTagName( "a" );
     for ( var i=0; i < links.length; i++ ) {
+      if ( links[ i ].className.indexOf( "no-link" ) > -1 ) {
+        continue;
+      }
       links[ i ].onclick = function( event ) {
         var e = event || window.event;
         e.preventDefault();
@@ -21,7 +24,6 @@ var links = {
     var homeLinks = document.getElementsByClassName( 'link-home' );
   
     for ( var i=0; i < homeLinks.length; i++ ) {
-      console.log( 'homeLinks');
       homeLinks[ i ].onclick = function( event ) {
         var e = event || window.event;
         e.preventDefault();

@@ -112,6 +112,21 @@
       }
     }
 
+    function toggleNote( noteId ) {
+      var note = document.getElementById( noteId );
+      if ( !note ) return false;
+
+      var showing = note.className.indexOf( "hidden" ) != -1 ;
+      if ( showing ) {
+        // this.innerHTML = "Hide note";
+        note.className = note.className.replace( "hidden", "" );
+      } else {
+        // this.innerHTML = "View note";
+        note.className += " hidden";
+      }
+      return false;
+    }
+
     function initInteractions() {
       if ( window.currentUser ) {
         links.init();
