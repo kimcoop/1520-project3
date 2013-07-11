@@ -170,6 +170,7 @@
     }
 
   } elseif ( isset($_GET['student_search_term']) ) {
+    clear_browsing_session(); // clear current session (if any)
     $search_term = $_GET['student_search_term'];
     if ( $user = User::find_by_psid_or_name( $search_term )) {
       $data = array();

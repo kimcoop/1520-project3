@@ -3,7 +3,7 @@
 $font-family: 'Droid Sans', arial;
 $normal: 14px;
 $font-seconday: "Source Sans Pro",helvetica,sans-serif;
-
+$font-third: monaco;
 
 $color: #555;
 $primary: rgb(66, 184, 221); // light blue
@@ -45,6 +45,12 @@ $header-height: 70px;
 .font-secondary {
   font-family: $font-seconday;
   font-weight: 900;
+}
+
+.font-third {
+  font-family: $font-third;
+  line-height: 1.2em;
+  font-size: 15px;
 }
 
 .big {

@@ -18,7 +18,7 @@
         <div id="notice"></div>
         <div id="main">
 
-          <form class="form-signin" action="routes.php" name="signin_form" method="post">
+          <form id="signin_form" class="form-signin" action="routes.php" name="signin_form" method="post">
 
 
             <br>
@@ -70,6 +70,7 @@
   <script src="js/tabs.js"></script>
   <script src="js/user.js"></script>
   <script src="js/links.js"></script>
+  <script src="js/forms.js"></script>
   <script type="text/javascript">
 
     window.Config = {
@@ -89,27 +90,16 @@
       }
     }
 
-    function submitForm( form, event ) {
-      var e = event || window.event;
-      e.preventDefault();
-      xmlHttp.submitForm( form );
-    }
-
     function showHeader( userData ) {
       window.currentUser = userData;
       links.initHeader();
     }
 
-    function submitAndGetCurrentStudent( formId ) {
-      var form = document.getElementById( formId );
-      if ( !form ) return;
-      form.onsubmit = function( event ) {
-        submitForm( form, event );
-        xmlHttp.get({
-          url: Config.url + 'routes.php?action=get_current_student',
-          callback: function( data ) { applyView( data.template, data ); }
-        });
-      }
+    function refreshCurrentStudent() {
+      xmlHttp.get({
+        url: Config.url + 'routes.php?action=get_current_student',
+        callback: function( data ) { applyView( data.template, data ); }
+      });
     }
 
     function toggleNote( noteId ) {
@@ -133,12 +123,7 @@
         tabs.init(); // must overwrite some links
       }
 
-      var forms = document.getElementsByTagName( "form" );
-      for ( var i=0; i < forms.length; i++ ) {
-        forms[ i ].onsubmit = function( event ) {
-          submitForm( this, event );
-        };
-      }
+      forms.init();
 
       var closeButtons = document.getElementsByClassName( 'close' );
       if ( closeButtons ) {
@@ -149,24 +134,19 @@
         }
       }
 
-      submitAndGetCurrentStudent( 'log_advising_session_form' );
-      submitAndGetCurrentStudent( 'advising_notes_form' );
-      submitAndGetCurrentStudent( 'end_session_log_form' );
-
     } // initInteractions
 
     initInteractions();
 
   </script>
   <script type="text/html" id="advisor_dashboard_tmpl"><?php include( 'templates/advisor_dashboard.html'); ?></script>
+  <script type="text/html" id="student_dashboard_tmpl"><?php include( 'templates/student_dashboard.html'); ?></script>
   <script type="text/html" id="course_tmpl"><?php include( 'templates/course.html'); ?></script>
   <script type="text/html" id="student_tmpl"><?php include( 'templates/student.html'); ?></script>
   <script type="text/html" id="notice_tmpl"><?php include( 'templates/notice.html'); ?></script>
   <script type="text/html" id="header_tmpl"><?php include( 'templates/header.html'); ?></script>
   <script type="text/html" id="settings_tmpl"><?php include( 'templates/settings.html'); ?></script>
   <script type="text/html" id="admin_tmpl"><?php include( 'templates/admin.html'); ?></script>
-
-  <script type="text/html" id="student_dashboard_tmpl"><?php include( 'templates/student_dashboard.html'); ?></script>
 
   </body>
 </html>

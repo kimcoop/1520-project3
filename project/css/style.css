@@ -10,6 +10,12 @@
   font-weight: 900;
 }
 
+.font-third, .note-content {
+  font-family: monaco;
+  line-height: 1.2em;
+  font-size: 15px;
+}
+
 .big, .hgroup p {
   font-family: "Source Sans Pro",helvetica,sans-serif;
   font-weight: 300;
@@ -244,6 +250,12 @@ aside strong {
   font-weight: 900;
 }
 
+.font-third, .note-content {
+  font-family: monaco;
+  line-height: 1.2em;
+  font-size: 15px;
+}
+
 .big, .hgroup p {
   font-family: "Source Sans Pro",helvetica,sans-serif;
   font-weight: 300;
@@ -360,6 +372,12 @@ p {
   font-weight: 900;
 }
 
+.font-third, .note-content {
+  font-family: monaco;
+  line-height: 1.2em;
+  font-size: 15px;
+}
+
 .big, .hgroup p {
   font-family: "Source Sans Pro",helvetica,sans-serif;
   font-weight: 300;
@@ -440,6 +458,12 @@ a img {
 .font-secondary, h1, h2, h3 {
   font-family: "Source Sans Pro", helvetica, sans-serif;
   font-weight: 900;
+}
+
+.font-third, .note-content {
+  font-family: monaco;
+  line-height: 1.2em;
+  font-size: 15px;
 }
 
 .big, .hgroup p {
@@ -571,6 +595,12 @@ label {
   font-weight: 900;
 }
 
+.font-third, .note-content {
+  font-family: monaco;
+  line-height: 1.2em;
+  font-size: 15px;
+}
+
 .big, .hgroup p {
   font-family: "Source Sans Pro",helvetica,sans-serif;
   font-weight: 300;
@@ -629,6 +659,12 @@ table.table-hover tr:hover td {
 .font-secondary, h1, h2, h3 {
   font-family: "Source Sans Pro", helvetica, sans-serif;
   font-weight: 900;
+}
+
+.font-third, .note-content {
+  font-family: monaco;
+  line-height: 1.2em;
+  font-size: 15px;
 }
 
 .big, .hgroup p {

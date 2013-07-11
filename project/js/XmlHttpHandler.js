@@ -80,7 +80,10 @@ var xmlHttp = {
     };
   },
 
-  submitForm: function( form ) {
+  submitForm: function( data ) {
+    var form = data.form;
+    var callback = data.callback;
+    
     var formAction = form.action, 
       formMethod = form.method,
       ectype = form.ectype;
@@ -95,17 +98,11 @@ var xmlHttp = {
       dataArray.push( encodedData );
     }
     dataString = dataArray.join( "&" );
-    console.log('form data: ' +dataString);
 
     dataObj = {
       url: formAction,
       data: dataString,
-      callback: function( data ) {
-        applyView( data.template, data );
-        if ( form.name == 'signin_form' ) {
-          showHeader( data );
-        }
-      }
+      callback: callback
     };
 
     if ( formMethod == 'get' ) {

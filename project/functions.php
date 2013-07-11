@@ -38,7 +38,6 @@ function was_posted( $name ) {
 function clear_browsing_session() {
   unset( $_SESSION['viewing_psid'] );
   unset( $_SESSION['viewing_user_id'] );
-  unset( $_SESSION['should_show_notes'] );
   current_user()->set_is_logging_session( FALSE );
 }
 
