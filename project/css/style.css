@@ -10,21 +10,15 @@
   font-weight: 900;
 }
 
-.font-third, .note-content {
-  font-family: monaco;
-  line-height: 1.2em;
-  font-size: 15px;
-}
-
 .big, .hgroup p {
-  font-family: "Source Sans Pro",helvetica,sans-serif;
+  font-family: "Source Sans Pro", helvetica, sans-serif;
   font-weight: 300;
-  font-size: 1.2em;
+  font-size: 1.5em;
   line-height: 1.4;
   list-style: none;
   margin: 0.2em 0 1em;
   padding: 0;
-  color: #46403b;
+  color: #777777;
 }
 
 .transparent {
@@ -84,7 +78,7 @@ ol, ul {
 }
 
 .container {
-  width: 800px;
+  width: 815px;
   min-height: 100%;
   height: auto !important;
   height: 100%;
@@ -92,7 +86,7 @@ ol, ul {
   padding: 10px;
 }
 .container.main {
-  margin: 70px auto -4em;
+  margin: 100px auto -4em;
   line-height: 1.8em;
 }
 
@@ -110,7 +104,15 @@ footer, .push {
   height: 4em;
 }
 footer p, .push p {
-  color: #999;
+  color: #efefef;
+  margin: 0;
+}
+
+footer {
+  background: #65c5e3;
+  border-top: thick solid #efefef;
+  line-height: 2em;
+  vertical-align: middle;
 }
 
 .main-content {
@@ -123,12 +125,12 @@ footer p, .push p {
 }
 
 .side-content {
-  width: 210px;
+  width: 230px;
   margin-left: 30px;
   float: left;
 }
 .side-content.smaller {
-  width: 170px;
+  width: 185px;
 }
 
 .row {
@@ -182,6 +184,7 @@ button.close {
   background-color: #fcf8e3;
   border: 1px solid #fbeed5;
   position: relative;
+  z-index: 1;
 }
 .alert .close {
   text-shadow: 0 1px 0 #efefef;
@@ -206,8 +209,13 @@ button.close {
 }
 
 aside {
-  margin-top: 15px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  margin-top: 10px;
   width: 100%;
+  padding: 5px 10px 8px;
+  background: #f3f3f3;
 }
 aside strong {
   margin-right: 0.2em;
@@ -250,21 +258,15 @@ aside strong {
   font-weight: 900;
 }
 
-.font-third, .note-content {
-  font-family: monaco;
-  line-height: 1.2em;
-  font-size: 15px;
-}
-
 .big, .hgroup p {
-  font-family: "Source Sans Pro",helvetica,sans-serif;
+  font-family: "Source Sans Pro", helvetica, sans-serif;
   font-weight: 300;
-  font-size: 1.2em;
+  font-size: 1.5em;
   line-height: 1.4;
   list-style: none;
   margin: 0.2em 0 1em;
   padding: 0;
-  color: #46403b;
+  color: #777777;
 }
 
 .transparent {
@@ -302,9 +304,13 @@ h1 small, h2 small, h3 small, h4 small {
 }
 
 h1, h2, h3 {
-  color: #46403b;
+  color: #777777;
   margin: 0;
   line-height: 0.8em;
+}
+
+h1, h2 {
+  font-family: "Lobster", arial !important;
 }
 
 h1 {
@@ -312,13 +318,16 @@ h1 {
 }
 
 h2 {
-  font-size: 2em;
+  font-size: 2.7em;
 }
 
 h3 {
   font-size: 1.5em;
-  margin: 1em 0 0;
+  margin: 0;
   color: #999;
+}
+h3.label {
+  margin: 1em 0 0.5em;
 }
 
 h4 {
@@ -360,6 +369,10 @@ p {
   color: #42b8dd;
 }
 
+.note-content {
+  line-height: 1.5em;
+}
+
 .font, body, input[type=text], input[type=password], input[type=email], input[type=url], input[type=date], input[type=month], input[type=time], input[type=datetime], input[type=datetime-local], input[type=week], input[type=number], input[type=search], input[type=tel], input[type=color], select, textarea, button, .btn {
   font-family: "Droid Sans", arial;
   font-size: 14px;
@@ -372,21 +385,15 @@ p {
   font-weight: 900;
 }
 
-.font-third, .note-content {
-  font-family: monaco;
-  line-height: 1.2em;
-  font-size: 15px;
-}
-
 .big, .hgroup p {
-  font-family: "Source Sans Pro",helvetica,sans-serif;
+  font-family: "Source Sans Pro", helvetica, sans-serif;
   font-weight: 300;
-  font-size: 1.2em;
+  font-size: 1.5em;
   line-height: 1.4;
   list-style: none;
   margin: 0.2em 0 1em;
   padding: 0;
-  color: #46403b;
+  color: #777777;
 }
 
 .transparent {
@@ -460,21 +467,15 @@ a img {
   font-weight: 900;
 }
 
-.font-third, .note-content {
-  font-family: monaco;
-  line-height: 1.2em;
-  font-size: 15px;
-}
-
 .big, .hgroup p {
-  font-family: "Source Sans Pro",helvetica,sans-serif;
+  font-family: "Source Sans Pro", helvetica, sans-serif;
   font-weight: 300;
-  font-size: 1.2em;
+  font-size: 1.5em;
   line-height: 1.4;
   list-style: none;
   margin: 0.2em 0 1em;
   padding: 0;
-  color: #46403b;
+  color: #777777;
 }
 
 .transparent {
@@ -595,21 +596,15 @@ label {
   font-weight: 900;
 }
 
-.font-third, .note-content {
-  font-family: monaco;
-  line-height: 1.2em;
-  font-size: 15px;
-}
-
 .big, .hgroup p {
-  font-family: "Source Sans Pro",helvetica,sans-serif;
+  font-family: "Source Sans Pro", helvetica, sans-serif;
   font-weight: 300;
-  font-size: 1.2em;
+  font-size: 1.5em;
   line-height: 1.4;
   list-style: none;
   margin: 0.2em 0 1em;
   padding: 0;
-  color: #46403b;
+  color: #777777;
 }
 
 .transparent {
@@ -661,21 +656,15 @@ table.table-hover tr:hover td {
   font-weight: 900;
 }
 
-.font-third, .note-content {
-  font-family: monaco;
-  line-height: 1.2em;
-  font-size: 15px;
-}
-
 .big, .hgroup p {
-  font-family: "Source Sans Pro",helvetica,sans-serif;
+  font-family: "Source Sans Pro", helvetica, sans-serif;
   font-weight: 300;
-  font-size: 1.2em;
+  font-size: 1.5em;
   line-height: 1.4;
   list-style: none;
   margin: 0.2em 0 1em;
   padding: 0;
-  color: #46403b;
+  color: #777777;
 }
 
 .transparent {
@@ -700,13 +689,14 @@ table.table-hover tr:hover td {
 }
 
 header {
-  height: 70px;
+  height: 80px;
   width: 100%;
   padding-bottom: 0;
   position: fixed;
+  z-index: 2;
   top: 0;
-  background: #fff;
-  border-bottom: thin solid #f3f3f3;
+  background: #6dc8e5;
+  border-bottom: thick solid #f3f3f3;
 }
 header .nav-container {
   padding: 0;
@@ -714,7 +704,13 @@ header .nav-container {
 header .nav-container .title {
   margin: 0;
   display: inline-block;
-  line-height: 70px;
+  line-height: 80px;
+}
+header .nav-container .title a {
+  font-family: "Lobster", arial;
+  text-transform: none;
+  letter-spacing: 0;
+  color: #f3f3f3;
 }
 
 #nav {
@@ -723,11 +719,19 @@ header .nav-container .title {
 }
 #nav li {
   display: inline-block;
-  line-height: 70px;
+  line-height: 80px;
   margin: 0 2px;
 }
 #nav li a {
+  -webkit-transition: all 300ms ease;
+  -moz-transition: all 300ms ease;
+  -o-transition: all 300ms ease;
+  transition: all 300ms ease;
+  color: #efefef;
   padding: 0 1em;
+}
+#nav li a:hover {
+  color: #fff;
 }
 
 .nav-tabs {

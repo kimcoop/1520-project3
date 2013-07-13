@@ -23,6 +23,7 @@ h1, h2, h3 {
 
 h1, h2 {
   @extend .text-primary;
+  font-family: $lobster !important;
 }
 
 h1 {
@@ -30,13 +31,16 @@ h1 {
 }
 
 h2 {
-  font-size: 2em;
+  font-size: 2.7em;
 }
 
 h3 {
   font-size: 1.5em;
-  margin: 1em 0 0;
+  margin: 0;
   color: #999;
+  &.label {
+    margin: 1em 0 0.5em;
+  }
 }
 
 h4 {
@@ -77,5 +81,5 @@ p {
 }
 
 .note-content {
-  @extend .font-third;
+  line-height: 1.5em;
 }

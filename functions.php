@@ -92,7 +92,7 @@ function get_root_view() {
   if ( is_student() ) 
     return 'student_dashboard.html'; 
   else
-    return 'advisor.html';
+    return 'advisor_dashboard.html';
 }
 
 function get_root_url() {
@@ -100,7 +100,7 @@ function get_root_url() {
   if ( is_student() ) 
     return 'student_dashboard.php'; 
   else
-    return 'advisor.php';
+    return 'advisor_dashboard.php';
 }
 
 function sort_by_last_name( $a, $b ) {

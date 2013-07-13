@@ -5,12 +5,19 @@ header {
   width: 100%;
   padding-bottom: 0;
   position: fixed;
+  z-index: $header-layer;
   top: 0;
-  background: #fff;
-  border-bottom: thin solid $super-light-grey;
+  background: lighten( $primary, 10% );
+  border-bottom: thick solid $super-light-grey;
   .nav-container {
     padding: 0;
     .title {
+      a {
+        font-family: $lobster;
+        text-transform: none;
+        letter-spacing: 0;
+        color: $super-light-grey;
+      }
       margin: 0;
       display: inline-block;
       line-height: $header-height;
@@ -26,7 +33,12 @@ header {
     line-height: $header-height;
     margin: 0 2px;
     a {
+      @include transition( all 300ms ease );
+      color: $light-grey;
       padding: 0 1em;
+      &:hover {
+        color: #fff;
+      }
     }
   }
 }

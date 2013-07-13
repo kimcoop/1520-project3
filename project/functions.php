@@ -73,7 +73,7 @@ function get_root_url() {
   if ( is_student() ) 
     return 'student_dashboard.php'; 
   else
-    return 'advisor.php';
+    return 'advisor_dashboard.php';
 }
 
 function sort_by_last_name( $a, $b ) {

@@ -14,6 +14,7 @@
     if ( is_logged_in() ) {
       $data = array();
       $data[ 'template' ] = get_root_view();
+      header( "Location:" . get_root_url() );
       echo current_user()->to_json( $data );
     } else {
       display_notice( 'Error logging in.', 'error' );

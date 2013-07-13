@@ -1,7 +1,15 @@
+<?php 
+
+  include( 'templates/header.php' );
+  if ( is_logged_in() && current_user()->is_advisor() ):
+    clear_browsing_session();
+
+?>
+
 <div class="row">
     <div class="hgroup">
-      <h2><%= role %> Dashboard</h2>
-      <p>Welcome to your <%= role %> dashboard! Use the inputs below to look up a student or course.</p>
+      <h2><?php current_user()->get_role() ?> Dashboard</h2>
+      <p>Welcome to your <?php current_user()->get_role() ?> dashboard! Use the inputs below to look up a student or course.</p>
     </div><!-- .hgroup -->
 
     <div class="row row-search">
@@ -30,3 +38,5 @@
     </div><!-- .row-search -->
     
 </div><!-- .row -->
+
+<?php endif ?>

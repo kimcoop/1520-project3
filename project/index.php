@@ -1,22 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Advisor Cloud 3.0</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    
-    <link href='http://fonts.googleapis.com/css?family=Droid+Sans|Source+Sans+Pro:300,900' rel='stylesheet' type='text/css'>
-    <link href="css/style.css" rel="stylesheet">
-    
-  </head>
-  
-  <body>
-      <div id="header"></div>
-      <div class="container main">
-        <div id="notice"></div>
-        <div id="main">
+<?php include( 'templates/header.php' ) ?>
 
           <form id="signin_form" class="form-signin" action="routes.php" name="signin_form" method="post">
 

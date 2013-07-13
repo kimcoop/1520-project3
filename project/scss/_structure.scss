@@ -42,7 +42,7 @@ ol, ul {
   margin: 0 auto;
   padding: 10px;
   &.main {
-    margin: $header-height auto -4em;
+    margin: ($header-height + 20px) auto -4em;
     line-height: 1.8em;
   }
 }
@@ -60,8 +60,16 @@ footer, .push {
   clear: both;
   height: 4em;
   p {
-    color: #999;
+    color: $light-grey;
+    margin: 0;
   }
+}
+
+footer {
+  background: lighten( $primary, 8% );
+  border-top: thick solid $light-grey;
+  line-height: 2em;
+  vertical-align: middle;
 }
 
 .main-content {
@@ -141,6 +149,7 @@ button.close {
   background-color: #fcf8e3;
   border: 1px solid #fbeed5;
   position: relative;
+  z-index: $alert-layer;
   .close {
     text-shadow: 0 1px 0 $light-grey;
     position: absolute;
@@ -165,8 +174,11 @@ button.close {
 }
 
 aside {
-  margin-top: 15px;
+  @include border-radius( 4px );
+  margin-top: 10px;
   width: 100%;
+  padding: 5px 10px 8px;
+  background: $super-light-grey;
   strong {
     margin-right: 0.2em;
   }

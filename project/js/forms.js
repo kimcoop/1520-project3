@@ -14,10 +14,11 @@ var forms = {
             refreshCurrentStudent();
           }
         } else if ( this.id == 'signin_form' ) {
-          callback = function( data ) { 
-            applyView( data.template, data );
-            showHeader( data ); 
-          }
+          continue;
+          // callback = function( data ) { 
+          //   applyView( data.template, data );
+          //   showHeader( data ); 
+          // }
         } else if ( this.id == 'search_student_form' ) {
           // verify PSID is 7 digits
           for ( var i = 0; i < this.elements.length; i++ ) {
