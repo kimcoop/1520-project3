@@ -1,3 +1,5 @@
+<?php include( 'templates/header.php' ); ?>
+
 <div class="hgroup">
   <h2>
     <?php echo current_user()->get_first_name() ?>'s
@@ -13,8 +15,6 @@
   <li class='active'><a href="#courses_by_term" data-toggle="tab">Courses by term</a></li>
   <li><a href="#courses_by_department" data-toggle="tab">Courses by department</a></li>
   <li><a href="#grad_requirements" data-toggle="tab">Graduation requirements</a></li>
-  <li><a href="#advising_sessions" data-toggle="tab">Advising sessions</a></li>
-  <li><a href="#advising_notes" data-toggle="tab">Advising notes</a></li>
 </ul>
 
 <div class="tab-content">
@@ -22,7 +22,7 @@
    <table class="table table-hover">
       <?php
 
-        $courses_per_term = UserCourse::find_by( 'term', $student->get_psid() );
+        $courses_per_term = UserCourse::find_by( 'term', current_user()->get_psid() );
 
         if ( !empty($courses_per_term) ) {
           ksort( $courses_per_term );
@@ -44,7 +44,7 @@
   <div class="tab-pane" id="courses_by_department">
     <table class="table table-hover">
       <?php
-        $courses_by_department = UserCourse::find_by( 'department', $student->get_psid() );
+        $courses_by_department = UserCourse::find_by( 'department', current_user()->get_psid() );
 
         if ( !empty($courses_by_department) ):
           foreach( $courses_by_department as $department => $courses ): ?>
@@ -75,7 +75,7 @@
             <td class="muted"><?php echo $index + 1?></td>
             <td><strong><?php echo $req->title; ?></strong></td>
             <td>
-              <?php if ( $course = $req->get_satisfying_course( $student->get_psid() ) ) { ?>
+              <?php if ( $course = $req->get_satisfying_course( current_user()->get_psid() ) ) { ?>
                 <span class='text-success'>
                   <i class="icon icon-check"></i>
                 </span>
@@ -111,12 +111,6 @@
         ?>
     </table>
   </div><!-- #grad_requirements -->
-
-  <div class="tab-pane" id="advising_sessions">
-    
-  </div><!-- #advising_sessions -->
-
-  <div class="tab-pane" id="advising_notes">
-    
-  </div><!-- #advising_notes -->
 </div><!-- .tab-content -->
+
+<?php include( 'templates/footer.php' ); ?>

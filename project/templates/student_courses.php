@@ -1,25 +1,7 @@
-<div class="hgroup">
-  <h2>
-    <?php echo current_user()->get_first_name() ?>'s
-    <span class="light">Student Dashboard</span>
-  </h2>
-
-  <p>
-    Welcome to your student dashboard. Here you'll find records of courses you've taken.
-  </p>
-</div><!-- .hgroup -->
-
-<ul class="nav nav-tabs">
-  <li class='active'><a href="#courses_by_term" data-toggle="tab">Courses by term</a></li>
-  <li><a href="#courses_by_department" data-toggle="tab">Courses by department</a></li>
-  <li><a href="#grad_requirements" data-toggle="tab">Graduation requirements</a></li>
-  <li><a href="#advising_sessions" data-toggle="tab">Advising sessions</a></li>
-  <li><a href="#advising_notes" data-toggle="tab">Advising notes</a></li>
-</ul>
-
-<div class="tab-content">
-  <div class="tab-pane active" id="courses_by_term">
-   <table class="table table-hover">
+<div class="row">
+  <div class="<?php echo (is_student() ? 'span12': 'span9'); ?>">
+    <h3>Courses taken by term</h3>
+    <table class="table table-hover">
       <?php
 
         $courses_per_term = UserCourse::find_by( 'term', $student->get_psid() );
@@ -39,10 +21,15 @@
           }
         ?>
     </table>
-  </div><!-- #courses_by_term -->
+  </div>
+</div>
 
-  <div class="tab-pane" id="courses_by_department">
-    <table class="table table-hover">
+<br>
+
+<div class="row">
+  <div class="<?php echo (is_student() ? 'span12': 'span9'); ?>">
+    <h3>Courses taken by department</h3>
+     <table class="table table-hover">
       <?php
         $courses_by_department = UserCourse::find_by( 'department', $student->get_psid() );
 
@@ -59,9 +46,14 @@
         endif;
       ?>
     </table>
-  </div><!-- #courses_by_department -->
+  </div>
+</div>
 
-  <div class="tab-pane" id="grad_requirements">
+<br>  
+
+<div class="row">
+  <div class="<?php echo (is_student() ? 'span12': 'span9'); ?>">
+    <h3>CS graduation requirements</h3>
     <table class="table table-hover">
 
     <?php
@@ -110,13 +102,6 @@
 
         ?>
     </table>
-  </div><!-- #grad_requirements -->
-
-  <div class="tab-pane" id="advising_sessions">
     
-  </div><!-- #advising_sessions -->
-
-  <div class="tab-pane" id="advising_notes">
-    
-  </div><!-- #advising_notes -->
-</div><!-- .tab-content -->
+  </div>
+</div>

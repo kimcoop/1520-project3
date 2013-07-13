@@ -23,7 +23,7 @@
         <div class="container nav-container">
           <ul class="nav nav-pills pull-right" id="nav">
             <li class="">
-              <a href="#" class="link-home">Welcome, <?php current_user()->get_full_name() ?></a>
+              <a href="#" class="link-home">Welcome, <?php echo current_user()->get_full_name() ?></a>
             </li>
             
             <?php if ( current_user()->is_admin() ) { ?>
