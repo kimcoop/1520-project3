@@ -39,4 +39,9 @@
     
 </div><!-- .row -->
 
-<?php endif ?>
+<?php 
+
+  endif;
+  include( 'templates/footer.php' ) 
+
+?>

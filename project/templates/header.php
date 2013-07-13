@@ -15,6 +15,8 @@
   </head>
   
   <body>
+
+  <?php if ( is_logged_in() ): ?>
       
     <div id="header">
       <header>
@@ -45,6 +47,8 @@
         </div><!-- .container -->
       </header>
     </div>
+
+  <?php endif ?>
   
     <div class="container main">
       <div id="notice"></div>

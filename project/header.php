@@ -1,4 +1,11 @@
-<?php require_once('functions.php') ?>
+<?php 
+
+  require_once('functions.php') 
+
+  include( 'templates/header.php' );
+  if ( is_logged_in() ):
+
+?>
 
 <header>
   <div class="container nav-container">
@@ -27,3 +34,5 @@
     </h3>
   </div><!-- .container -->
 </header>
+
+<?php endif ?>
