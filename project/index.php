@@ -5,7 +5,7 @@ if ( !is_logged_in() ):
 
 ?>
 
-          <form class="form-signin form-normal" action="routes.php" name="signin_form" method="post">
+          <form class="form-signin normal-form" action="routes.php" name="signin_form" method="post">
 
 
             <br>

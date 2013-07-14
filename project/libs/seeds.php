@@ -114,6 +114,7 @@
       )";
 
     echo "<br>";
+    echo "<br>";
     echo "<strong>Creating tables...</strong><br/>";
     echo "<ul>";
 

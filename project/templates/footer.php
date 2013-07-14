@@ -25,6 +25,7 @@
   <script type="text/html" id="course_tmpl"><?php include( 'templates/course.html'); ?></script>
   <script type="text/html" id="student_tmpl"><?php include( 'templates/student.html'); ?></script>
   <script type="text/html" id="notice_tmpl"><?php include( 'templates/notice.html'); ?></script>
+  <script type="text/html" id="review_table_tmpl"><?php include( 'templates/reviews.html'); ?></script>
 
   </body>
 </html>

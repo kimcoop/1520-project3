@@ -15,12 +15,30 @@ function applyView( template, data ) {
   console.log('applyView. ');
   console.debug( arguments );
   if ( template && data ) {
-    var container = template !== 'notice_tmpl' ? document.getElementById( 'main' ) : document.getElementById( 'notice' ), 
+    var containerId = 'main';
+    if ( data.containerId )
+      containerId = data.containerId;
+    if ( template == 'notice_tmpl' )
+      containerId = 'notice';
+    var container = document.getElementById( containerId ), 
       html = tmpl( template, data );
 
     container.innerHTML = html;
     initInteractions();
   }
+}
+
+function getReviewsForUser() {
+  xmlHttp.get({
+    url: Config.url + 'routes.php?action=get_user_course_reviews',
+    callback: function( reviewsResponse ) {
+      var data = { 
+        user_reviews: reviewsResponse,
+        containerId: 'my_reviews'
+      }
+      applyView( 'review_table_tmpl', data );
+    }
+  });  
 }
 
 function getAllUsersForSelect( selectId ) {
@@ -69,6 +87,8 @@ function initInteractions() {
   }
 
   AC_Forms.init();
+  if ( !!document.getElementById( 'my_reviews' ) && document.getElementById( 'my_reviews' ).innerHTML.trim().length == 0 )
+    getReviewsForUser();
 
   var closeButtons = document.getElementsByClassName( 'close' );
   if ( closeButtons ) {

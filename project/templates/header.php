@@ -27,8 +27,13 @@
               <a href="<?php echo get_root_url() ?>">Welcome, <?php echo current_user()->get_full_name() ?></a>
             </li>
             
-            <?php if ( current_user()->is_admin() ) { ?>
+            <?php if ( current_user()->is_student() ) { ?>
+              <li>
+                <a href="review.php">Reviews</a>
+              </li>
+            <?php } ?>
 
+            <?php if ( current_user()->is_admin() ) { ?>
               <li>
                 <a href="admin.php">Admin</a>
               </li>

@@ -82,13 +82,13 @@
             <td>
               <?php if ( $course = $req->get_satisfying_course( current_user()->get_psid() ) ) { ?>
                 <span class='text-success'>
-                  <i class="icon icon-check"></i>
+                  S
                 </span>
               <?php
                 } else { 
               ?>
                 <span class='text-error'>
-                  <i class="icon icon-check-empty"></i>k
+                  N
                 </span>
               <?php } ?>
             </td>
@@ -99,7 +99,7 @@
               if ( $course ) {
                 echo $course;
               } else {
-                echo "<span class='muted'>Requirement not satisfied. Course options: ";
+                echo "<span class='dark muted'>Requirement not satisfied. Course options: ";
                 echo $req->get_requirements();
                 echo "</span>";
               }

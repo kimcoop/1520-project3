@@ -116,6 +116,9 @@ p {
 .muted {
   color: #dddddd;
 }
+.muted.dark {
+  color: #c4c4c4;
+}
 
 .text-primary, h1, h2 {
   color: #42b8dd;

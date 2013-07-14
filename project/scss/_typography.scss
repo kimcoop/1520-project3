@@ -74,6 +74,9 @@ p {
 
 .muted {
   color: $medium-grey;
+  &.dark {
+    color: darken( $medium-grey, 10% );
+  }
 }
 
 .text-primary {

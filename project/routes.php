@@ -1,6 +1,7 @@
 <?php
   
   require_once('functions.php'); // includes session_start()
+  include( "models/user_review.php" );
 
   define( "COURSE_TMPL", 'course_tmpl' ); // the ID of the script
   define( "STUDENT_TMPL", 'student_tmpl' );
@@ -105,6 +106,13 @@
     }
   }
 
+  if ( was_posted('review_course_submit')) {
+    $psid = current_user()->get_psid();
+    if ( UserReview::create( $psid, $_POST['course_id'], $_POST['grade'], $_POST['would_recommend'], $_POST['review'] ))
+      display_notice( "Course review successful.", 'success' );
+    else
+      display_notice( "Error saving course review.", 'error' );
+  }
 
   if ( was_posted('change_password_form_submit') ) {
     if ( current_user()->change_password( $_POST['old_password'], $_POST['new_password'], $_POST['new_password_confirm'] ))
@@ -190,6 +198,11 @@
     $users = User::find_all();
     usort( $users, 'sort_by_last_name' );
     echo json_encode( $users );
+
+  } elseif ( $_GET['action'] == 'get_user_course_reviews' ) {
+    $psid = current_user()->get_psid();
+    $user_reviews = UserReview::find_all_by_psid( $psid );
+    echo json_encode( $user_reviews );
 
   } elseif ( isset($_GET['search_course_form_submit']) ) {
     $department = strtoupper( $_GET['department'] );
