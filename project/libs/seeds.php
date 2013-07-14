@@ -10,6 +10,7 @@
   include( 'models/requirement.php' );
   include( 'models/requirement_course.php' );
   include( 'models/user_course.php' );
+  include( 'models/user_review.php' );
   
   define( "SAMPLE_FILE_ROOT", 'files/sample_' );
   define( "NO_INSERTION", FALSE );
@@ -29,6 +30,7 @@
     DB::run( "DROP TABLE IF EXISTS users" );
     DB::run( "DROP TABLE IF EXISTS courses" );
     DB::run( "DROP TABLE IF EXISTS user_courses" );
+    DB::run( "DROP TABLE IF EXISTS user_reviews" );
     DB::run( "DROP TABLE IF EXISTS requirements" );
     DB::run( "DROP TABLE IF EXISTS requirement_courses" );
     DB::run( "DROP TABLE IF EXISTS notes" );
@@ -57,8 +59,8 @@
       UNIQUE INDEX department_course_number( department, course_number )
       )";
   
-    // NOTE: including department and course_number here is duplicative,
-    // but needed to avoid the queries to courses table during large iterations.
+    // NOTE: including department and course_number here is repetitive,
+    // should be fixed long-term.
     $user_courses_sql = "CREATE TABLE user_courses(
       id int PRIMARY KEY NOT NULL AUTO_INCREMENT,
       course_id int NOT NULL,
@@ -100,15 +102,40 @@
       dashed_timestamp varchar(255) NOT NULL,
       UNIQUE INDEX psid_timestamp( psid, dashed_timestamp )
       )";
-    
+
+    $user_reviews_sql = "CREATE TABLE user_reviews(
+      id int PRIMARY KEY NOT NULL AUTO_INCREMENT,
+      course_id int NOT NULL,
+      psid int NOT NULL,
+      grade varchar( 3 ) NOT NULL,
+      would_recommend varchar( 3 ) NOT NULL,
+      review varchar( 400 ),
+      UNIQUE INDEX course_id_psid( course_id, psid )
+      )";
+
+    echo "<br>";
+    echo "<strong>Creating tables...</strong><br/>";
+    echo "<ul>";
+
     DB::run( $users_sql );
+    echo "<li>users</li>";
     DB::run( $courses_sql );
+    echo "<li>courses</li>";
     DB::run( $user_courses_sql );
+    echo "<li>user_courses</li>";
     DB::run( $requirements_sql );
+    echo "<li>requirements</li>";
     DB::run( $requirement_courses_sql );
+    echo "<li>requirement_courses</li>";
     DB::run( $notes_sql );
+    echo "<li>notes</li>";
     DB::run( $sessions_sql );
-    
+    echo "<li>sessions</li>";
+    DB::run( $user_reviews_sql );
+    echo "<li>user_reviews</li>";
+
+    echo "</ul>";
+
   }
 
   function populate_table( $klass, $filename, $table=NULL, $do_insertion=TRUE ) {

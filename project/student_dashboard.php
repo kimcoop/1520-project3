@@ -88,7 +88,7 @@
                 } else { 
               ?>
                 <span class='text-error'>
-                  <i class="icon icon-check-empty"></i>
+                  <i class="icon icon-check-empty"></i>k
                 </span>
               <?php } ?>
             </td>
