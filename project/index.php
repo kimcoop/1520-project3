@@ -8,6 +8,7 @@
             <h1 class="text-center muted">Welcome to</h1>
             <h1 class="text-center text-primary">Advisor Cloud</h1>
             <br>
+            <?php include( 'templates/oldschool_notice.php' ); ?>
 
             <?php if (isset($_COOKIE['user_id'])): ?>
 

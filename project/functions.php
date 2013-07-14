@@ -31,6 +31,16 @@ function display_notice( $message, $type ) {
   exit();
 }
 
+function should_show_notice() {
+  return isset( $_SESSION['notice'] );
+}
+
+function oldschool_display_notice( $message, $type ) {
+  // same as above, except do it in a non-ajaxy way
+  $_SESSION['notice']['message'] = $message;
+  $_SESSION['notice']['type'] = $type;
+}
+
 function was_posted( $name ) {
   return isset( $_POST[$name] );
 }

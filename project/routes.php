@@ -17,9 +17,10 @@
       header( "Location:" . get_root_url() );
       echo current_user()->to_json( $data );
     } else {
-      display_notice( 'Error logging in.', 'error' );
+      oldschool_display_notice( 'Error logging in.', 'error' );
+      header( "Location: index.php" );
+      exit();
     }
-    exit();
   }
 
 
@@ -34,16 +35,15 @@
 
         if ( !$secret_question ) { // if no secret question was provided, send user through
           User::reset_and_send_password( $user_id );
-          header( "Location: forgot_password.php?step=emailed" );
-          exit();
+          $location = "forgot_password.php?step=emailed";
         }
 
       } else {
-        display_notice( "User ID not recognized.", 'error' );
+        oldschool_display_notice( "User ID not recognized.", 'error' );
       }
     
     } else {
-      display_notice( "Please provide your user ID.", 'error' );
+      oldschool_display_notice( "Please provide your user ID.", 'error' );
     }
 
     if ( !$location )
@@ -62,12 +62,12 @@
           User::reset_and_send_password( $user_id );
           $location = "forgot_password.php?step=emailed";
         } else {
-          display_notice( "Incorrect secret answer. Please try again.", 'error' );
+          oldschool_display_notice( "Incorrect secret answer. Please try again.", 'error' );
           $user_id = $_POST['user_id'];
           $location = "forgot_password.php?user_id=$user_id&step=secret_question";
         }
       } else {
-        display_notice( "User ID not recognized.", 'error' );
+        oldschool_display_notice( "User ID not recognized.", 'error' );
       }
     }
 
