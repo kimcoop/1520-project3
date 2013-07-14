@@ -27,7 +27,7 @@
       <div class="search-course">
         <h3 class="label">Search for a Course</h3>
         <form action="routes.php" method="get" name="search_course_form">
-          <input class="input-small" placeholder="Department" type="text" name="department">
+          <input placeholder="Department" type="text" name="department">
           <input placeholder="Course number" type="text" name="course_number">
           <button value="true" type="submit" class="btn-primary btn" name="search_course_form_submit">
             Search courses

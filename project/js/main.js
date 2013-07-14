@@ -3,6 +3,10 @@ window.Config = {
   url: 'http://localhost:8888/1520-project3/project/'
 }
 window.currentUser = {};
+window.onload = function() {
+  console.log('onload');
+  initInteractions();
+}
 
 function showNotice( message, type ) {
   applyView( 'notice_tmpl', { message: message, type: type } );
@@ -18,11 +22,6 @@ function applyView( template, data ) {
     container.innerHTML = html;
     initInteractions();
   }
-}
-
-function showHeader( userData ) {
-  window.currentUser = userData;
-  links.initHeader();
 }
 
 function refreshCurrentStudent() {
@@ -65,7 +64,3 @@ function initInteractions() {
   }
 
 } // initInteractions
-
-
-
-initInteractions();

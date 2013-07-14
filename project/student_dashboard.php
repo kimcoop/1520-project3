@@ -1,4 +1,9 @@
-<?php include( 'templates/header.php' ); ?>
+<?php 
+
+  include( 'templates/header.php' ); 
+  if ( is_logged_in() ):
+
+?>
 
 <div class="hgroup">
   <h2>
@@ -113,4 +118,7 @@
   </div><!-- #grad_requirements -->
 </div><!-- .tab-content -->
 
-<?php include( 'templates/footer.php' ); ?>
+<?php 
+  endif;
+  include( 'templates/footer.php' ); 
+?>

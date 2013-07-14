@@ -1,8 +1,15 @@
+<?php 
+
+  include( 'templates/header.php' );
+  if ( is_logged_in() ): 
+
+?>
 
 <div class="hgroup">
   <h2>Settings</h2>
 </div><!-- .hgroup -->
 
+<br>
 
 <div class="row" id="row-settings">
   <div class="half-column well">
@@ -49,3 +56,11 @@
     </form>
   </div>
 </div>
+
+<?php
+  
+  endif;
+  include( 'templates/footer.php' );
+
+
+?>

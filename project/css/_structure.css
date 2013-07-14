@@ -75,6 +75,7 @@ ol, ul {
 #main {
   height: 100%;
   overflow: hidden;
+  margin-bottom: 20px;
 }
 
 .container {
@@ -130,7 +131,7 @@ footer {
   float: left;
 }
 .side-content.smaller {
-  width: 185px;
+  width: 195px;
 }
 
 .row {
@@ -214,11 +215,14 @@ aside {
   border-radius: 4px;
   margin-top: 10px;
   width: 100%;
-  padding: 5px 10px 8px;
+  padding: 20px 15px;
   background: #f3f3f3;
 }
 aside strong {
   margin-right: 0.2em;
+}
+aside .title {
+  margin-bottom: 1em;
 }
 
 .img-circle {

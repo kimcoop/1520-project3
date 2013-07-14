@@ -23,17 +23,18 @@
         <div class="container nav-container">
           <ul class="nav nav-pills pull-right" id="nav">
             <li class="">
-              <a href="#" class="link-home">Welcome, <?php echo current_user()->get_full_name() ?></a>
+              <a href="<?php echo get_root_url() ?>">Welcome, <?php echo current_user()->get_full_name() ?></a>
             </li>
             
             <?php if ( current_user()->is_admin() ) { ?>
+
               <li>
-                <a href="#" id="link-admin" data="admin.html">Admin</a>
+                <a href="admin.php">Admin</a>
               </li>
             <?php } ?>
             
-            <li class="">
-              <a href="#" id="link-settings">Settings</a>
+            <li>
+              <a href="settings.php">Settings</a>
             </li>
 
             <li>
@@ -42,7 +43,7 @@
 
           </ul>
           <h3 class="title muted">
-            <a href="#" class="link-home">Advisor Cloud 3.0</a>
+            <a href="<?php echo get_root_url() ?>" class="link-home">Advisor Cloud 3.0</a>
           </h3>
         </div><!-- .container -->
       </header>

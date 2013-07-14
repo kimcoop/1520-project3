@@ -27,7 +27,7 @@
             <br>
 
             <span class="pull-right">
-              <a href="forgot_password.php?step=user_id">Forgot password?</a>
+              <a class="normal-link" href="forgot_password.php?step=user_id">Forgot password?</a>
             </span>
             
           </form>

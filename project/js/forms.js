@@ -5,6 +5,8 @@ var forms = {
 
     for ( var i=0; i < forms.length; i++ ) {
       forms[ i ].onsubmit = function( event ) {
+        if ( this.id == 'signin_form' || this.className.indexOf( 'normal-form') > -1 )
+          return;
         var callback = undefined;
         var e = event || window.event;
         e.preventDefault();
@@ -13,8 +15,6 @@ var forms = {
             applyView( data.template, data ); 
             refreshCurrentStudent();
           }
-        } else if ( this.id == 'signin_form' ) {
-          continue;
           // callback = function( data ) { 
           //   applyView( data.template, data );
           //   showHeader( data ); 
@@ -24,15 +24,12 @@ var forms = {
           for ( var i = 0; i < this.elements.length; i++ ) {
             if ( this.elements[i].name == 'student_search_term' ) {
               var value = this.elements[i].value;
-              if ( !isNaN( parseInt( value ) ) ) {
-                // it's a PSID (not first name - last name)
-                if ( value.length != 7 ) {
-                  showNotice( "PeopleSoft ID must be 7 digits.", "error" );
-                  return false;
-                } else {
-                  callback = function( data ) {
-                    applyView( data.template, data );
-                  }        
+              if ( !isNaN( parseInt( value ) ) && value.length != 7 ) { // it's a PSID (not first name - last name)
+                showNotice( "PeopleSoft ID must be 7 digits.", "error" );
+                return false;
+              } else {
+                callback = function( data ) {
+                  applyView( data.template, data );
                 }
               }
             }

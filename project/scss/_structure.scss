@@ -32,6 +32,7 @@ ol, ul {
 #main {
   height: 100%;
   overflow: hidden;
+  margin-bottom: 20px;
 }
 
 .container {
@@ -177,21 +178,18 @@ aside {
   @include border-radius( 4px );
   margin-top: 10px;
   width: 100%;
-  padding: 5px 10px 8px;
+  padding: 20px 15px;
   background: $super-light-grey;
   strong {
     margin-right: 0.2em;
+  }
+  .title {
+    margin-bottom: 1em;
   }
 }
 
 .img-circle {
   @include border-radius( 50% );
-}
-
-.small-content {
-  // float: none;
-  // width: $form-small-width;
-  // margin: 0 auto;
 }
 
 .half-column {

@@ -34,7 +34,7 @@
 
         if ( !$secret_question ) { // if no secret question was provided, send user through
           User::reset_and_send_password( $user_id );
-          $location = "forgot_password.php?step=emailed";
+          header( "Location: forgot_password.php?step=emailed" );
           exit();
         }
 
