@@ -4,7 +4,6 @@ window.Config = {
 }
 window.currentUser = {};
 window.onload = function() {
-  console.log('onload');
   initInteractions();
 }
 
@@ -22,6 +21,23 @@ function applyView( template, data ) {
     container.innerHTML = html;
     initInteractions();
   }
+}
+
+function getAllUsersForSelect( selectId ) {
+  xmlHttp.get({
+    url: Config.url + 'routes.php?action=get_users',
+    callback: function( usersResponse ) {
+      var el = document.getElementById( selectId );
+      var output = "<select name='psid'>";
+      for ( var i = 0; i < usersResponse.length; i++ ) {
+        var user = usersResponse[ i ],
+          str = "<option value='" +user.psid+ "'>" +user.last_name+ ", " +user.first_name+ "</option>";
+        output += str;
+      }
+      output += "</select>";
+      el.innerHTML = output;
+    }
+  });  
 }
 
 function refreshCurrentStudent() {
@@ -48,11 +64,11 @@ function toggleNote( noteId ) {
 
 function initInteractions() {
   if ( window.currentUser ) {
-    links.init();
-    tabs.init(); // must overwrite some links
+    AC_Links.init();
+    AC_Tabs.init(); // must overwrite some links
   }
 
-  forms.init();
+  AC_Forms.init();
 
   var closeButtons = document.getElementsByClassName( 'close' );
   if ( closeButtons ) {

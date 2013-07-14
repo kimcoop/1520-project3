@@ -1,44 +1,73 @@
-var forms = {
+var AC_Forms = {
+  allFieldsPresent: function( form ) {
+    // ensure all form fields have values
+    for ( var i = 0; i < form.elements.length; i++ ) {
+      var name = form.elements[i].name,
+        value = form.elements[i].value,
+        type = form.elements[i].type;
+      if ( type != 'submit' && !!name && !value ) return false; // if name is present, check the input
+    }
+    return true;
+  },
+
+  prevent: function( event ) {
+    var e = event || window.event;
+    e.preventDefault();
+  },
+
+  isValidPsid: function( form ) {
+    for ( var i = 0; i < form.elements.length; i++ ) {
+      if ( form.elements[i].className.indexOf( "validate-psid-input" ) > -1 ) {
+        var value = form.elements[i].value;
+        if ( (!isNaN( parseInt( value ) ) && value.length != 7) )
+          return false;
+      }
+    }
+    return true;
+    // if input is a valid number AND its value is 7, true
+  },
 
   init: function() {
     var forms = document.getElementsByTagName( "form" );
 
     for ( var i=0; i < forms.length; i++ ) {
       forms[ i ].onsubmit = function( event ) {
-        if ( this.id == 'signin_form' || this.className.indexOf( 'normal-form') > -1 )
+        if ( this.className.indexOf( 'normal-form') > -1 )
           return;
+        AC_Forms.prevent( event );
+        console.debug( this.className );
+
         var callback = undefined;
-        var e = event || window.event;
-        e.preventDefault();
+
         if ( this.id == 'log_advising_session_form' || this.id == 'advising_notes_form' || this.id == 'end_session_log_form' ) {
           callback = function( data ) {
             applyView( data.template, data ); 
             refreshCurrentStudent();
           }
-          // callback = function( data ) { 
-          //   applyView( data.template, data );
-          //   showHeader( data ); 
-          // }
-        } else if ( this.id == 'search_student_form' ) {
+        } else if ( this.id == 'delete_user_form' ) {
+          callback = function( data ) {
+            applyView( data.template, data ); 
+            getAllUsersForSelect( 'deleteUserSelect' );
+          }
+
+        } else if ( this.className.indexOf( "validate-require-all" ) > -1 ) {
+          if (!AC_Forms.allFieldsPresent( this )) {
+            showNotice( "All fields required.", "error" );
+            return false;
+          } else {
+            callback = function( data ) { applyView( data.template, data ); }
+          }
+        } else if ( this.className.indexOf( "validate-psid" ) > -1 ) {
           // verify PSID is 7 digits
-          for ( var i = 0; i < this.elements.length; i++ ) {
-            if ( this.elements[i].name == 'student_search_term' ) {
-              var value = this.elements[i].value;
-              if ( !isNaN( parseInt( value ) ) && value.length != 7 ) { // it's a PSID (not first name - last name)
-                showNotice( "PeopleSoft ID must be 7 digits.", "error" );
-                return false;
-              } else {
-                callback = function( data ) {
-                  applyView( data.template, data );
-                }
-              }
-            }
+          if (!AC_Forms.isValidPsid( this )) {
+            showNotice( "PeopleSoft ID must be 7 digits.", "error" );
+            return false;
+          } else {
+            callback = function( data ) { applyView( data.template, data ); }
           }
           
         } else {
-          callback = function( data ) {
-            applyView( data.template, data );
-          }
+          callback = function( data ) { applyView( data.template, data ); }
         }
         xmlHttp.submitForm({ 
           form: this, 

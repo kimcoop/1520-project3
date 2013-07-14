@@ -1,4 +1,22 @@
-var links = {
+var AC_Links = {
+
+  initHomeLinks: function() {
+    var homeLinks = document.getElementsByClassName( 'link-home' );
+    for ( var i=0; i < homeLinks.length; i++ ) {
+      homeLinks[ i ].onclick = function( event ) {
+        var e = event || window.event;
+        e.preventDefault();
+        var template = window.currentUser.role == "Student" ? "student_dashboard_tmpl" : "advisor_dashboard_tmpl";
+        applyView( template, window.currentUser );
+      }
+    }
+  },
+
+  prevent: function( event ) {
+    var e = event || window.event;
+    e.preventDefault();
+  },
+
   init: function() {
     var main = document.getElementById( 'main' );
     var links = main.getElementsByTagName( "a" );
@@ -7,8 +25,7 @@ var links = {
         return;
       }
       links[ i ].onclick = function( event ) {
-        var e = event || window.event;
-        e.preventDefault();
+        AC_Links.prevent( event );
         var url = this.href, data = {};
         if ( url.indexOf( "?" ) > -1 )
           url = url.split( "/" ).pop();
@@ -21,16 +38,7 @@ var links = {
         });
       };
     }
-    var homeLinks = document.getElementsByClassName( 'link-home' );
-  
-    for ( var i=0; i < homeLinks.length; i++ ) {
-      homeLinks[ i ].onclick = function( event ) {
-        var e = event || window.event;
-        e.preventDefault();
-        var template = window.currentUser.role == "Student" ? "student_dashboard_tmpl" : "advisor_dashboard_tmpl";
-        applyView( template, window.currentUser );
-      }
-    }
+    AC_Links.initHomeLinks();
   }
   
 }

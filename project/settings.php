@@ -13,7 +13,7 @@
 
 <div class="row" id="row-settings">
   <div class="half-column well">
-    <form action="routes.php" method="post" name="change_password_form">
+    <form class="validate-require-all" action="routes.php" method="post" name="change_password_form">
       <h3>Change Password</h3>
 
       <fieldset>
@@ -35,7 +35,7 @@
   </div>
 
   <div class="half-column well">
-    <form action="routes.php" method="post" name="secret_question_form">
+    <form class="validate-require-all" action="routes.php" method="post" name="secret_question_form">
       <h3>Secret Question</h3>
 
       <fieldset>

@@ -15,8 +15,8 @@
     <div class="row row-search">
       <div class="search-student">
         <h3 class="label">Search for a Student</h3>
-        <form action="routes.php" method="get" name="search_student_form" id="search_student_form">
-          <input class="input-large" autofocus placeholder="<PeopleSoft #> or <FirstName LastName>" type="text" name="student_search_term">
+        <form action="routes.php" method="get" name="search_student_form" id="search_student_form" class="validate-psid">
+          <input class="validate-psid-input input-large" autofocus placeholder="<PeopleSoft #> or <FirstName LastName>" type="text" name="student_search_term">
           <button type="submit" class="btn-primary btn" name="search_student_form_submit">
             Search students
           </button>

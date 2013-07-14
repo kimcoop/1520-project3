@@ -1,4 +1,4 @@
-var tabs = {
+var AC_Tabs = {
 
   init: function() {
     var navTabContainer = document.getElementsByClassName( 'nav-tabs' )[ 0 ];

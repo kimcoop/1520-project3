@@ -1,6 +1,11 @@
-<?php include( 'templates/header.php' ) ?>
+<?php 
 
-          <form id="signin_form" class="form-signin" action="routes.php" name="signin_form" method="post">
+include( 'templates/header.php' );
+if ( !is_logged_in() ):
+
+?>
+
+          <form class="form-signin form-normal" action="routes.php" name="signin_form" method="post">
 
 
             <br>
@@ -33,4 +38,15 @@
             
           </form>
 
-<?php include( 'templates/footer.php' ) ?>
+
+<?php else: ?>
+
+    <h1>Oops!</h1>
+    <p class="big">You must've reached this page by mistake. Please use the top nav to get where you're going :)</p>
+
+<?php 
+
+endif;
+include( 'templates/footer.php' );
+
+?>

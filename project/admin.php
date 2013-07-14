@@ -24,7 +24,7 @@
       <div class="half-column well">
         <br>
         <h3>Add user</h3>
-        <form action="routes.php" method="post" name="add_user_form">
+        <form class="validate-require-all" action="routes.php" method="post" name="add_user_form">
           <fieldset>
             <label>Email</label>
             <input type="text" class="input-block-level" placeholder="Email" name="email">
@@ -53,11 +53,11 @@
       <div class="half-column well">
         <br>
         <h3>Delete user</h3>
-        <form action="routes.php" method="post" name="delete_user_form">
+        <form action="routes.php" method="post" name="delete_user_form" id="delete_user_form">
 
           <fieldset>
             <label>User (last name, first name)</label>
-            <select class="input-block-level" name="psid">
+            <select class="input-block-level" name="psid" id="deleteUserSelect">
                 <?php 
                   $users = User::find_all();
                   usort( $users, 'sort_by_last_name' );
@@ -79,7 +79,7 @@
       <div class="span3 well">
         <br>
         <h3>Load courses from file</h3>
-        <form enctype="multipart/form-data" action="routes.php" method="post" name="add_course_form">
+        <form class="normal-form" enctype="multipart/form-data" action="routes.php" method="post" name="add_course_form">
           <fieldset>
             <label>File to upload:</label>
             <input type="hidden" name="MAX_FILE_SIZE" value="100000" />
