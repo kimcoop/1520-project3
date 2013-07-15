@@ -21,6 +21,16 @@
       return Course::find_by_id( $this->course_id );
     }
 
+    public function get_json_contents() {
+      $json = array();
+      $json[ 'department' ] = $this->course()->department;
+      $json[ 'course_number' ] = $this->course()->course_number;
+      $json[ 'grade' ] = $this->grade;
+      $json[ 'would_recommend' ] = $this->would_recommend;
+      $json[ 'review' ] = $this->review;
+      return $json;
+    }
+
 
     /*
     *

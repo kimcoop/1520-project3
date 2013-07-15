@@ -201,7 +201,13 @@
 
   } elseif ( $_GET['action'] == 'get_user_course_reviews' ) {
     $user_reviews = UserReview::find_all_by_psid( current_user()->get_psid() );
-    echo json_encode( $user_reviews );
+    $data = array();
+    if ( $user_reviews ) {
+      foreach ( $user_reviews as $review ) {
+        $data[] = $review->get_json_contents();
+      }
+    }
+    echo json_encode( $data );
 
   } elseif ( isset($_GET['search_course_form_submit']) ) {
     $department = strtoupper( $_GET['department'] );

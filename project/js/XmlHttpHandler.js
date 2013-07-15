@@ -1,23 +1,7 @@
 var xmlHttp = {
 
   create: function() {
-    var xmlHttp = null;
-    //if XMLHttpRequest is available then creating and returning it
-    if (typeof(XMLHttpRequest) != undefined) {
-      return new XMLHttpRequest;
-    //if window.ActiveXObject is available than the user is using IE...so we have to create the newest version XMLHttp object
-    } else if (window.ActiveXObject) {
-      var ieXMLHttpVersions = ['MSXML2.XMLHttp.5.0', 'MSXML2.XMLHttp.4.0', 'MSXML2.XMLHttp.3.0', 'MSXML2.XMLHttp', 'Microsoft.XMLHttp'];
-      //In this array we are starting from the first element (newest version) and trying to create it. If there is an
-      //exception thrown we are handling it (and doing nothing ^^)
-      for (var i = 0; i < ieXMLHttpVersions.length; i++) {
-        try {
-            xmlHttp = new ActiveXObject(ieXMLHttpVersions[i]);
-            return xmlHttp;
-        } catch (e) {
-        }
-      }
-    }
+    return new XMLHttpRequest;
   },
 
   get: function( dataObj ) {
@@ -36,8 +20,8 @@ var xmlHttp = {
           try {
             data = JSON.parse( data );
           } catch ( error ) {
-            alert( 'error parsing JSON data (console)' );
-            // console.debug( data );
+            alert( 'error parsing JSON data (see console)' );
+            console.debug( data );
           }
           callback( data );
         } else {
@@ -67,16 +51,14 @@ var xmlHttp = {
           try {
             data = JSON.parse( data );
           } catch ( error ) {
-            alert( 'error parsing JSON data (console)' );
+            alert( 'error parsing JSON data (see console)' );
             console.debug( data );
           }
           callback( data );
         } else {
           alert('Error: ' + xmlHttp.responseText);
         }
-      } else {
-        console.log( 'loading' );
-      }
+      } else {} // loading
     };
   },
 
@@ -92,9 +74,12 @@ var xmlHttp = {
       dataObj = {};
     
     for ( var i = 0; i < form.elements.length; i++ ) { // Loop to gather form data from all form inputs
-      var encodedData = encodeURIComponent( form.elements[i].name );
+      var el = form.elements[i];
+      if ( el.type == 'fieldset' || (el.type == 'radio' && !el.checked) )
+        continue; // don't include fieldsets OR unchecked radio buttons
+      var encodedData = encodeURIComponent( el.name );
       encodedData += "=";
-      encodedData += encodeURIComponent( form.elements[i].value );
+      encodedData += encodeURIComponent( el.value );
       dataArray.push( encodedData );
     }
     dataString = dataArray.join( "&" );
