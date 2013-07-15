@@ -33,7 +33,6 @@ var AC_Links = {
         xmlHttp.get({
           url: url,
           callback: function( data ) {
-            console.log( 'jsut got data from a normal link at URL ', url);
             applyView( data.template, data );
           }
         });

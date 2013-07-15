@@ -1,8 +1,8 @@
 
 window.Config = {
   url: 'http://localhost:8888/1520-project3/project/'
+  // url: 'http://cs1520.cs.pitt.edu/~kac162/assig3/'
 }
-window.currentUser = {};
 window.onload = function() {
   initInteractions();
 }
@@ -12,8 +12,6 @@ function showNotice( message, type ) {
 }
 
 function applyView( template, data ) {
-  console.log('applyView. ');
-  console.debug( arguments );
   if ( template && data ) {
     var containerId = 'main';
     if ( data.containerId )
@@ -81,12 +79,11 @@ function toggleNote( noteId ) {
 }
 
 function initInteractions() {
-  if ( window.currentUser ) {
-    AC_Links.init();
-    AC_Tabs.init(); // must overwrite some links
-  }
 
+  AC_Links.init();
+  AC_Tabs.init(); // must overwrite some links
   AC_Forms.init();
+  
   if ( !!document.getElementById( 'my_reviews' ) && document.getElementById( 'my_reviews' ).innerHTML.trim().length == 0 )
     getReviewsForUser();
 

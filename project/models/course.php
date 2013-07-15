@@ -24,13 +24,15 @@
       $user_courses_json = array();
 
       $user_courses = $this->user_courses();
-      usort( $user_courses, 'sort_by_term' );
+      if ( !!$user_courses ) {
+        usort( $user_courses, 'sort_by_term' );
 
-      foreach( $user_courses as $user_course ) {
-        $user_courses_json[] = array( "term" => $user_course->term,
-                                    "psid" =>$user_course->psid,
-                                    "grade" =>$user_course->grade,
-                                    "user_id" => ( $user_course->user() ? $user_course->user()->get_user_id() : "User not in system" ));
+        foreach( $user_courses as $user_course ) {
+          $user_courses_json[] = array( "term" => $user_course->term,
+                                      "psid" =>$user_course->psid,
+                                      "grade" =>$user_course->grade,
+                                      "user_id" => ( $user_course->user() ? $user_course->user()->get_user_id() : "User not in system" ));
+        }
       }
 
       return $user_courses_json;
@@ -110,7 +112,6 @@
 
     public static function handle_upload( $file ) {
       $objects = file( $file );
-      return $objects;
       $additions = 0;
       foreach( $objects as $line ) {
         $object = Course::load_from_file( $line );

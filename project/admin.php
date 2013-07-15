@@ -79,12 +79,10 @@
       <div class="span3 well">
         <br>
         <h3>Load courses from file</h3>
-        <form class="normal-form" enctype="multipart/form-data" action="routes.php" method="post" name="add_course_form">
+        <form action="routes.php" method="post" name="add_course_form">
           <fieldset>
-            <label>File to upload:</label>
-            <input type="hidden" name="MAX_FILE_SIZE" value="100000" />
-            <input name="uploaded_file_name" type="file" /><br />
             <br>
+            <input name="filename" type="file" /><br />
             <br>
             <button name="add_course_form_submit" type="submit" class="btn btn-large btn-primary btn-block">Submit file</button>
           </fieldset>

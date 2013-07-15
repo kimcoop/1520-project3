@@ -10,8 +10,6 @@ var AC_User = {
         url: Config.url + 'routes.php?action=get_current_user',
         callback: function( data ) {
           AC_User.set( data );
-          console.log( 'recvd user: ');
-          console.debug( data );
           return data;
         }
       });

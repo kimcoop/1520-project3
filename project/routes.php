@@ -3,10 +3,10 @@
   require_once('functions.php'); // includes session_start()
   include( "models/user_review.php" );
 
-  define( "COURSE_TMPL", 'course_tmpl' ); // the ID of the script
+  define( "COURSE_TMPL", 'course_tmpl' ); // send the ID of the template down in the json to client
   define( "STUDENT_TMPL", 'student_tmpl' );
-  define( "CURRENT_USER_TMPL", 'student_tmpl' );
   define( "NOTICE_TMPL", 'notice_tmpl' );
+  define( "TESTFILE_DIR", 'test/' );
 
 
   if ( isset($_POST['signin_form_submit']) ) {
@@ -97,12 +97,13 @@
   }
 
   if ( was_posted('add_course_form_submit')) {
-    if ( $file = Uploader::upload() ) {
-      $additions = Course::handle_upload( $file );
-      display_notice( "$additions new ". ( $additions == 1 ? "course" : "courses" ) ." added from file.", 'success' );
+    $pieces = explode( "\\", $_POST[ 'filename' ] );
+    $filename = TESTFILE_DIR . $pieces[ count($pieces) -1 ];
+    if ( file_exists($filename) ) {
+      $additions = Course::handle_upload( $filename );
+      display_notice( "$additions new ". ( $additions == 1 ? "course" : "courses" ) ." added from file $filename.", 'success' );
     } else {
-      display_notice( "Error uploading file.", 'error' );
-      return;
+      display_notice( "Error reading file $filename.", 'error' );
     }
   }
 
@@ -150,12 +151,12 @@
       display_notice( 'Error saving note.', 'error' );
   }
 
-  if ( $_GET['action'] == 'logout' ) {
+  if ( isset($_GET['action']) && $_GET['action'] == 'logout' ) {
     session_destroy();
     header('Location: index.php') ;
     exit();
 
-  } elseif ( $_GET['action'] == 'get_current_student' ) {
+  } elseif ( isset($_GET['action']) && $_GET['action'] == 'get_current_student' ) {
 
     $data = array();
     $student = User::find_by_psid( $_SESSION['viewing_psid'] );
@@ -191,15 +192,15 @@
       display_notice( "User <strong> ". $_GET['student_search_term'] . "</strong> not found.", 'error' );
     }
 
-  } elseif ( $_GET['action'] == 'get_current_user' ) {
+  } elseif ( isset($_GET['action']) && $_GET['action'] == 'get_current_user' ) {
     echo current_user()->to_json( NULL );
 
-  } elseif ( $_GET['action'] == 'get_users' ) {
+  } elseif ( isset($_GET['action']) && $_GET['action'] == 'get_users' ) {
     $users = User::find_all();
     usort( $users, 'sort_by_last_name' );
     echo json_encode( $users );
 
-  } elseif ( $_GET['action'] == 'get_user_course_reviews' ) {
+  } elseif ( isset($_GET['action']) && $_GET['action'] == 'get_user_course_reviews' ) {
     $user_reviews = UserReview::find_all_by_psid( current_user()->get_psid() );
     $data = array();
     if ( $user_reviews ) {

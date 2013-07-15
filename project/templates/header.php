@@ -55,7 +55,7 @@
       </header>
     </div>
 
-  <?php endif ?>
+  <?php endif; ?>
   
     <div class="container main">
       <div id="notice"></div>
