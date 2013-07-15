@@ -200,8 +200,7 @@
     echo json_encode( $users );
 
   } elseif ( $_GET['action'] == 'get_user_course_reviews' ) {
-    $psid = current_user()->get_psid();
-    $user_reviews = UserReview::find_all_by_psid( $psid );
+    $user_reviews = UserReview::find_all_by_psid( current_user()->get_psid() );
     echo json_encode( $user_reviews );
 
   } elseif ( isset($_GET['search_course_form_submit']) ) {

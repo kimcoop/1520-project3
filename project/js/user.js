@@ -1,23 +1,24 @@
-(function() {
-  var user = undefined;
+var AC_User = {
 
-  this.getCurrentUser = function() {
-    if ( user ) return user;
+    user: undefined,
 
-    user = xmlHttp.get({
-      async: false,
-      url: Config.url + 'routes.php?action=get_current_user',
-      callback: function( data ) {
-        setCurrentUser( data );
-        console.log( 'recvd user: ');
-        console.debug( data );
-        return user;
-      }
-    });
-  };
+    get: function() {
+      if ( !!AC_User.user ) return AC_User.user;
 
-  this.setCurrentUser = function( userData ) {
-    user = userData;
-  }
+      xmlHttp.get({
+        async: false,
+        url: Config.url + 'routes.php?action=get_current_user',
+        callback: function( data ) {
+          AC_User.set( data );
+          console.log( 'recvd user: ');
+          console.debug( data );
+          return data;
+        }
+      });
+    },
 
-})();
+    set: function( userData ) {
+      AC_User.user = userData;
+    }
+    
+}

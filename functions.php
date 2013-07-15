@@ -8,6 +8,8 @@ function __autoload($class) {
     $class = 'user_course';
   elseif ( $class == 'requirementcourse' ) 
     $class = 'requirement_course';
+  elseif ( $class == 'userreview' ) 
+    $class = 'user_review';
   
   $file = 'models/' . $class . '.php';
   if ( file_exists( $file ))

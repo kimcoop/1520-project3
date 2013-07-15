@@ -2,12 +2,13 @@ var AC_Links = {
 
   initHomeLinks: function() {
     var homeLinks = document.getElementsByClassName( 'link-home' );
+    if ( !homeLinks ) return;
     for ( var i=0; i < homeLinks.length; i++ ) {
       homeLinks[ i ].onclick = function( event ) {
         var e = event || window.event;
         e.preventDefault();
-        var template = window.currentUser.role == "Student" ? "student_dashboard_tmpl" : "advisor_dashboard_tmpl";
-        applyView( template, window.currentUser );
+        var isStudent = location.href.indexOf( "student_dashboard" ) != -1;
+        location.href = isStudent ? "student_dashboard.php" : "advisor_dashboard.php";
       }
     }
   },

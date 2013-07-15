@@ -69,6 +69,8 @@
           return "UserCourse";
         case "requirement_courses":
           return "RequirementCourse";
+        case "user_reviews":
+          return "UserReview";
         case "notes":
           return "Note";
         case "sessions":

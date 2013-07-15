@@ -35,7 +35,6 @@ var AC_Forms = {
         if ( this.className.indexOf( 'normal-form') > -1 )
           return;
         AC_Forms.prevent( event );
-        console.debug( this.className );
 
         var callback = undefined;
 
@@ -69,10 +68,20 @@ var AC_Forms = {
         } else {
           callback = function( data ) { applyView( data.template, data ); }
         }
+
+        if ( this.name == 'review_course' ) {
+          callback = function( data ) {
+            applyView( data.template, data );
+            getReviewsForUser();
+          }
+        }
+
+
         xmlHttp.submitForm({ 
           form: this, 
           callback: callback
         });
+
       }
     }
   }

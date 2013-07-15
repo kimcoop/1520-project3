@@ -6,8 +6,8 @@
 ?>
 
 <div class="hgroup">
-  <h2>Write a Review</h2>
-  <p>Use this page to write a review for a course you've taken, or view reviews you've already written.</p>
+  <h2>Course Reviews</h2>
+  <p>Use this page to write a review for a course you've taken, or to view reviews you've already written.</p>
 </div><!-- .hgroup -->
 
 <div class="row">
